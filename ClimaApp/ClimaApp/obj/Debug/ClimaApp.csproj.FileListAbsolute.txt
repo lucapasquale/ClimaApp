@@ -30,3 +30,7 @@ C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Debug\ClimaApp.Pa
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Debug\ClimaApp.Pages.DadosPage.xaml.g.cs
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Debug\ClimaApp.dll.mdb
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\bin\Debug\ClimaApp.dll.mdb
+C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Debug\ClimaApp.dll.mdb
+C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\bin\Debug\ClimaApp.dll.mdb
+C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Debug\ClimaApp.dll.mdb
+C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\bin\Debug\ClimaApp.dll.mdb
