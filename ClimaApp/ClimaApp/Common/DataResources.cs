@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +9,8 @@ namespace ClimaApp
 {
     public static class DataResources
     {
-        public static DeviceModel node = new DeviceModel();
+        public static ClimaDevModel nodeTCC = new ClimaDevModel();
+
+        public static ObservableCollection<DeviceModel> nodes = new ObservableCollection<DeviceModel>();
     }
 }

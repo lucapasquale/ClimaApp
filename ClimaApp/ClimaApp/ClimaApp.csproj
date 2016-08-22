@@ -38,9 +38,9 @@
     <Compile Include="App.cs" />
     <Compile Include="Common\DataResources.cs" />
     <Compile Include="Common\StringResources.cs" />
-    <Compile Include="Models\ClimaRxModel.cs" />
-    <Compile Include="Models\DeviceModel.cs" />
-    <Compile Include="Models\NodeModel.cs" />
+    <Compile Include="Models\Device Models\ClimaDevModel.cs" />
+    <Compile Include="Models\Rx Models\ClimaRxModel.cs" />
+    <Compile Include="Models\Device Models\DeviceModel.cs" />
     <Compile Include="Pages\Cells\DadosCell.cs" />
     <Compile Include="Pages\DadosPage.xaml.cs">
       <DependentUpon>DadosPage.xaml</DependentUpon>
@@ -48,8 +48,11 @@
     <Compile Include="Pages\GraficosPage.xaml.cs">
       <DependentUpon>GraficosPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\NodesPage.xaml.cs">
+      <DependentUpon>NodesPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Models\RxModel.cs" />
+    <Compile Include="Models\Rx Models\RxModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -106,6 +109,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Pages\DadosPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\NodesPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

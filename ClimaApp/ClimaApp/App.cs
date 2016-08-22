@@ -11,14 +11,15 @@ namespace ClimaApp
     {
         public App()
         {
-            // The root page of your application
-            
+            // The root page of your application           
         }
 
         protected async override void OnStart()
         {
             // Handle when your app starts
-            await DataResources.node.PegarDados(StringResources.devEUIarduino);
+
+            //await DeviceModel.PegarNodes();
+            await DataResources.nodeTCC.PegarDados(StringResources.devEUIarduino);
             MainPage = new Pages.GraficosPage();
         }
 

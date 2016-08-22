@@ -11,12 +11,10 @@ using System.Collections.ObjectModel;
 
 namespace ClimaApp
 {
-    public class DeviceModel
+    public class ClimaDevModel : DeviceModel
     {
-        public NodeModel loraNode = new NodeModel();
         public ObservableCollection<ClimaRxModel> dados = new ObservableCollection<ClimaRxModel>();
         public ClimaRxModel latest = new ClimaRxModel();
-
 
         public async Task PegarDados(string _devEUI)
         {
@@ -38,10 +36,8 @@ namespace ClimaApp
                 byte[] data = Convert.FromBase64String(rx.dataFrame);
                 rx.dataFrame = BitConverter.ToString(data).Replace("-", string.Empty);
 
-                //Converte de HEX para decimal
-                rx.temperatura = int.Parse(rx.dataFrame.Substring(0, 4), System.Globalization.NumberStyles.HexNumber) / 10f;
-                rx.umidade = int.Parse(rx.dataFrame.Substring(4, 4), System.Globalization.NumberStyles.HexNumber) / 10f;
-                rx.pressao = int.Parse(rx.dataFrame.Substring(8, 4), System.Globalization.NumberStyles.HexNumber);
+                //Transforma de HEX para as variaveis de cada aplicação
+                rx.ParseDataFrame();
 
                 listaTemp.Add(rx);
             }
@@ -71,10 +67,8 @@ namespace ClimaApp
             byte[] data = Convert.FromBase64String(rx.dataFrame);
             rx.dataFrame = BitConverter.ToString(data).Replace("-", string.Empty);
 
-            //Converte de HEX para decimal
-            rx.temperatura = int.Parse(rx.dataFrame.Substring(0, 4), System.Globalization.NumberStyles.HexNumber) / 10f;
-            rx.umidade = int.Parse(rx.dataFrame.Substring(4, 4), System.Globalization.NumberStyles.HexNumber) / 10f;
-            rx.pressao = int.Parse(rx.dataFrame.Substring(8, 4), System.Globalization.NumberStyles.HexNumber);
+            //Transforma de HEX para as variaveis de cada aplicação
+            rx.ParseDataFrame();
 
             latest = rx;
         }

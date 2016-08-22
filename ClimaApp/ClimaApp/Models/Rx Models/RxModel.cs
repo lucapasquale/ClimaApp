@@ -19,5 +19,7 @@ namespace ClimaApp
         public bool decrypted { get; set; }
 
         public DateTime horario { get; set; }
+
+        public virtual void ParseDataFrame() { }
     }
 }

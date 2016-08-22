@@ -14,12 +14,12 @@ namespace ClimaApp.Pages
         {
             InitializeComponent();
             nodesView.ItemTemplate = new DataTemplate(typeof(Cells.DadosCell));
-            nodesView.ItemsSource = DataResources.node.dados;
+            nodesView.ItemsSource = DataResources.nodeTCC.dados;
         }
 
         private async void nodesView_Refreshing(object sender, EventArgs e)
         {
-            await DataResources.node.PegarDados(StringResources.devEUIarduino);
+            await DataResources.nodeTCC.PegarDados(StringResources.devEUIarduino);
             nodesView.IsRefreshing = false;
         }
     }

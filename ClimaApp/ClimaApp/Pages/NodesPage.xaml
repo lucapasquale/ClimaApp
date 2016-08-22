@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ClimaApp.Pages.NodesPage">
+
+  <StackLayout Orientation="Vertical" Padding="5">    
+    <ListView x:Name="nodesView" SeparatorColor="Black">
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <TextCell Text="{Binding comment}" TextColor="Black" Detail="{Binding tipo}" />
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+  </StackLayout>
+
+</ContentPage>
