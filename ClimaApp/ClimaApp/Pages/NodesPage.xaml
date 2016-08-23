@@ -1,10 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ClimaApp.Pages.NodesPage">
+             x:Class="ClimaApp.Pages.NodesPage"
+             Title="Smart LoRa">
 
   <StackLayout Orientation="Vertical" Padding="5">    
-    <ListView x:Name="nodesView" SeparatorColor="Black">
+    <ListView x:Name="nodesView" SeparatorColor="Black" ItemSelected="ListView_Selected">
       <ListView.ItemTemplate>
         <DataTemplate>
           <TextCell Text="{Binding comment}" TextColor="Black" Detail="{Binding tipo}" />

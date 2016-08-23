@@ -45,7 +45,6 @@ namespace ClimaApp
                 tipo = AppType.Testes;
         }
 
-
         public static async Task PegarNodes()
         {
             var client = new RestClient();

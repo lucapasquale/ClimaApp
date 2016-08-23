@@ -14,7 +14,12 @@ namespace ClimaApp
 
         public override void ParseDataFrame()
         {
-            //Converte de HEX para decimal
+            /* dataFrame = AAAA BBBB CCCC
+             
+            AAAA = 4 bytes representando 10 * temperatura
+            BBBB = 4 bytes representando 10 * umidade
+            CCCC = 4 bytes representando pressao */
+
             temperatura = int.Parse(dataFrame.Substring(0, 4), System.Globalization.NumberStyles.HexNumber) / 10f;
             umidade = int.Parse(dataFrame.Substring(4, 4), System.Globalization.NumberStyles.HexNumber) / 10f;
             pressao = int.Parse(dataFrame.Substring(8, 4), System.Globalization.NumberStyles.HexNumber);

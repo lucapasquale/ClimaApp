@@ -61,7 +61,7 @@ namespace ClimaApp.Pages
             {
                 pv[0] = new PlotView();
                 PlotModel pm = new PlotModel() { Title = "Temperatura", DefaultColors = new List<OxyColor>() { OxyColors.Red } };
-                pm.Axes.Add(new DateTimeAxis { Position = AxisPosition.Bottom, StringFormat = "HH:mm", IsPanEnabled = false, IsZoomEnabled = false, });
+                pm.Axes.Add(new DateTimeAxis { Position = AxisPosition.Bottom, StringFormat = "HH:mm", IsPanEnabled = false, IsZoomEnabled = false, IntervalType = DateTimeIntervalType.Hours, });
                 pm.Axes.Add(new LinearAxis
                 {
                     Position = AxisPosition.Left,

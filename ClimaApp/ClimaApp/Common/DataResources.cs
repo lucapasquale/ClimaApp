@@ -12,5 +12,7 @@ namespace ClimaApp
         public static ClimaDevModel nodeTCC = new ClimaDevModel();
 
         public static ObservableCollection<DeviceModel> nodes = new ObservableCollection<DeviceModel>();
+
+        public static ObservableCollection<SiloDevModel> siloNodes = new ObservableCollection<SiloDevModel>();
     }
 }

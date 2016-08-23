@@ -38,9 +38,11 @@
     <Compile Include="App.cs" />
     <Compile Include="Common\DataResources.cs" />
     <Compile Include="Common\StringResources.cs" />
-    <Compile Include="Models\Device Models\ClimaDevModel.cs" />
-    <Compile Include="Models\Rx Models\ClimaRxModel.cs" />
-    <Compile Include="Models\Device Models\DeviceModel.cs" />
+    <Compile Include="Models\Clima\ClimaDevModel.cs" />
+    <Compile Include="Models\Silo\SiloDevModel.cs" />
+    <Compile Include="Models\Clima\ClimaRxModel.cs" />
+    <Compile Include="Models\Base\DeviceModel.cs" />
+    <Compile Include="Models\Silo\SiloRxModel.cs" />
     <Compile Include="Pages\Cells\DadosCell.cs" />
     <Compile Include="Pages\DadosPage.xaml.cs">
       <DependentUpon>DadosPage.xaml</DependentUpon>
@@ -52,7 +54,7 @@
       <DependentUpon>NodesPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Models\Rx Models\RxModel.cs" />
+    <Compile Include="Models\Base\RxModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

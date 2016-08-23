@@ -18,9 +18,9 @@ namespace ClimaApp
         {
             // Handle when your app starts
 
-            //await DeviceModel.PegarNodes();
-            await DataResources.nodeTCC.PegarDados(StringResources.devEUIarduino);
-            MainPage = new Pages.GraficosPage();
+            await DeviceModel.PegarNodes();
+            //await DataResources.nodeTCC.PegarDados(StringResources.devEUIarduino);
+            MainPage = new Pages.NodesPage();
         }
 
         protected override void OnSleep()

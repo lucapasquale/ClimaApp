@@ -16,6 +16,7 @@ namespace ClimaApp
         public ObservableCollection<ClimaRxModel> dados = new ObservableCollection<ClimaRxModel>();
         public ClimaRxModel latest = new ClimaRxModel();
 
+
         public async Task PegarDados(string _devEUI)
         {
             var client = new RestClient();
@@ -44,8 +45,7 @@ namespace ClimaApp
             listaTemp = new ObservableCollection<ClimaRxModel>(listaTemp.OrderByDescending(o => o.horario));
 
             dados.Clear();
-            for (int i = 0; i < listaTemp.Count; i++)
-                dados.Add(listaTemp[i]);
+            dados = listaTemp;
         }
 
         public async Task PegarLatest(string _devEUI)
