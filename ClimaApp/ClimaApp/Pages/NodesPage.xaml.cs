@@ -14,7 +14,7 @@ namespace ClimaApp.Pages
         public NodesPage()
         {
             InitializeComponent();
-            nodesView.ItemsSource = DataResources.nodes;
+            nodesView.ItemsSource = DataResources.allNodes;
         }
 
         async void ListView_Selected(object sender, SelectedItemChangedEventArgs e)
@@ -25,7 +25,9 @@ namespace ClimaApp.Pages
             if (e.SelectedItem == null || selected.tipo != AppType.Clima)
                 return; //ItemSelected is called on deselection, which results in SelectedItem being set to null
 
-            await DataResources.nodeTCC.PegarDados(StringResources.devEUIarduino);
+            DataResources.climaSelecionado = new ClimaDevModel();
+            DataResources.climaSelecionado.node = selected;
+            await DataResources.climaSelecionado.PegarDados();
             await Navigation.PushModalAsync(new GraficosPage());
         }
     }

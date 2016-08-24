@@ -10,6 +10,6 @@ namespace ClimaApp
     {
         public static string user = "maua_ceun";
         public static string pass = "Maua2016";
-        public static string devEUIarduino = "0004A30B001A674B";
+        //public static string devEUIarduino = "0004A30B001A674B";
     }
 }

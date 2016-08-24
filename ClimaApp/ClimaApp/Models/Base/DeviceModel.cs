@@ -61,10 +61,20 @@ namespace ClimaApp
                 node.ultimoTx = DateTime.Parse(node.last_reception);
                 TimeZoneInfo.ConvertTime(node.ultimoTx, TimeZoneInfo.Local);
             }
-                
-            DataResources.nodes.Clear();
+
+            DataResources.allNodes = listaTemp;
+
             for (int i = 0; i < listaTemp.Count; i++)
-                DataResources.nodes.Add(listaTemp[i]);
+            {
+                switch (listaTemp[i].tipo)
+                {
+                    case AppType.Clima: DataResources.climaNodes.Add(listaTemp[i] as ClimaDevModel); break;
+                    case AppType.Silo: DataResources.siloNodes.Add(listaTemp[i] as SiloDevModel); break;
+                    case AppType.Testes: DataResources.testeNodes.Add(listaTemp[i]); break;
+                    default: break;
+                }
+            }
+            
         }
     }
 }

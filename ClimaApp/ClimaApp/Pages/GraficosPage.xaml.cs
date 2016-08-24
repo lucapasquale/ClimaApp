@@ -42,8 +42,8 @@ namespace ClimaApp.Pages
                 {
                     Format = "dd-MM-yyyy",
                     HorizontalOptions = LayoutOptions.FillAndExpand,
-                    MinimumDate = DataResources.nodeTCC.dados.Min(o => o.horario),
-                    MaximumDate = DataResources.nodeTCC.dados.Max(o => o.horario),
+                    MinimumDate = DataResources.climaSelecionado.dados.Min(o => o.horario),
+                    MaximumDate = DataResources.climaSelecionado.dados.Max(o => o.horario),
                 };
                 dp.Date = dp.MaximumDate;
                 dp.DateSelected += Dp_DateSelected;
@@ -127,9 +127,9 @@ namespace ClimaApp.Pages
         {
             var temp = new List<ClimaRxModel>();
 
-            for (int i = 0; i < DataResources.nodeTCC.dados.Count; i++)
-                if (DataResources.nodeTCC.dados[i].horario.Date == dia)
-                    temp.Add(DataResources.nodeTCC.dados[i]);
+            for (int i = 0; i < DataResources.climaSelecionado.dados.Count; i++)
+                if (DataResources.climaSelecionado.dados[i].horario.Date == dia)
+                    temp.Add(DataResources.climaSelecionado.dados[i]);
 
             tempSeries.Points.Clear();
             umidSeries.Points.Clear();

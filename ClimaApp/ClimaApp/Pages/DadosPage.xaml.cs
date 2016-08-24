@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,12 +15,13 @@ namespace ClimaApp.Pages
         {
             InitializeComponent();
             nodesView.ItemTemplate = new DataTemplate(typeof(Cells.DadosCell));
-            nodesView.ItemsSource = DataResources.nodeTCC.dados;
+            nodesView.ItemsSource = DataResources.climaSelecionado.dados;
         }
 
         private async void nodesView_Refreshing(object sender, EventArgs e)
         {
-            await DataResources.nodeTCC.PegarDados(StringResources.devEUIarduino);
+            await DataResources.climaSelecionado.PegarDados();
+            Debug.WriteLine(DataResources.climaSelecionado.node.deveui);
             nodesView.IsRefreshing = false;
         }
     }

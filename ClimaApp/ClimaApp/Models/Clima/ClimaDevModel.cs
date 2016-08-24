@@ -13,14 +13,15 @@ namespace ClimaApp
 {
     public class ClimaDevModel : DeviceModel
     {
+        public DeviceModel node = new DeviceModel();
         public ObservableCollection<ClimaRxModel> dados = new ObservableCollection<ClimaRxModel>();
         public ClimaRxModel latest = new ClimaRxModel();
 
 
-        public async Task PegarDados(string _devEUI)
+        public async Task PegarDados()
         {
             var client = new RestClient();
-            client.BaseUrl = new Uri("https://artimar.orbiwise.com/rest/nodes/" + _devEUI + "/payloads/ul");
+            client.BaseUrl = new Uri("https://artimar.orbiwise.com/rest/nodes/" + node.deveui + "/payloads/ul");
             client.Authenticator = new HttpBasicAuthenticator(StringResources.user, StringResources.pass);
 
             var request = new RestRequest();
@@ -45,7 +46,8 @@ namespace ClimaApp
             listaTemp = new ObservableCollection<ClimaRxModel>(listaTemp.OrderByDescending(o => o.horario));
 
             dados.Clear();
-            dados = listaTemp;
+            for (int i = 0; i < listaTemp.Count; i++)
+                dados.Add(listaTemp[i]);
         }
 
         public async Task PegarLatest(string _devEUI)

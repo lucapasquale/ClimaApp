@@ -11,7 +11,7 @@ using System.Collections.ObjectModel;
 
 namespace ClimaApp
 {
-    public class SiloDevModel
+    public class SiloDevModel : DeviceModel
     {
         public ObservableCollection<SiloRxModel> todosDados = new ObservableCollection<SiloRxModel>();
         public SiloRxModel latest = new SiloRxModel();
