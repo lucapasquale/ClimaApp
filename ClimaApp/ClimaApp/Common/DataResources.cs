@@ -9,7 +9,7 @@ namespace ClimaApp
 {
     public static class DataResources
     {
-        public static ClimaDevModel climaSelecionado;
+        public static ClimaDevModel climaSelecionado = new ClimaDevModel();
 
         public static ObservableCollection<DeviceModel> allNodes = new ObservableCollection<DeviceModel>();
         public static ObservableCollection<ClimaDevModel> climaNodes = new ObservableCollection<ClimaDevModel>();

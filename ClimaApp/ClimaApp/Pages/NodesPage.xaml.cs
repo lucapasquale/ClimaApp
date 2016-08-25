@@ -25,7 +25,6 @@ namespace ClimaApp.Pages
             if (e.SelectedItem == null || selected.tipo != AppType.Clima)
                 return; //ItemSelected is called on deselection, which results in SelectedItem being set to null
 
-            DataResources.climaSelecionado = new ClimaDevModel();
             DataResources.climaSelecionado.node = selected;
             await DataResources.climaSelecionado.PegarDados();
             await Navigation.PushModalAsync(new GraficosPage());

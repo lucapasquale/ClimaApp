@@ -27,14 +27,7 @@ C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Release\ClimaApp.
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Release\ClimaApp.Pages.DadosPage.xaml.g.cs
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Release\ClimaApp.dll
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Release\ClimaApp.pdb
-C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Release\ClimaApp.csprojResolveAssemblyReference.cache
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Release\ClimaApp.Pages.NodesPage.xaml.g.cs
-C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Release\ClimaApp.dll.mdb
-C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\bin\Release\ClimaApp.dll.mdb
-C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Release\ClimaApp.dll.mdb
-C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\bin\Release\ClimaApp.dll.mdb
-C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Release\ClimaApp.dll.mdb
-C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\bin\Release\ClimaApp.dll.mdb
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Release\ClimaApp.dll.mdb
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\bin\Release\ClimaApp.dll.mdb
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Release\ClimaApp.dll.mdb

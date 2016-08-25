@@ -16,8 +16,8 @@ namespace ClimaApp.Pages
     public partial class GraficosPage : ContentPage
     {
         PlotView[] pv = new PlotView[3];
-        ScatterSeries tempSeries = new ScatterSeries() { MarkerType = MarkerType.Circle, MarkerSize = 4, MarkerStroke = OxyColors.White, };
-        ScatterSeries umidSeries = new ScatterSeries() { MarkerType = MarkerType.Circle, MarkerSize = 4, MarkerStroke = OxyColors.White, };
+        LineSeries tempSeries = new LineSeries() { MarkerType = MarkerType.Circle, MarkerSize = 2, MarkerStroke = OxyColors.DarkRed, };
+        LineSeries umidSeries = new LineSeries() { MarkerType = MarkerType.Circle, MarkerSize = 2, MarkerStroke = OxyColors.DarkBlue, };
         StairStepSeries presSeries = new StairStepSeries();
 
         DatePicker dp;
@@ -30,9 +30,7 @@ namespace ClimaApp.Pages
 
         void ConfigureLayout()
         {
-            ScrollView scrollView = new ScrollView();
             StackLayout screenLayout = new StackLayout() { Orientation = StackOrientation.Vertical, };
-            Grid graphLayout = new Grid();
 
             StackLayout topLayout = new StackLayout() { Orientation = StackOrientation.Horizontal, };
             {
@@ -53,15 +51,15 @@ namespace ClimaApp.Pages
                 button.Clicked += Button_Clicked;
                 topLayout.Children.Add(button);
 
-                graphLayout.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
-                graphLayout.Children.Add(topLayout, 0, 0);
+                screenLayout.Children.Add(topLayout);
             }
 
+            Grid graphLayout = new Grid();
             //TEMPERATURA
             {
                 pv[0] = new PlotView();
                 PlotModel pm = new PlotModel() { Title = "Temperatura", DefaultColors = new List<OxyColor>() { OxyColors.Red } };
-                pm.Axes.Add(new DateTimeAxis { Position = AxisPosition.Bottom, StringFormat = "HH:mm", IsPanEnabled = false, IsZoomEnabled = false, IntervalType = DateTimeIntervalType.Hours, });
+                pm.Axes.Add(new DateTimeAxis { Position = AxisPosition.Bottom, StringFormat = "HH:mm", IsPanEnabled = false, IsZoomEnabled = false, });
                 pm.Axes.Add(new LinearAxis
                 {
                     Position = AxisPosition.Left,
@@ -73,8 +71,8 @@ namespace ClimaApp.Pages
                 });
                 pm.Series.Add(tempSeries);
                 pv[0].Model = pm;
-                graphLayout.RowDefinitions.Add(new RowDefinition { Height = new GridLength(5, GridUnitType.Star) });
-                graphLayout.Children.Add(pv[0], 0, 1);
+                graphLayout.RowDefinitions.Add(new RowDefinition { Height = new GridLength(350, GridUnitType.Absolute) });
+                graphLayout.Children.Add(pv[0], 0, 0);
             }
 
             //UMIDADE
@@ -93,8 +91,8 @@ namespace ClimaApp.Pages
                 });
                 pm.Series.Add(umidSeries);
                 pv[1].Model = pm;
-                graphLayout.RowDefinitions.Add(new RowDefinition { Height = new GridLength(5, GridUnitType.Star) });
-                graphLayout.Children.Add(pv[1], 0, 2);
+                graphLayout.RowDefinitions.Add(new RowDefinition { Height = new GridLength(350, GridUnitType.Absolute) });
+                graphLayout.Children.Add(pv[1], 0, 1);
             }
 
             //PRESSAO
@@ -114,13 +112,13 @@ namespace ClimaApp.Pages
                 presSeries = new StairStepSeries();
                 pm.Series.Add(presSeries);
                 pv[2].Model = pm;
-                graphLayout.RowDefinitions.Add(new RowDefinition { Height = new GridLength(5, GridUnitType.Star) });
-                graphLayout.Children.Add(pv[2], 0, 3);
+                graphLayout.RowDefinitions.Add(new RowDefinition { Height = new GridLength(350, GridUnitType.Absolute) });
+                graphLayout.Children.Add(pv[2], 0, 2);
             }
+            ScrollView scrollView = new ScrollView() { Content = graphLayout, };
 
-            screenLayout.Children.Add(graphLayout);
-            scrollView.Content = screenLayout;
-            Content = scrollView;
+            screenLayout.Children.Add(scrollView);
+            Content = screenLayout;
         }
 
         void AtualizarGraficos(DateTime dia)
@@ -137,8 +135,8 @@ namespace ClimaApp.Pages
 
             for (int i = 0; i < temp.Count; i++)
             {
-                tempSeries.Points.Add(new ScatterPoint(DateTimeAxis.ToDouble(temp[i].horario), temp[i].temperatura));
-                umidSeries.Points.Add(new ScatterPoint(DateTimeAxis.ToDouble(temp[i].horario), temp[i].umidade));
+                tempSeries.Points.Add(new DataPoint(DateTimeAxis.ToDouble(temp[i].horario), temp[i].temperatura));
+                umidSeries.Points.Add(new DataPoint(DateTimeAxis.ToDouble(temp[i].horario), temp[i].umidade));
                 presSeries.Points.Add(new DataPoint(DateTimeAxis.ToDouble(temp[i].horario), temp[i].pressao));
             }
 

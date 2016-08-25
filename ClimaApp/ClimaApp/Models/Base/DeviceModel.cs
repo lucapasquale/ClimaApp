@@ -20,8 +20,9 @@ namespace ClimaApp
         public string appeui { get; set; }
         public string comment { get; set; }
 
+        public RxModel latest { get; private set; }
         public AppType tipo { get; private set; }
-        public DateTime ultimoTx { get; private set; }
+        public DateTime dataUltimoRx { get; private set; }
 
         public async Task PegarTipo()
         {
@@ -40,6 +41,7 @@ namespace ClimaApp
                     case 30: tipo = AppType.Silo; break;
                     default: tipo = AppType.Testes; break;
                 }
+                latest = result.Data;
             }
             else
                 tipo = AppType.Testes;
@@ -58,8 +60,8 @@ namespace ClimaApp
             foreach (DeviceModel node in listaTemp)
             {
                 await node.PegarTipo();
-                node.ultimoTx = DateTime.Parse(node.last_reception);
-                TimeZoneInfo.ConvertTime(node.ultimoTx, TimeZoneInfo.Local);
+                node.dataUltimoRx = DateTime.Parse(node.last_reception);
+                TimeZoneInfo.ConvertTime(node.dataUltimoRx, TimeZoneInfo.Local);
             }
 
             DataResources.allNodes = listaTemp;
