@@ -11,7 +11,7 @@ using System.Collections.ObjectModel;
 
 namespace ClimaApp
 {
-    public enum AppType {Testes, Clima, Silo};
+    public enum AppType {None, Clima, Silo};
 
     public class DeviceModel
     {
@@ -20,7 +20,6 @@ namespace ClimaApp
         public string appeui { get; set; }
         public string comment { get; set; }
 
-        public RxModel latest { get; private set; }
         public AppType tipo { get; private set; }
         public DateTime dataUltimoRx { get; private set; }
 
@@ -39,12 +38,11 @@ namespace ClimaApp
                 {
                     case 10: tipo = AppType.Clima; break;
                     case 30: tipo = AppType.Silo; break;
-                    default: tipo = AppType.Testes; break;
+                    default: tipo = AppType.None; break;
                 }
-                latest = result.Data;
             }
             else
-                tipo = AppType.Testes;
+                tipo = AppType.None;
         }
 
         public static async Task PegarNodes()
@@ -72,7 +70,7 @@ namespace ClimaApp
                 {
                     case AppType.Clima: DataResources.climaNodes.Add(listaTemp[i] as ClimaDevModel); break;
                     case AppType.Silo: DataResources.siloNodes.Add(listaTemp[i] as SiloDevModel); break;
-                    case AppType.Testes: DataResources.testeNodes.Add(listaTemp[i]); break;
+                    case AppType.None: DataResources.testeNodes.Add(listaTemp[i]); break;
                     default: break;
                 }
             }

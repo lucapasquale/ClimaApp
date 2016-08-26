@@ -21,6 +21,7 @@ namespace ClimaApp.Pages
         StairStepSeries presSeries = new StairStepSeries();
 
         DatePicker dp;
+        const int graphSize = 300;
 
         public GraficosPage()
         {
@@ -47,7 +48,7 @@ namespace ClimaApp.Pages
                 dp.DateSelected += Dp_DateSelected;
                 topLayout.Children.Add(dp);
 
-                var button = new Button() { Text = "Ver Dados", HorizontalOptions = LayoutOptions.EndAndExpand, };
+                var button = new Button() { Text = "Ver todos dados", HorizontalOptions = LayoutOptions.End, };
                 button.Clicked += Button_Clicked;
                 topLayout.Children.Add(button);
 
@@ -64,14 +65,16 @@ namespace ClimaApp.Pages
                 {
                     Position = AxisPosition.Left,
                     Unit = "ºC",
+                    MajorGridlineStyle = LineStyle.Solid,
                     MajorGridlineThickness = 2,
-                    MinorGridlineStyle = LineStyle.Dash,
+                    MinorGridlineStyle = LineStyle.Automatic,
+                    MinorGridlineThickness = 1,
                     IsPanEnabled = false,
                     IsZoomEnabled = false,
                 });
                 pm.Series.Add(tempSeries);
                 pv[0].Model = pm;
-                graphLayout.RowDefinitions.Add(new RowDefinition { Height = new GridLength(350, GridUnitType.Absolute) });
+                graphLayout.RowDefinitions.Add(new RowDefinition { Height = new GridLength(graphSize, GridUnitType.Absolute) });
                 graphLayout.Children.Add(pv[0], 0, 0);
             }
 
@@ -84,14 +87,16 @@ namespace ClimaApp.Pages
                 {
                     Position = AxisPosition.Left,
                     Unit = "%",
+                    MajorGridlineStyle = LineStyle.Solid,
                     MajorGridlineThickness = 2,
-                    MinorGridlineStyle = LineStyle.Dash,
+                    MinorGridlineStyle = LineStyle.Automatic,
+                    MinorGridlineThickness = 1,
                     IsPanEnabled = false,
                     IsZoomEnabled = false,
                 });
                 pm.Series.Add(umidSeries);
                 pv[1].Model = pm;
-                graphLayout.RowDefinitions.Add(new RowDefinition { Height = new GridLength(350, GridUnitType.Absolute) });
+                graphLayout.RowDefinitions.Add(new RowDefinition { Height = new GridLength(graphSize, GridUnitType.Absolute) });
                 graphLayout.Children.Add(pv[1], 0, 1);
             }
 
@@ -104,15 +109,15 @@ namespace ClimaApp.Pages
                 {
                     Position = AxisPosition.Left,
                     Unit = "hPa",
+                    MajorGridlineStyle = LineStyle.Solid,
                     MajorGridlineThickness = 2,
-                    MinorGridlineStyle = LineStyle.Dash,
                     IsPanEnabled = false,
                     IsZoomEnabled = false,
                 });
                 presSeries = new StairStepSeries();
                 pm.Series.Add(presSeries);
                 pv[2].Model = pm;
-                graphLayout.RowDefinitions.Add(new RowDefinition { Height = new GridLength(350, GridUnitType.Absolute) });
+                graphLayout.RowDefinitions.Add(new RowDefinition { Height = new GridLength(graphSize, GridUnitType.Absolute) });
                 graphLayout.Children.Add(pv[2], 0, 2);
             }
             ScrollView scrollView = new ScrollView() { Content = graphLayout, };

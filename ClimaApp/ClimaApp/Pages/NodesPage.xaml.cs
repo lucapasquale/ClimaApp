@@ -20,10 +20,16 @@ namespace ClimaApp.Pages
         async void ListView_Selected(object sender, SelectedItemChangedEventArgs e)
         {
             ((ListView)sender).SelectedItem = null;
-
             var selected = e.SelectedItem as DeviceModel;
-            if (e.SelectedItem == null || selected.tipo != AppType.Clima)
+
+            if (e.SelectedItem == null)
                 return; //ItemSelected is called on deselection, which results in SelectedItem being set to null
+
+            if (selected.tipo == AppType.None)
+            {
+                await DisplayAlert("ERRO", "Nenhum dado no servidor para este módulo!", "ok");
+                return;
+            }
 
             DataResources.climaSelecionado.node = selected;
             await DataResources.climaSelecionado.PegarDados();
