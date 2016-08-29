@@ -1,8 +1,6 @@
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\bin\Debug\ClimaApp.Droid.dll.config
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\bin\Debug\ClimaApp.Droid.dll
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\bin\Debug\ClimaApp.Droid.pdb
-C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\bin\Debug\ClimaApp.Droid.apk
-C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\bin\Debug\ClimaApp.Droid-Signed.apk
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\bin\Debug\ClimaApp.dll
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\bin\Debug\FormsViewGroup.dll
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\bin\Debug\Newtonsoft.Json.dll
@@ -40,13 +38,15 @@ C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\bin\Debug\Xamar
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\obj\Debug\ClimaApp.Droid.csprojResolveAssemblyReference.cache
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\obj\Debug\ClimaApp.Droid.dll
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\obj\Debug\ClimaApp.Droid.pdb
-C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\obj\Debug\android\bin\ClimaApp.Droid.apk
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\obj\Debug\res\drawable\icon.png
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\obj\Debug\res\drawable-hdpi\icon.png
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\obj\Debug\res\drawable-xhdpi\icon.png
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\obj\Debug\res\drawable-xxhdpi\icon.png
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\obj\Debug\R.cs.flag
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\obj\Debug\uploadflags.txt
+C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\bin\Debug\x_SmartLoRa_.x_SmartLoRa_.apk
+C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\bin\Debug\x_SmartLoRa_.x_SmartLoRa_-Signed.apk
+C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\obj\Debug\android\bin\x_SmartLoRa_.x_SmartLoRa_.apk
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\bin\Debug\ClimaApp.Droid.dll.mdb
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\bin\Debug\ClimaApp.dll.mdb
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\bin\Debug\Java.Interop.dll.mdb
@@ -78,5 +78,7 @@ C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\obj\Debug\andro
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\obj\Debug\android\assets\System.ServiceModel.Internals.dll.mdb
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\obj\Debug\android\assets\System.Xml.dll.mdb
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\obj\Debug\android\assets\System.Xml.Linq.dll.mdb
+C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\bin\Debug\SQLite.Net.dll
+C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\bin\Debug\SQLite.Net.Platform.XamarinAndroid.dll
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\obj\Debug\ClimaApp.Droid.dll.mdb
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\bin\Debug\ClimaApp.Droid.dll.mdb

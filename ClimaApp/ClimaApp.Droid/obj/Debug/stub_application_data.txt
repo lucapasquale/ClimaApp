@@ -1,2 +1,2 @@
 android.app.Application
-ClimaApp.Droid
+x_SmartLoRa_.x_SmartLoRa_

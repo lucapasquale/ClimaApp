@@ -31,6 +31,8 @@ namespace ClimaApp.Pages
 
         void ConfigureLayout()
         {
+            Title = DataResources.climaSelecionado.node.comment;
+
             StackLayout screenLayout = new StackLayout() { Orientation = StackOrientation.Vertical, };
 
             StackLayout topLayout = new StackLayout() { Orientation = StackOrientation.Horizontal, };
@@ -51,8 +53,6 @@ namespace ClimaApp.Pages
                 var button = new Button() { Text = "Ver todos dados", HorizontalOptions = LayoutOptions.End, };
                 button.Clicked += Button_Clicked;
                 topLayout.Children.Add(button);
-
-                screenLayout.Children.Add(topLayout);
             }
 
             Grid graphLayout = new Grid();
@@ -122,6 +122,7 @@ namespace ClimaApp.Pages
             }
             ScrollView scrollView = new ScrollView() { Content = graphLayout, };
 
+            screenLayout.Children.Add(topLayout);
             screenLayout.Children.Add(scrollView);
             Content = screenLayout;
         }

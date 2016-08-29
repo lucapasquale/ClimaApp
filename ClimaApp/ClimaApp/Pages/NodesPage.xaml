@@ -5,7 +5,7 @@
              Title="Smart LoRa">
 
   <StackLayout Orientation="Vertical" Padding="5">    
-    <ListView x:Name="nodesView" SeparatorColor="Black" ItemSelected="ListView_Selected">
+    <ListView x:Name="nodesView" SeparatorColor="Black" ItemSelected="ListView_Selected" IsPullToRefreshEnabled="True" Refreshing="nodesView_Refreshing">
       <ListView.ItemTemplate>
         <DataTemplate>
           <TextCell Text="{Binding comment}" TextColor="Black" Detail="{Binding tipo}" />

@@ -2,8 +2,6 @@ C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\obj\Release\Cli
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\bin\Release\ClimaApp.Droid.dll.config
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\bin\Release\ClimaApp.Droid.dll
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\bin\Release\ClimaApp.Droid.pdb
-C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\bin\Release\ClimaApp.Droid.apk
-C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\bin\Release\ClimaApp.Droid-Signed.apk
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\bin\Release\ClimaApp.dll
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\bin\Release\FormsViewGroup.dll
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\bin\Release\Newtonsoft.Json.dll
@@ -40,13 +38,15 @@ C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\bin\Release\Xam
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\bin\Release\Xamarin.Forms.Xaml.xml
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\obj\Release\ClimaApp.Droid.dll
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\obj\Release\ClimaApp.Droid.pdb
-C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\obj\Release\android\bin\ClimaApp.Droid.apk
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\obj\Release\res\drawable\icon.png
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\obj\Release\res\drawable-hdpi\icon.png
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\obj\Release\res\drawable-xhdpi\icon.png
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\obj\Release\res\drawable-xxhdpi\icon.png
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\obj\Release\R.cs.flag
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\obj\Release\uploadflags.txt
+C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\bin\Release\x_SmartLoRa_.x_SmartLoRa_.apk
+C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\bin\Release\x_SmartLoRa_.x_SmartLoRa_-Signed.apk
+C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\obj\Release\android\bin\x_SmartLoRa_.x_SmartLoRa_.apk
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\bin\Release\ClimaApp.Droid.dll.mdb
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\bin\Release\ClimaApp.dll.mdb
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\bin\Release\Java.Interop.dll.mdb

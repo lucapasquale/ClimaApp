@@ -8,13 +8,15 @@ using RestSharp.Portable;
 using RestSharp.Portable.HttpClient;
 using RestSharp.Portable.Authenticators;
 using System.Collections.ObjectModel;
+using SQLite.Net.Attributes;
 
 namespace ClimaApp
 {
-    public enum AppType {None, Clima, Silo};
+    public enum AppType {None = 0, Clima = 10, Silo = 30, };
 
     public class DeviceModel
     {
+        [PrimaryKey]
         public string deveui { get; set; }
         public string last_reception { get; set; }
         public string appeui { get; set; }
@@ -47,6 +49,8 @@ namespace ClimaApp
 
         public static async Task PegarNodes()
         {
+            var dados = new AcessoDB();
+
             var client = new RestClient();
             client.BaseUrl = new Uri("https://artimar.orbiwise.com/rest/nodes/");
             client.Authenticator = new HttpBasicAuthenticator(StringResources.user, StringResources.pass);
@@ -60,8 +64,10 @@ namespace ClimaApp
                 await node.PegarTipo();
                 node.dataUltimoRx = DateTime.Parse(node.last_reception);
                 TimeZoneInfo.ConvertTime(node.dataUltimoRx, TimeZoneInfo.Local);
-            }
 
+                dados.AtualizarDevice(node);
+            }
+            
             DataResources.allNodes = listaTemp;
 
             for (int i = 0; i < listaTemp.Count; i++)

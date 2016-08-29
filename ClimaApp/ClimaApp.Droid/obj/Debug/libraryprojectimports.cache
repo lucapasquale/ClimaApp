@@ -5,6 +5,7 @@
     <ResolvedResourceDirectory>C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\obj\Debug\__library_projects__\OxyPlot.Xamarin.Android\library_project_imports\res</ResolvedResourceDirectory>
     <ResolvedResourceDirectory>C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\obj\Debug\__library_projects__\OxyPlot.Xamarin.Forms.Platform.Android\library_project_imports\res</ResolvedResourceDirectory>
     <ResolvedResourceDirectory>C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\obj\Debug\__library_projects__\RestSharp.Portable.HttpClient\library_project_imports\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\obj\Debug\__library_projects__\SQLite.Net.Platform.XamarinAndroid\library_project_imports\res</ResolvedResourceDirectory>
     <ResolvedResourceDirectory>C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\obj\Debug\__library_projects__\Xamarin.Forms.Platform.Android\library_project_imports\res</ResolvedResourceDirectory>
     <ResolvedResourceDirectory>C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\obj\Debug\__library_projects__\Xamarin.Forms.Platform\library_project_imports\res</ResolvedResourceDirectory>
   </ResolvedResourceDirectories>
@@ -12,6 +13,7 @@
     <ResolvedAssetDirectory>C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\obj\Debug\__library_projects__\OxyPlot.Xamarin.Android\library_project_imports\assets</ResolvedAssetDirectory>
     <ResolvedAssetDirectory>C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\obj\Debug\__library_projects__\OxyPlot.Xamarin.Forms.Platform.Android\library_project_imports\assets</ResolvedAssetDirectory>
     <ResolvedAssetDirectory>C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\obj\Debug\__library_projects__\RestSharp.Portable.HttpClient\library_project_imports\assets</ResolvedAssetDirectory>
+    <ResolvedAssetDirectory>C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\obj\Debug\__library_projects__\SQLite.Net.Platform.XamarinAndroid\library_project_imports\assets</ResolvedAssetDirectory>
     <ResolvedAssetDirectory>C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\obj\Debug\__library_projects__\Xamarin.Forms.Platform.Android\library_project_imports\assets</ResolvedAssetDirectory>
     <ResolvedAssetDirectory>C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\obj\Debug\__library_projects__\Xamarin.Forms.Platform\library_project_imports\assets</ResolvedAssetDirectory>
   </ResolvedAssetDirectories>
@@ -20,6 +22,7 @@
     <ResolvedResourceDirectoryStamp>C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\obj\Debug\__library_projects__\OxyPlot.Xamarin.Android.stamp</ResolvedResourceDirectoryStamp>
     <ResolvedResourceDirectoryStamp>C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\obj\Debug\__library_projects__\OxyPlot.Xamarin.Forms.Platform.Android.stamp</ResolvedResourceDirectoryStamp>
     <ResolvedResourceDirectoryStamp>C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\obj\Debug\__library_projects__\RestSharp.Portable.HttpClient.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\obj\Debug\__library_projects__\SQLite.Net.Platform.XamarinAndroid.stamp</ResolvedResourceDirectoryStamp>
     <ResolvedResourceDirectoryStamp>C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\obj\Debug\__library_projects__\Xamarin.Forms.Platform.Android.stamp</ResolvedResourceDirectoryStamp>
     <ResolvedResourceDirectoryStamp>C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\obj\Debug\__library_projects__\Xamarin.Forms.Platform.stamp</ResolvedResourceDirectoryStamp>
   </ResolvedResourceDirectoryStamps>

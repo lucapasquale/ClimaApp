@@ -13,8 +13,19 @@ namespace ClimaApp.Pages
     {
         public NodesPage()
         {
+            NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
-            nodesView.ItemsSource = DataResources.allNodes;
+            var dados = new AcessoDB();
+            nodesView.ItemsSource = dados.GetDevices();
+        }
+
+        private async void nodesView_Refreshing(object sender, EventArgs e)
+        {
+            var dados = new AcessoDB();
+            dados.Dispose();
+            await DeviceModel.PegarNodes();
+
+            nodesView.IsRefreshing = false;
         }
 
         async void ListView_Selected(object sender, SelectedItemChangedEventArgs e)
@@ -33,7 +44,7 @@ namespace ClimaApp.Pages
 
             DataResources.climaSelecionado.node = selected;
             await DataResources.climaSelecionado.PegarDados();
-            await Navigation.PushModalAsync(new GraficosPage());
+            await Navigation.PushAsync(new GraficosPage());
         }
     }
 }

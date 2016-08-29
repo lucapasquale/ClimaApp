@@ -17,9 +17,11 @@ namespace ClimaApp
         protected async override void OnStart()
         {
             // Handle when your app starts
+            //await DeviceModel.PegarNodes();
 
-            await DeviceModel.PegarNodes();
-            MainPage = new Pages.NodesPage();
+            //var dados = new AcessoDB();
+            //DataResources.allNodes = dados.GetDevices();
+            MainPage = GetMainPage();
         }
 
         protected override void OnSleep()
@@ -30,6 +32,11 @@ namespace ClimaApp
         protected override void OnResume()
         {
             // Handle when your app resumes
+        }
+
+        public static Page GetMainPage()
+        {
+            return new NavigationPage(new Pages.NodesPage());
         }
     }
 }

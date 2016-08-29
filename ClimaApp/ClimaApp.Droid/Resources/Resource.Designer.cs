@@ -1564,6 +1564,8 @@ namespace ClimaApp.Droid
 			global::OxyPlot.Xamarin.Forms.Platform.Android.Resource.Styleable.ViewStubCompat_android_id = global::ClimaApp.Droid.Resource.Styleable.ViewStubCompat_android_id;
 			global::OxyPlot.Xamarin.Forms.Platform.Android.Resource.Styleable.ViewStubCompat_android_inflatedId = global::ClimaApp.Droid.Resource.Styleable.ViewStubCompat_android_inflatedId;
 			global::OxyPlot.Xamarin.Forms.Platform.Android.Resource.Styleable.ViewStubCompat_android_layout = global::ClimaApp.Droid.Resource.Styleable.ViewStubCompat_android_layout;
+			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.ApplicationName = global::ClimaApp.Droid.Resource.String.ApplicationName;
+			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.Hello = global::ClimaApp.Droid.Resource.String.Hello;
 			global::Xamarin.Forms.Platform.Resource.Animation.abc_fade_in = global::ClimaApp.Droid.Resource.Animation.abc_fade_in;
 			global::Xamarin.Forms.Platform.Resource.Animation.abc_fade_out = global::ClimaApp.Droid.Resource.Animation.abc_fade_out;
 			global::Xamarin.Forms.Platform.Resource.Animation.abc_grow_fade_in_from_bottom = global::ClimaApp.Droid.Resource.Animation.abc_grow_fade_in_from_bottom;

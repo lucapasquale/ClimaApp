@@ -17,7 +17,10 @@ namespace ClimaApp.Droid
             base.OnCreate(bundle);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
+
             OxyPlot.Xamarin.Forms.Platform.Android.PlotViewRenderer.Init();
+            this.ActionBar.SetIcon(Android.Resource.Color.Transparent);
+
             LoadApplication(new App());
         }
     }
