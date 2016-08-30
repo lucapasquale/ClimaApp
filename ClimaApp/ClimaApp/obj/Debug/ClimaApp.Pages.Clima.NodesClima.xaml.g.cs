@@ -8,20 +8,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ClimaApp.Pages {
+namespace ClimaApp.Pages.Clima {
     using System;
     using Xamarin.Forms;
     using Xamarin.Forms.Xaml;
     
     
-    public partial class DadosPage : global::Xamarin.Forms.ContentPage {
+    public partial class NodesClima : global::Xamarin.Forms.ContentPage {
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private global::Xamarin.Forms.ListView nodesView;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
-            this.LoadFromXaml(typeof(DadosPage));
+            this.LoadFromXaml(typeof(NodesClima));
             nodesView = this.FindByName<global::Xamarin.Forms.ListView>("nodesView");
         }
     }

@@ -16,11 +16,12 @@ namespace ClimaApp
 
         protected async override void OnStart()
         {
-            // Handle when your app starts
-            //await DeviceModel.PegarNodes();
+            if (new DevicesDb().GetDevices().Count == 0)
+                await DataResources.GetNodes();
 
-            //var dados = new AcessoDB();
-            //DataResources.allNodes = dados.GetDevices();
+            foreach (ClimaDevModel cDev in DataResources.climaNodes)
+                await cDev.GetLatest();
+
             MainPage = GetMainPage();
         }
 
@@ -36,7 +37,7 @@ namespace ClimaApp
 
         public static Page GetMainPage()
         {
-            return new NavigationPage(new Pages.NodesPage());
+            return new NavigationPage(new Pages.Clima.NodesClima());
         }
     }
 }

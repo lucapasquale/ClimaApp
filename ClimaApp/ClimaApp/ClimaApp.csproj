@@ -36,21 +36,27 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
-    <Compile Include="Common\AcessoDB.cs" />
+    <Compile Include="Common\Database\DatabaseClima.cs" />
     <Compile Include="Common\DataResources.cs" />
-    <Compile Include="Common\IConfig.cs" />
+    <Compile Include="Common\Other\IConfig.cs" />
+    <Compile Include="Common\Other\StatusConverter.cs" />
     <Compile Include="Common\StringResources.cs" />
+    <Compile Include="Models\Base\LoRaModel.cs" />
     <Compile Include="Models\Clima\ClimaDevModel.cs" />
     <Compile Include="Models\Silo\SiloDevModel.cs" />
     <Compile Include="Models\Clima\ClimaRxModel.cs" />
     <Compile Include="Models\Base\DeviceModel.cs" />
     <Compile Include="Models\Silo\SiloRxModel.cs" />
-    <Compile Include="Pages\Cells\DadosCell.cs" />
-    <Compile Include="Pages\DadosPage.xaml.cs">
-      <DependentUpon>DadosPage.xaml</DependentUpon>
+    <Compile Include="Pages\Cells\ClimaCell.cs" />
+    <Compile Include="Pages\Cells\ClimaDeviceCell.cs" />
+    <Compile Include="Pages\Clima\DadosClimaPage.xaml.cs">
+      <DependentUpon>DadosClimaPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\GraficosPage.xaml.cs">
+    <Compile Include="Pages\Clima\GraficosPage.xaml.cs">
       <DependentUpon>GraficosPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Clima\NodesClima.xaml.cs">
+      <DependentUpon>NodesClima.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\NodesPage.xaml.cs">
       <DependentUpon>NodesPage.xaml</DependentUpon>
@@ -64,7 +70,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Pages\GraficosPage.xaml">
+    <EmbeddedResource Include="Pages\Clima\GraficosPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -116,13 +122,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Pages\DadosPage.xaml">
+    <EmbeddedResource Include="Pages\Clima\DadosClimaPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Pages\NodesPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\Clima\NodesClima.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

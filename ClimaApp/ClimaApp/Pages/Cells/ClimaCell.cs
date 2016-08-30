@@ -7,9 +7,9 @@ using Xamarin.Forms;
 
 namespace ClimaApp.Pages.Cells
 {
-    class DadosCell : ViewCell
+    class ClimaCell : ViewCell
     {
-        public DadosCell()
+        public ClimaCell()
         {
             StackLayout cellLayout = new StackLayout() { BackgroundColor = Color.FromHex("#eee"), Orientation = StackOrientation.Horizontal };
             StackLayout valoresLayout = new StackLayout() { Orientation = StackOrientation.Vertical, HorizontalOptions = LayoutOptions.Start };

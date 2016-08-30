@@ -13,7 +13,7 @@ using System.Diagnostics;
 
 namespace ClimaApp.Pages
 {
-    public partial class GraficosPage : ContentPage
+    public partial class GraficosClimaPage : ContentPage
     {
         PlotView[] pv = new PlotView[3];
         LineSeries tempSeries = new LineSeries() { MarkerType = MarkerType.Circle, MarkerSize = 2, MarkerStroke = OxyColors.DarkRed, };
@@ -23,7 +23,7 @@ namespace ClimaApp.Pages
         DatePicker dp;
         const int graphSize = 300;
 
-        public GraficosPage()
+        public GraficosClimaPage()
         {
             ConfigureLayout();
             AtualizarGraficos(dp.Date);
@@ -156,9 +156,7 @@ namespace ClimaApp.Pages
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            var modalPage = new DadosPage();
-            await Navigation.PushModalAsync(modalPage);
-            Debug.WriteLine("The modal page is now on screen");
+            await Navigation.PushAsync(new DadosClimaPage());
         }
 
         private void Dp_DateSelected(object sender, DateChangedEventArgs e)

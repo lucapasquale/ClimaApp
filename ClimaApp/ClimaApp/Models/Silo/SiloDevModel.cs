@@ -11,12 +11,13 @@ using System.Collections.ObjectModel;
 
 namespace ClimaApp
 {
-    public class SiloDevModel : DeviceModel
+    public class SiloDevModel
     {
+        public LoRaModel node = new LoRaModel();
         public ObservableCollection<SiloRxModel> todosDados = new ObservableCollection<SiloRxModel>();
         public SiloRxModel latest = new SiloRxModel();
 
-        public ObservableCollection<SiloRxModel>[] dadosSilos = new ObservableCollection<SiloRxModel>[8];
+        public ObservableCollection<SiloRxModel>[] dadosPorSilo = new ObservableCollection<SiloRxModel>[8];
 
 
         public async Task PegarDados(string _devEUI)
@@ -57,8 +58,8 @@ namespace ClimaApp
                 {
                     listaTemp[i] = new ObservableCollection<SiloRxModel>(listaTemp[i].OrderByDescending(o => o.horario));
 
-                    dadosSilos[i] = new ObservableCollection<SiloRxModel>();
-                    dadosSilos[i] = listaTemp[i];
+                    dadosPorSilo[i] = new ObservableCollection<SiloRxModel>();
+                    dadosPorSilo[i] = listaTemp[i];
                 }
             }
         }
