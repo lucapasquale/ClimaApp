@@ -18,7 +18,7 @@ namespace ClimaApp
                 case NodeStatus.ONLINE:
                     return Color.Green;
                 case NodeStatus.ATRASADO:
-                    return Color.Yellow;
+                    return Color.FromHex("#FFA500");
                 case NodeStatus.OFFLINE:
                     return Color.Red;
             }

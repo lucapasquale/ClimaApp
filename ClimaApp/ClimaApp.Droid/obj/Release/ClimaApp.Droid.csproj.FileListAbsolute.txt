@@ -47,6 +47,9 @@ C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\obj\Release\upl
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\bin\Release\x_SmartLoRa_.x_SmartLoRa_.apk
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\bin\Release\x_SmartLoRa_.x_SmartLoRa_-Signed.apk
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\obj\Release\android\bin\x_SmartLoRa_.x_SmartLoRa_.apk
+C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\bin\Release\SQLite.Net.Async.dll
+C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\bin\Release\SQLite.Net.dll
+C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\bin\Release\SQLite.Net.Platform.XamarinAndroid.dll
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\bin\Release\ClimaApp.Droid.dll.mdb
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\bin\Release\ClimaApp.dll.mdb
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\bin\Release\Java.Interop.dll.mdb

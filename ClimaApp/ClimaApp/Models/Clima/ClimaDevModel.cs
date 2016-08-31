@@ -36,6 +36,13 @@ namespace ClimaApp
                 rx.horario = DateTime.Parse(rx.timeStamp);
                 TimeZoneInfo.ConvertTime(rx.horario, TimeZoneInfo.Local);
 
+                //Se o latest foi a menos de 24h = atrasado, se for a menos de 2h = online
+                if (rx.horario.AddHours(2) > DateTime.Now)
+                    status = NodeStatus.ATRASADO;
+
+                if (rx.horario.AddMinutes(50) > DateTime.Now)
+                    status = NodeStatus.ONLINE;
+
                 //Passa de base64 para HEX e remove os '-' entre os bytes
                 byte[] data = Convert.FromBase64String(rx.dataFrame);
                 rx.dataFrame = BitConverter.ToString(data).Replace("-", string.Empty);
@@ -68,10 +75,10 @@ namespace ClimaApp
             TimeZoneInfo.ConvertTime(rx.horario, TimeZoneInfo.Local);
 
             //Se o latest foi a menos de 24h = atrasado, se for a menos de 2h = online
-            if (rx.horario.AddHours(24) > DateTime.Now)
+            if (rx.horario.AddHours(2) > DateTime.Now)
                 status = NodeStatus.ATRASADO;
 
-            if (rx.horario.AddHours(2) > DateTime.Now)
+            if (rx.horario.AddMinutes(50) > DateTime.Now)
                 status = NodeStatus.ONLINE;
 
             //Passa de base64 para HEX e remove os '-' entre os bytes

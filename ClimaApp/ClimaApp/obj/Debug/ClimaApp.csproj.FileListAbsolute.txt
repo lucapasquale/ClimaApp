@@ -27,9 +27,11 @@ C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Debug\ClimaApp.Pa
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Debug\ClimaApp.dll
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Debug\ClimaApp.pdb
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\bin\Debug\SQLite.Net.dll
-C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Debug\ClimaApp.csprojResolveAssemblyReference.cache
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Debug\ClimaApp.Pages.Clima.GraficosPage.xaml.g.cs
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Debug\ClimaApp.Pages.Clima.DadosClimaPage.xaml.g.cs
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Debug\ClimaApp.Pages.Clima.NodesClima.xaml.g.cs
+C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Debug\ClimaApp.Pages.ApplicationsPage.xaml.g.cs
+C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\bin\Debug\SQLite.Net.Async.dll
+C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Debug\ClimaApp.csprojResolveAssemblyReference.cache
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Debug\ClimaApp.dll.mdb
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\bin\Debug\ClimaApp.dll.mdb

@@ -108,6 +108,7 @@ class MonoPackageManager_Resources {
 		"OxyPlot.Xamarin.Forms.Platform.Android.dll",
 		"RestSharp.Portable.Core.dll",
 		"RestSharp.Portable.HttpClient.dll",
+		"SQLite.Net.Async.dll",
 		"SQLite.Net.dll",
 		"SQLite.Net.Platform.XamarinAndroid.dll",
 		"Xamarin.Android.Support.Design.dll",

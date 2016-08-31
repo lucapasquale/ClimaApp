@@ -38,8 +38,8 @@ namespace ClimaApp
 
                 switch (result.Data.port)
                 {
-                    case 10: tipo = AppType.Clima; break;
-                    case 30: tipo = AppType.Silo; break;
+                    case (int)AppType.Clima: tipo = AppType.Clima; break;   //Port = 10
+                    case (int)AppType.Testes: tipo = AppType.Silo; break;   //Port = 30
                     default: tipo = AppType.Testes; break;
                 }
             }

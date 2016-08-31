@@ -19,8 +19,8 @@ namespace ClimaApp.Pages
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
 
-            DataResources.allNodes = db.GetDevices();
             nodesView.ItemsSource = DataResources.allNodes;
+            nodesView.IsRefreshing = false;
         }
 
         private async void nodesView_Refreshing(object sender, EventArgs e)

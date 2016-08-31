@@ -14,11 +14,15 @@ namespace ClimaApp.Pages {
     using Xamarin.Forms.Xaml;
     
     
-    public partial class GraficosPage : global::Xamarin.Forms.ContentPage {
+    public partial class DadosClimaPage : global::Xamarin.Forms.ContentPage {
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.ListView nodesView;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
-            this.LoadFromXaml(typeof(GraficosPage));
+            this.LoadFromXaml(typeof(DadosClimaPage));
+            nodesView = this.FindByName<global::Xamarin.Forms.ListView>("nodesView");
         }
     }
 }

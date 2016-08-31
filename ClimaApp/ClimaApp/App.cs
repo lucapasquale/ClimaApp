@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 
@@ -16,11 +17,19 @@ namespace ClimaApp
 
         protected async override void OnStart()
         {
-            if (new DevicesDb().GetDevices().Count == 0)
-                await DataResources.GetNodes();
+            DevicesDb db = new DevicesDb();
 
-            foreach (ClimaDevModel cDev in DataResources.climaNodes)
-                await cDev.GetLatest();
+            if (db.GetModulos().Count == 0)
+            {
+                await DataResources.GetNodes();
+                Debug.WriteLine("Nodes request" + db.GetModulos().Count.ToString());
+            }
+            else
+            {
+                DataResources.allNodes = db.GetModulos();
+                DataResources.SepararTipo();
+                Debug.WriteLine("DATABASE");
+            }
 
             MainPage = GetMainPage();
         }
@@ -37,7 +46,7 @@ namespace ClimaApp
 
         public static Page GetMainPage()
         {
-            return new NavigationPage(new Pages.Clima.NodesClima());
+            return new NavigationPage(new Pages.ApplicationsPage());
         }
     }
 }

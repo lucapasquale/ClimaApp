@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ClimaApp.Pages.ApplicationsPage"
+             Title="Applications">
+
+    <StackLayout>
+      <Label x:Name="labelTitulo" />
+      <Button Text="Clima" Clicked="clima_clicked" />
+      <Button Text="Silos" Clicked="silos_clicked" />
+      <Button Text="Atualizar Nodes" Clicked="atualizar_clicked" />
+    </StackLayout>
+
+</ContentPage>

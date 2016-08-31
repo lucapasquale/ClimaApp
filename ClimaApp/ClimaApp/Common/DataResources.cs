@@ -12,11 +12,12 @@ using System.Diagnostics;
 namespace ClimaApp
 {
     public static class DataResources
-    {
+    {      
+        public static List<LoRaModel> allNodes = new List<LoRaModel>();
+
+        public static ObservableCollection<ClimaDevModel> climaNodes = new ObservableCollection<ClimaDevModel>();
         public static ClimaDevModel climaSelecionado = new ClimaDevModel();
 
-        public static List<LoRaModel> allNodes = new List<LoRaModel>();
-        public static ObservableCollection<ClimaDevModel> climaNodes = new ObservableCollection<ClimaDevModel>();
         public static ObservableCollection<SiloDevModel> siloNodes = new ObservableCollection<SiloDevModel>();
 
 
@@ -35,16 +36,30 @@ namespace ClimaApp
             foreach (LoRaModel loraNode in listaTemp)
             {
                 await loraNode.GetTipo();
-                db.AtualizarDevice(loraNode);
 
+                if (db.GetModulo(loraNode.deveui) == null)
+                    db.InserirModulo(loraNode);
+                else
+                    db.AtualizarModulo(loraNode);
+            }
+            allNodes = new List<LoRaModel>(listaTemp.OrderByDescending(o => o.comment).ToList());
+            SepararTipo();
+        }
+
+        public static void SepararTipo()
+        {
+            climaNodes.Clear();
+            siloNodes.Clear();
+
+            foreach (LoRaModel loraNode in allNodes)
+            {
                 switch (loraNode.tipo)
                 {
-                    case AppType.Clima: climaNodes.Add(new ClimaDevModel() { node = loraNode}); break;
+                    case AppType.Clima: climaNodes.Add(new ClimaDevModel() { node = loraNode }); break;
                     case AppType.Silo: siloNodes.Add(new SiloDevModel() { node = loraNode }); break;
                     default: break;
                 }
             }
-            allNodes = new List<LoRaModel>(listaTemp.OrderByDescending(o => o.comment));
         }
     }
 }
