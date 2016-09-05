@@ -29,9 +29,13 @@ namespace ClimaApp.Pages.Clima
             if (e.SelectedItem == null)
                 return; //ItemSelected is called on deselection, which results in SelectedItem being set to null
 
+            await Navigation.PushModalAsync(new LoadingPage());
+
             DataResources.climaSelecionado = e.SelectedItem as ClimaDevModel;
             await DataResources.climaSelecionado.GetData();
             await Navigation.PushAsync(new GraficosClimaPage());
+
+            await Navigation.PopModalAsync();
         }
     }
 }

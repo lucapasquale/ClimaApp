@@ -25,6 +25,7 @@ namespace ClimaApp
         {
             var db = new DevicesDb();
 
+            //Conecta ao servidor da Orbiwise e baixa os nodes da conta
             var client = new RestClient();
             client.BaseUrl = new Uri("https://artimar.orbiwise.com/rest/nodes/");
             client.Authenticator = new HttpBasicAuthenticator(StringResources.user, StringResources.pass);
@@ -37,6 +38,7 @@ namespace ClimaApp
             {
                 await loraNode.GetTipo();
 
+                //Se não existe no database insere, se existe atualiza
                 if (db.GetModulo(loraNode.deveui) == null)
                     db.InserirModulo(loraNode);
                 else

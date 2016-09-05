@@ -4,7 +4,7 @@
              x:Class="ClimaApp.Pages.ApplicationsPage"
              Title="Applications">
 
-    <StackLayout>
+    <StackLayout x:Name="sl">
       <Label x:Name="labelTitulo" />
       <Button Text="Clima" Clicked="clima_clicked" />
       <Button Text="Silos" Clicked="silos_clicked" />

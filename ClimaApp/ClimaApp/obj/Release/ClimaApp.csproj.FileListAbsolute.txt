@@ -32,6 +32,12 @@ C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Release\ClimaApp.
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Release\ClimaApp.Pages.Clima.DadosClimaPage.xaml.g.cs
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Release\ClimaApp.Pages.Clima.NodesClima.xaml.g.cs
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Release\ClimaApp.Pages.ApplicationsPage.xaml.g.cs
+C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\bin\Release\Xamarin.iOS.dll
+C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\bin\Release\System.dll
+C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\bin\Release\System.Core.dll
+C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\bin\Release\System.Xml.dll
+C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\bin\Release\Mono.Dynamic.Interpreter.dll
+C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\bin\Release\Xamarin.iOS.xml
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Release\ClimaApp.dll.mdb
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\bin\Release\ClimaApp.dll.mdb
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Release\ClimaApp.dll.mdb
