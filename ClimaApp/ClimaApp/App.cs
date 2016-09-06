@@ -19,6 +19,7 @@ namespace ClimaApp
         {
             DevicesDb db = new DevicesDb();
 
+            //Se o database está vazio => criar um e pegar so nodes
             if (db.GetModulos().Count == 0)
             {
                 await DataResources.GetNodes();

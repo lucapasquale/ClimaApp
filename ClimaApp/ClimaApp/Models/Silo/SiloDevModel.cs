@@ -14,10 +14,8 @@ namespace ClimaApp
     public class SiloDevModel
     {
         public LoRaModel node = new LoRaModel();
-        public ObservableCollection<SiloRxModel> todosDados = new ObservableCollection<SiloRxModel>();
+        public ObservableCollection<SiloRxModel> dados = new ObservableCollection<SiloRxModel>();
         public SiloRxModel latest = new SiloRxModel();
-
-        public ObservableCollection<SiloRxModel>[] dadosPorSilo = new ObservableCollection<SiloRxModel>[8];
 
 
         public async Task PegarDados(string _devEUI)
@@ -43,13 +41,6 @@ namespace ClimaApp
 
                 //Transforma de HEX para as variaveis de cada aplicação
                 rx.ParseDataFrame();
-
-                if (!siloInstanciado[rx.idSilo])
-                {
-                    listaTemp[rx.idSilo] = new ObservableCollection<SiloRxModel>();
-                    siloInstanciado[rx.idSilo] = true;
-                }
-                listaTemp[rx.idSilo].Add(rx);
             }
 
             for (int i = 0; i < listaTemp.Length; i++)
@@ -57,9 +48,6 @@ namespace ClimaApp
                 if (listaTemp[i].Count > 0)
                 {
                     listaTemp[i] = new ObservableCollection<SiloRxModel>(listaTemp[i].OrderByDescending(o => o.horario));
-
-                    dadosPorSilo[i] = new ObservableCollection<SiloRxModel>();
-                    dadosPorSilo[i] = listaTemp[i];
                 }
             }
         }

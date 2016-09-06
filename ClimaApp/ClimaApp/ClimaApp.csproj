@@ -47,7 +47,7 @@
     <Compile Include="Models\Clima\ClimaRxModel.cs" />
     <Compile Include="Models\Base\DeviceModel.cs" />
     <Compile Include="Models\Silo\SiloRxModel.cs" />
-    <Compile Include="Pages\ApplicationsPage.xaml.cs">
+    <Compile Include="Pages\Base\ApplicationsPage.xaml.cs">
       <DependentUpon>ApplicationsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Cells\ClimaCell.cs" />
@@ -61,10 +61,10 @@
     <Compile Include="Pages\Clima\NodesClima.xaml.cs">
       <DependentUpon>NodesClima.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\LoadingPage.xaml.cs">
+    <Compile Include="Pages\Base\LoadingPage.xaml.cs">
       <DependentUpon>LoadingPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\NodesPage.xaml.cs">
+    <Compile Include="Pages\Base\NodesPage.xaml.cs">
       <DependentUpon>NodesPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -144,7 +144,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Pages\NodesPage.xaml">
+    <EmbeddedResource Include="Pages\Base\NodesPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -156,13 +156,13 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Pages\ApplicationsPage.xaml">
+    <EmbeddedResource Include="Pages\Base\ApplicationsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Pages\LoadingPage.xaml">
+    <EmbeddedResource Include="Pages\Base\LoadingPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

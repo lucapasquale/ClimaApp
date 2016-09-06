@@ -8,50 +8,54 @@ namespace ClimaApp
 {
     public class SiloRxModel : RxModel
     {
-        public int idSilo { get; private set; }
-        public int nSensores { get; private set; }
-        public bool redeON { get; private set; }
-        public bool secadorON { get; private set; }
+        public int nCabos { get; private set; }
+        public int[][] tempCabo { get; private set; } = new int[20][];
 
         public float tempExt { get; private set; }
         public float umidExt { get; private set; }
-        public List<float> tempInt { get; private set; }
-        public List<float> umidInt { get; private set; }
 
-
+        //TODO: INCLUIR TX DA PARTE EXTERNA
         public override void ParseDataFrame()
         {
-            /* dataFrame = aaa bbb c d + EEEE FFFF + (bbb) * GGGG HHHH
+            /* dataFrame = a bbb cc dd + (bbb) * (EFGHIJKL) 
 
-            aaa = 3 bits com o numero do silo
-            bbb = 3 bits com o numero do sensor
-            c = 1 bit se a rede eletrica caiu
-            d = 1 bit se o secacador foi ligado
-            EEEE = 4 bytes representando 10 * temperatura externa
-            FFFF = 4 bytes representando 10 * umidade externa
-            GGGG = 4 bytes representando 10 * temperatura interna (repetido bbb vezes)
-            HHHH = 4 bytes representando 10 * umidade interna (repetido bbb vezes) */
+            a = 1 bit com o tipo de transmissão (Interna / Externa)
+            bbb = 3 bits com numero de cabos desta transmissão
+            cc = 2 bits com o total de transmissões
+            dd = 2 bits como o numero da transmissão atual
+
+            [SE FOR INTERNO]
+            (bbb) * = Dado seguinte será repitido 'bbb' vezes, até um máximo de 5
+            EFGHIJKL = 8 bytes sendo cada byte uma temperatura interna de um cabo */
 
             string bitsControle = Convert.ToString(Convert.ToInt32(dataFrame.Substring(0, 2), 16), 2).PadLeft(8, '0');
-
-            idSilo = Convert.ToInt32(bitsControle.Substring(0, 3), 2);
-            nSensores = Convert.ToInt32(bitsControle.Substring(3, 3), 2);
-            redeON = bitsControle.Substring(6, 1) == "1" ? true : false;
-            secadorON = bitsControle.Substring(7, 1) == "1" ? true : false;
-
-            tempExt = int.Parse(dataFrame.Substring(2, 4), System.Globalization.NumberStyles.HexNumber) / 10f;
-            umidExt = int.Parse(dataFrame.Substring(6, 4), System.Globalization.NumberStyles.HexNumber) / 10f;
-
-            tempInt = new List<float>();
-            umidInt = new List<float>();
-            for (int i = 0; i < nSensores; i++)
+            bool interno = bitsControle.Substring(0, 1) == "1" ? true : false;
+            if (interno)
             {
-                if (10 + 8 * i > dataFrame.Length - 1)
-                    return;
+                int cabosTx = Convert.ToInt32(bitsControle.Substring(1, 3), 2);
+                int totalTx = Convert.ToInt32(bitsControle.Substring(4, 2), 2);
+                int txAtual = Convert.ToInt32(bitsControle.Substring(6, 2), 2);
 
-                tempInt.Add(int.Parse(dataFrame.Substring(10 + 8 * i, 4), System.Globalization.NumberStyles.HexNumber) / 10f);
-                umidInt.Add(int.Parse(dataFrame.Substring(14 + 8 * i, 4), System.Globalization.NumberStyles.HexNumber) / 10f);
+                //Se for a ultima transmissão, pegar o total de cabos
+                nCabos = txAtual == totalTx ? cabosTx + 5 * txAtual : 0;
+
+                for (int i = 0; i < 5; i++)
+                {
+                    //Se ja transmitiu todos os cabos da TX parar
+                    if (cabosTx >= i)
+                        return;
+
+                    int caboAtual = 5 * txAtual + i;
+                    int posCabo = 2 + i * 16;
+
+                    tempCabo[caboAtual] = new int[8];
+                    for (int j = 0; j < 8; j++)
+                    {
+                        tempCabo[caboAtual][j] = int.Parse(dataFrame.Substring(posCabo + j * 2, 2), System.Globalization.NumberStyles.HexNumber);
+                    }
+                }
             }
         }
+
     }
 }

@@ -23,14 +23,12 @@ C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\bin\Debug\System.Net.
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\bin\Debug\Xamarin.Forms.Core.xml
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\bin\Debug\Xamarin.Forms.Xaml.xml
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Debug\ClimaApp.csproj.App.config
-C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Debug\ClimaApp.Pages.NodesPage.xaml.g.cs
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Debug\ClimaApp.dll
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Debug\ClimaApp.pdb
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\bin\Debug\SQLite.Net.dll
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Debug\ClimaApp.Pages.Clima.GraficosPage.xaml.g.cs
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Debug\ClimaApp.Pages.Clima.DadosClimaPage.xaml.g.cs
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Debug\ClimaApp.Pages.Clima.NodesClima.xaml.g.cs
-C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Debug\ClimaApp.Pages.ApplicationsPage.xaml.g.cs
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\bin\Debug\SQLite.Net.Async.dll
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Debug\ClimaApp.csprojResolveAssemblyReference.cache
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\bin\Debug\Xamarin.iOS.dll
@@ -41,6 +39,8 @@ C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\bin\Debug\Mono.Dynami
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\bin\Debug\Xamarin.iOS.xml
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\bin\Debug\Mono.Android.dll
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\bin\Debug\Mono.Android.xml
-C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Debug\ClimaApp.Pages.LoadingPage.xaml.g.cs
+C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Debug\ClimaApp.Pages.Base.NodesPage.xaml.g.cs
+C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Debug\ClimaApp.Pages.Base.ApplicationsPage.xaml.g.cs
+C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Debug\ClimaApp.Pages.Base.LoadingPage.xaml.g.cs
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Debug\ClimaApp.dll.mdb
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\bin\Debug\ClimaApp.dll.mdb
