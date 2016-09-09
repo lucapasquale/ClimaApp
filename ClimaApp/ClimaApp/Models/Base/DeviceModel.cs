@@ -3,26 +3,82 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-using System.Threading.Tasks;
 using RestSharp.Portable;
 using RestSharp.Portable.HttpClient;
 using RestSharp.Portable.Authenticators;
-using System.Collections.ObjectModel;
-using SQLite.Net.Attributes;
+using System.Threading.Tasks;
 
-namespace ClimaApp
+namespace ClimaApp.Models.Base
 {
-    public enum AppType {None = 0, Clima = 10, Silo = 30, Testes = 256, };
-
-    public class DeviceModel
+    public class DeviceModel<T> where T : RxModel, new()
     {
-        [PrimaryKey]
-        public string deveui { get; set; }
-        public string last_reception { get; set; }
-        public string appeui { get; set; }
-        public string comment { get; set; }
+        public LoRaModel lora { get; set; }
+        public List<T> dados { get; set; }
+        public T latest { get; protected set; }
 
-        public AppType tipo { get; set; }
-        public DateTime dataUltimoRx { get; set; }
+        public virtual async Task GetData()
+        {
+            var client = new RestClient();
+            client.BaseUrl = new Uri("https://artimar.orbiwise.com/rest/nodes/" + lora.deveui + "/payloads/ul");
+            client.Authenticator = new HttpBasicAuthenticator(StringResources.user, StringResources.pass);
+
+            var request = new RestRequest();
+            var result = await client.Execute<List<T>>(request);
+
+            var listaTemp = new List<T>();
+            foreach (T rx in result.Data)
+            {
+                //Grava o devEUI para guardar no database
+                rx.devEUI = lora.deveui;
+
+                //Pega o horario em DateTime
+                rx.horario = DateTime.Parse(rx.timeStamp);
+                TimeZoneInfo.ConvertTime(rx.horario, TimeZoneInfo.Local);
+
+                //Se o latest foi a menos de 24h = atrasado, se for a menos de 2h = online
+                lora.GetStatus();
+
+                //Passa de base64 para HEX e remove os '-' entre os bytes
+                byte[] data = Convert.FromBase64String(rx.dataFrame);
+                rx.dataFrame = BitConverter.ToString(data).Replace("-", string.Empty);
+
+                //Transforma de HEX para as variaveis de cada aplicação
+                rx.ParseDataFrame();
+
+                listaTemp.Add(rx);
+            }
+            dados = listaTemp.OrderByDescending(o => o.horario).ToList();
+        }
+
+        public virtual async Task GetLatest()
+        {
+            var client = new RestClient();
+            client.BaseUrl = new Uri("https://artimar.orbiwise.com/rest/nodes/" + lora.deveui + "/payloads/ul/latest");
+            client.Authenticator = new HttpBasicAuthenticator(StringResources.user, StringResources.pass);
+
+            var request = new RestRequest();
+            var result = await client.Execute<T>(request);
+
+            var rx = result.Data;
+            {
+                //Grava o devEUI para guardar no database
+                rx.devEUI = lora.deveui;
+
+                //Pega o horario em DateTime
+                rx.horario = DateTime.Parse(rx.timeStamp);
+                TimeZoneInfo.ConvertTime(rx.horario, TimeZoneInfo.Local);
+
+                //Se o latest foi a menos de 24h = atrasado, se for a menos de 2h = online
+                lora.GetStatus();
+
+                //Passa de base64 para HEX e remove os '-' entre os bytes
+                byte[] data = Convert.FromBase64String(rx.dataFrame);
+                rx.dataFrame = BitConverter.ToString(data).Replace("-", string.Empty);
+
+                //Transforma de HEX para as variaveis de cada aplicação
+                rx.ParseDataFrame();
+            }
+            latest = rx;
+        }
     }
 }

@@ -4,8 +4,12 @@
              x:Class="ClimaApp.Pages.DadosClimaPage">
 
   <StackLayout Orientation="Vertical" Padding="3">
-    <StackLayout x:Name="dataSL" Orientation="Horizontal" />    
+    <StackLayout x:Name="dataSL" Orientation="Horizontal">
+      <Button x:Name="leftButton" Text="Voltar" HorizontalOptions="Start" />
+      <DatePicker x:Name="dp" Format = "dd-MM-yyyy" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand"/>
+      <Button x:Name="rightButton" Text="Avançar" HorizontalOptions="End" />
+    </StackLayout>
     <ListView x:Name="nodesView" RowHeight="70" SeparatorColor="Black" IsPullToRefreshEnabled="True" Refreshing="nodesView_Refreshing"/>
   </StackLayout>
-  
+
 </ContentPage>

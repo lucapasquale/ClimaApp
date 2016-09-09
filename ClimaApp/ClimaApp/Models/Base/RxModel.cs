@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SQLite.Net.Attributes;
 
 namespace ClimaApp
 {
     public class RxModel
     {
+        [PrimaryKey]
         public long Id { get; set; }
         public string timeStamp { get; set; }
         public string dataFrame { get; set; }
@@ -19,6 +21,7 @@ namespace ClimaApp
         public bool decrypted { get; set; }
 
         public DateTime horario { get; set; }
+        public string devEUI { get; set; }
 
         public virtual void ParseDataFrame() { }
     }

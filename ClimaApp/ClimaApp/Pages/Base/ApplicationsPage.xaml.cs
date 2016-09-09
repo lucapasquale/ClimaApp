@@ -9,11 +9,11 @@ using Xamarin.Forms;
 
 namespace ClimaApp.Pages
 {
-    public partial class ApplicationsPage : ContentPage, INotifyPropertyChanged
+    public partial class ApplicationsPage : ContentPage
     {
         public ApplicationsPage()
         {
-            NavigationPage.SetHasNavigationBar(this, false);
+            NavigationPage.SetHasNavigationBar(this, true);
             InitializeComponent();
             labelTitulo.Text = "Total de nodes: " + new DevicesDb().GetModulos().Count.ToString();
         }
@@ -29,9 +29,9 @@ namespace ClimaApp.Pages
             await Navigation.PopModalAsync();
         }
 
-        private async void silos_clicked(object sender, EventArgs e)
+        private void silos_clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Clima.NodesClima());
+            
         }
 
         private async void atualizar_clicked(object sender, EventArgs e)

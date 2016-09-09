@@ -30,7 +30,6 @@ C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Debug\ClimaApp.Pa
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Debug\ClimaApp.Pages.Clima.DadosClimaPage.xaml.g.cs
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Debug\ClimaApp.Pages.Clima.NodesClima.xaml.g.cs
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\bin\Debug\SQLite.Net.Async.dll
-C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Debug\ClimaApp.csprojResolveAssemblyReference.cache
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\bin\Debug\Xamarin.iOS.dll
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\bin\Debug\System.dll
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\bin\Debug\System.Core.dll
@@ -42,5 +41,6 @@ C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\bin\Debug\Mono.Androi
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Debug\ClimaApp.Pages.Base.NodesPage.xaml.g.cs
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Debug\ClimaApp.Pages.Base.ApplicationsPage.xaml.g.cs
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Debug\ClimaApp.Pages.Base.LoadingPage.xaml.g.cs
+C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Debug\ClimaApp.csprojResolveAssemblyReference.cache
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Debug\ClimaApp.dll.mdb
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\bin\Debug\ClimaApp.dll.mdb

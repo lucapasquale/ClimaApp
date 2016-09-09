@@ -10,6 +10,7 @@ using OxyPlot.Xamarin.Forms;
 using OxyPlot.Axes;
 using OxyPlot.Series;
 using System.Diagnostics;
+using UIKit;
 
 namespace ClimaApp.Pages
 {
@@ -26,18 +27,31 @@ namespace ClimaApp.Pages
         public GraficosClimaPage()
         {
             ConfigureLayout();
+
+            ToolbarItems.Add(new ToolbarItem("Dados", "", async () =>
+            {
+                await Navigation.PushAsync(new DadosClimaPage());
+            }));
+
             AtualizarGraficos(dp.Date);
         }
 
         void ConfigureLayout()
         {
-            Title = DataResources.climaSelecionado.node.comment;
+            Title = DataResources.climaSelecionado.lora.comment;
 
             StackLayout screenLayout = new StackLayout() { Orientation = StackOrientation.Vertical, };
 
             StackLayout topLayout = new StackLayout() { Orientation = StackOrientation.Horizontal, };
             {
-                topLayout.Children.Add(new Label() { Text = "Data:", FontSize = 20, VerticalOptions = LayoutOptions.CenterAndExpand, });
+                //topLayout.Children.Add(new Label() { Text = "Data:", FontSize = 20, VerticalOptions = LayoutOptions.CenterAndExpand, });
+
+                Button leftButton = new Button() { Text = "Voltar" };
+                leftButton.Clicked += async (sender, e) =>
+                {
+                    await LeftButton_Clicked(sender, e);
+                };
+                topLayout.Children.Add(leftButton);
 
                 dp = new DatePicker()
                 {
@@ -50,9 +64,12 @@ namespace ClimaApp.Pages
                 dp.DateSelected += Dp_DateSelected;
                 topLayout.Children.Add(dp);
 
-                var button = new Button() { Text = "Ver todos dados", HorizontalOptions = LayoutOptions.End, };
-                button.Clicked += Button_Clicked;
-                topLayout.Children.Add(button);
+                Button rightButton = new Button() { Text = "Avançar" };
+                rightButton.Clicked += async (sender, e) =>
+                {
+                    await RightButton_Clicked(sender, e);
+                };
+                topLayout.Children.Add(rightButton);
             }
 
             Grid graphLayout = new Grid();
@@ -127,6 +144,36 @@ namespace ClimaApp.Pages
             Content = screenLayout;
         }
 
+        private async Task LeftButton_Clicked(object sender, EventArgs e)
+        {
+            if (dp.Date == dp.MinimumDate)
+            {
+                await DisplayAlert("ERRO", "Não existem dados mais antigos!", "OK");
+                (sender as Button).IsEnabled = false;
+            }
+            else
+            {
+                dp.Date = dp.Date.AddDays(-1);
+                AtualizarGraficos(dp.Date);
+                (sender as Button).IsEnabled = true;
+            }
+        }
+
+        private async Task RightButton_Clicked(object sender, EventArgs e)
+        {
+            if (dp.Date == dp.MaximumDate)
+            {
+                await DisplayAlert("ERRO", "Não existem dados mais novos!", "OK");
+                (sender as Button).IsEnabled = false;
+            }
+            else
+            {
+                dp.Date = dp.Date.AddDays(1);
+                AtualizarGraficos(dp.Date);
+                (sender as Button).IsEnabled = true;
+            }
+        }
+
         void AtualizarGraficos(DateTime dia)
         {
             var temp = new List<ClimaRxModel>();
@@ -152,11 +199,6 @@ namespace ClimaApp.Pages
                 pView.Model.Axes[1].Reset();
                 pView.Model.InvalidatePlot(true);
             }
-        }
-
-        private async void Button_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new DadosClimaPage());
         }
 
         private void Dp_DateSelected(object sender, DateChangedEventArgs e)

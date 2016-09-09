@@ -16,12 +16,12 @@ namespace ClimaApp.Pages.Cells
             StackLayout titleSL = new StackLayout() { Orientation = StackOrientation.Horizontal };
             {
                 Label titleLabel = new Label() { FontSize = 20, HorizontalOptions = LayoutOptions.StartAndExpand, FontAttributes = FontAttributes.Bold };
-                titleLabel.SetBinding(Label.TextProperty, "node.comment");
+                titleLabel.SetBinding(Label.TextProperty, "lora.comment");
                 titleSL.Children.Add(titleLabel);
 
-                Label statusLabel = new Label();
-                statusLabel.SetBinding(Label.TextProperty, "status");
-                statusLabel.SetBinding(Label.TextColorProperty, new Binding(path: "status", converter: new StatusConverter()));
+                Label statusLabel = new Label() { VerticalOptions = LayoutOptions.EndAndExpand};
+                statusLabel.SetBinding(Label.TextProperty, "lora.status");
+                statusLabel.SetBinding(Label.TextColorProperty, new Binding(path: "lora.status", converter: new StatusConverter()));
                 titleSL.Children.Add(statusLabel);
             }
             screenSL.Children.Add(titleSL);

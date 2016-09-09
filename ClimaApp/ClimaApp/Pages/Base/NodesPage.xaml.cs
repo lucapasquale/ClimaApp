@@ -42,7 +42,7 @@ namespace ClimaApp.Pages
             switch (selected.tipo)
             {
                 case AppType.Clima:
-                    DataResources.climaSelecionado.node = selected;
+                    DataResources.climaSelecionado.lora = selected;
                     await DataResources.climaSelecionado.GetData();
                     await Navigation.PushAsync(new GraficosClimaPage());
                     break;
