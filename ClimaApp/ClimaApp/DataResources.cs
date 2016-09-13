@@ -38,7 +38,7 @@ namespace ClimaApp
             {
                 await loraNode.GetTipo();
 
-                //Se não existe no database insere, se existe atualiza
+                //Se não existe LoRa node no database inserir, se existe atualizar
                 if (db.GetModulo(loraNode.deveui) == null)
                     db.InserirModulo(loraNode);
                 else

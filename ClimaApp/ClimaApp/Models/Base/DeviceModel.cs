@@ -59,8 +59,15 @@ namespace ClimaApp.Models.Base
             var request = new RestRequest();
             var result = await client.Execute<T>(request);
 
-            var rx = result.Data;
+            if (string.IsNullOrEmpty(result.Content))
             {
+                latest = null;
+                return;
+            }
+            else
+            {
+                var rx = result.Data;
+
                 //Grava o devEUI para guardar no database
                 rx.devEUI = lora.deveui;
 
@@ -77,8 +84,10 @@ namespace ClimaApp.Models.Base
 
                 //Transforma de HEX para as variaveis de cada aplicação
                 rx.ParseDataFrame();
+
+                latest = rx;
             }
-            latest = rx;
+
         }
     }
 }

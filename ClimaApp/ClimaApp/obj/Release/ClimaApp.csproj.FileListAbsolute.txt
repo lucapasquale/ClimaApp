@@ -41,6 +41,7 @@ C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\bin\Release\Mono.Andr
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Release\ClimaApp.Pages.Base.NodesPage.xaml.g.cs
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Release\ClimaApp.Pages.Base.ApplicationsPage.xaml.g.cs
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Release\ClimaApp.Pages.Base.LoadingPage.xaml.g.cs
+C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Release\ClimaApp.csprojResolveAssemblyReference.cache
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Release\ClimaApp.dll.mdb
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\bin\Release\ClimaApp.dll.mdb
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Release\ClimaApp.dll.mdb

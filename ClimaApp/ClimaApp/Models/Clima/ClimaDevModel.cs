@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace ClimaApp
 {
@@ -22,6 +23,13 @@ namespace ClimaApp
         public override async Task GetLatest()
         {
             await base.GetLatest();
+
+            if (latest == null)
+            {
+                var db = new Common.Database.ClimaDb();
+                if (db.GetDadosDevice(lora.deveui).Count > 0)
+                    latest = db.GetDadosDevice(lora.deveui)[0];
+            }
         }
     }
 }

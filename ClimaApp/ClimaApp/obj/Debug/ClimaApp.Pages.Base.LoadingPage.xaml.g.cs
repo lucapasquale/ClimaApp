@@ -17,8 +17,20 @@ namespace ClimaApp.Pages {
     public partial class LoadingPage : global::Xamarin.Forms.ContentPage {
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Label label2;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Label label3;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Label label4;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
             this.LoadFromXaml(typeof(LoadingPage));
+            label2 = this.FindByName<global::Xamarin.Forms.Label>("label2");
+            label3 = this.FindByName<global::Xamarin.Forms.Label>("label3");
+            label4 = this.FindByName<global::Xamarin.Forms.Label>("label4");
         }
     }
 }
