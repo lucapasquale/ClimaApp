@@ -9,13 +9,23 @@ using Xamarin.Forms;
 
 namespace ClimaApp.Common.Database
 {
-    class ClimaDb : DadosBaseDb<ClimaRxModel>, IDisposable
+    class ClimaDb : BaseRxDb<ClimaRxModel>, IDisposable
     {
         public ClimaDb()
         {
             var config = DependencyService.Get<IConfig>();
             conexaoSQLite = new SQLiteConnection(config.plataforma, Path.Combine(config.diretorioSQLite, StringResources.user + "-clima.db3"));
             conexaoSQLite.CreateTable<ClimaRxModel>();
+        }
+    }
+
+    class SiloDb : BaseRxDb<SiloRxModel>, IDisposable
+    {
+        public SiloDb()
+        {
+            var config = DependencyService.Get<IConfig>();
+            conexaoSQLite = new SQLiteConnection(config.plataforma, Path.Combine(config.diretorioSQLite, StringResources.user + "-silo.db3"));
+            conexaoSQLite.CreateTable<SiloRxModel>();
         }
     }
 }

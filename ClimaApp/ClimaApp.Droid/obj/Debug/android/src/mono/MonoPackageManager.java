@@ -120,16 +120,15 @@ class MonoPackageManager_Resources {
 		"Xamarin.Forms.Platform.Android.dll",
 		"Xamarin.Forms.Platform.dll",
 		"Xamarin.Forms.Xaml.dll",
-		"Java.Interop.dll",
 		"System.Runtime.dll",
 		"System.Resources.ResourceManager.dll",
 		"System.Diagnostics.Debug.dll",
 		"System.Threading.Tasks.dll",
 		"System.Collections.dll",
 		"System.Linq.Expressions.dll",
-		"System.ObjectModel.dll",
 		"System.Globalization.dll",
 		"System.Diagnostics.Tools.dll",
+		"System.ObjectModel.dll",
 		"System.Runtime.Extensions.dll",
 		"System.Linq.dll",
 		"System.Reflection.dll",
@@ -148,7 +147,6 @@ class MonoPackageManager_Resources {
 		"System.Dynamic.Runtime.dll",
 		"System.Collections.Concurrent.dll",
 		"System.Runtime.InteropServices.dll",
-		"System.ServiceModel.Internals.dll",
 	};
 	public static final String[] Dependencies = new String[]{
 	};

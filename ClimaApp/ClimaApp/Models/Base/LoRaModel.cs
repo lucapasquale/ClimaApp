@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace ClimaApp
 {
     public enum AppType { None = 0, Clima = 10, Silo = 30, Testes = 256, };
-    public enum NodeStatus { OFFLINE, ATRASADO, ONLINE }
+    public enum NodeStatus { Offline, Atrasado, Online }
 
     public class LoRaModel
     {
@@ -23,46 +23,40 @@ namespace ClimaApp
 
         public DateTime horaUltimoRx { get; private set; }
         public AppType tipo { get; private set; } = AppType.None;
-        public NodeStatus status { get; set; } = NodeStatus.OFFLINE;
+        public NodeStatus status { get; set; } = NodeStatus.Offline;
+        public TimeSpan txInterval { get; set; }
 
-        public async Task GetTipo()
+
+        public void GetTipo()
         {
-            //var client = new RestClient();
-            //client.BaseUrl = new Uri("https://artimar.orbiwise.com/rest/nodes/" + deveui + "/payloads/ul/latest");
-            //client.Authenticator = new HttpBasicAuthenticator(StringResources.user, StringResources.pass);
-
-            //var request = new RestRequest();
-            //var result = await client.Execute<RxModel>(request);
-
-            //if (!string.IsNullOrEmpty(result.Content))
-            //{
-            //    //Passa horario para hora local
-            //    horaUltimoRx = DateTime.Parse(last_reception);
-            //    TimeZoneInfo.ConvertTime(horaUltimoRx, TimeZoneInfo.Local);
-
-            //    //Checa se o node parou de receber ou se está offline
-            //    GetStatus();
-
-            //    //Muda o tipo de Application dependendo do port recebido
-            //    switch (result.Data.port)
-            //    {
-            //        case (int)AppType.Clima: tipo = AppType.Clima; break;   //Port = 10
-            //        case (int)AppType.Silo: tipo = AppType.Silo; break;     //Port = 30
-            //        default: tipo = AppType.Testes; break;
-            //    }
-            //}
+            horaUltimoRx = DateTime.Parse(last_reception);
+            TimeZoneInfo.ConvertTime(horaUltimoRx, TimeZoneInfo.Local);
 
             if (comment.Contains("Balizador"))
+            {
                 tipo = AppType.Clima;
+                txInterval = new TimeSpan(0, 0, 15, 0);
+            }
+
+            if (comment.Contains("Silo"))
+            {
+                tipo = AppType.Silo;
+                txInterval = new TimeSpan(0, 0, 30, 0);
+            }
+
+            GetStatus();  
         }
 
         public void GetStatus()
         {
-            if (horaUltimoRx.AddHours(2) > DateTime.Now)
-                status = NodeStatus.ATRASADO;
+            double minutesFromLatest = DateTime.Now.Subtract(horaUltimoRx).TotalMinutes;
+            status = NodeStatus.Offline;
 
-            if (horaUltimoRx.AddMinutes(50) > DateTime.Now)
-                status = NodeStatus.ONLINE;
+            if (minutesFromLatest < txInterval.TotalMinutes * 10)
+                status = NodeStatus.Atrasado;
+
+            if (minutesFromLatest < txInterval.TotalMinutes * 2.5)
+                status = NodeStatus.Online;
         }
     }
 }

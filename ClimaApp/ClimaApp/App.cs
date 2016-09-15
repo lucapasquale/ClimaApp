@@ -28,7 +28,7 @@ namespace ClimaApp
             else
             {
                 DataResources.allNodes = db.GetModulos();
-                DataResources.SepararTipo();
+                DataResources.SepararApplications();
                 Debug.WriteLine("Database carregado");
             }
 

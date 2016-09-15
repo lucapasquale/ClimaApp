@@ -15,11 +15,11 @@ namespace ClimaApp
             var status = (NodeStatus)value;
             switch (status)
             {
-                case NodeStatus.ONLINE:
+                case NodeStatus.Online:
                     return Color.Green;
-                case NodeStatus.ATRASADO:
+                case NodeStatus.Atrasado:
                     return Color.FromHex("#FFA500");
-                case NodeStatus.OFFLINE:
+                case NodeStatus.Offline:
                     return Color.Red;
             }
 

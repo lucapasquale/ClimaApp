@@ -11,44 +11,33 @@ using System.Collections.ObjectModel;
 
 namespace ClimaApp
 {
-    public class SiloDevModel
+    public class SiloDevModel : Models.Base.DeviceModel<SiloRxModel>
     {
-        public LoRaModel node = new LoRaModel();
-        public ObservableCollection<SiloRxModel> dados = new ObservableCollection<SiloRxModel>();
-        public SiloRxModel latest = new SiloRxModel();
-
-
-        public async Task PegarDados(string _devEUI)
+        public override async Task GetData()
         {
-            var client = new RestClient();
-            client.BaseUrl = new Uri("https://artimar.orbiwise.com/rest/nodes/" + _devEUI + "/payloads/ul");
-            client.Authenticator = new HttpBasicAuthenticator(StringResources.user, StringResources.pass);
+            await base.GetData();
 
-            var request = new RestRequest();
-            var result = await client.Execute<List<SiloRxModel>>(request);
-
-            var listaTemp = new ObservableCollection<SiloRxModel>[8];
-            bool[] siloInstanciado = new bool[8];
-            foreach (SiloRxModel rx in result.Data)
+            //Se não existe no database insere, se existe atualiza
+            var db = new Common.Database.SiloDb();
+            foreach (SiloRxModel rx in dados)
             {
-                //Pega o horario em DateTime
-                rx.horario = DateTime.Parse(rx.timeStamp);
-                TimeZoneInfo.ConvertTime(rx.horario, TimeZoneInfo.Local);
-
-                //Passa de base64 para HEX e remove os '-' entre os bytes
-                byte[] data = Convert.FromBase64String(rx.dataFrame);
-                rx.dataFrame = BitConverter.ToString(data).Replace("-", string.Empty);
-
-                //Transforma de HEX para as variaveis de cada aplicação
-                rx.ParseDataFrame();
+                if (db.GetDado(rx.Id) == null)
+                    db.InserirDado(rx);
+                else
+                    db.AtualizarDado(rx);
             }
+        }
 
-            for (int i = 0; i < listaTemp.Length; i++)
+        public override async Task GetLatest()
+        {
+            await base.GetLatest();
+
+            if (latest == null)
             {
-                if (listaTemp[i].Count > 0)
-                {
-                    listaTemp[i] = new ObservableCollection<SiloRxModel>(listaTemp[i].OrderByDescending(o => o.horario));
-                }
+                //Se não existe dados no servidor, tentar pegar o ultimo do DB
+                var db = new Common.Database.SiloDb();
+                if (db.GetDadosDevice(lora.deveui).Count > 0)
+                    latest = db.GetDadosDevice(lora.deveui)[0];
             }
         }
     }

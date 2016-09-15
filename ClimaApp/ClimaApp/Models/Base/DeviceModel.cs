@@ -35,7 +35,7 @@ namespace ClimaApp.Models.Base
                 rx.horario = DateTime.Parse(rx.timeStamp);
                 TimeZoneInfo.ConvertTime(rx.horario, TimeZoneInfo.Local);
 
-                //Se o latest foi a menos de 24h = atrasado, se for a menos de 2h = online
+                //Se o node esta online, atrasado ou offline
                 lora.GetStatus();
 
                 //Passa de base64 para HEX e remove os '-' entre os bytes
@@ -75,7 +75,7 @@ namespace ClimaApp.Models.Base
                 rx.horario = DateTime.Parse(rx.timeStamp);
                 TimeZoneInfo.ConvertTime(rx.horario, TimeZoneInfo.Local);
 
-                //Se o latest foi a menos de 24h = atrasado, se for a menos de 2h = online
+                //Se o node esta online, atrasado ou offline
                 lora.GetStatus();
 
                 //Passa de base64 para HEX e remove os '-' entre os bytes

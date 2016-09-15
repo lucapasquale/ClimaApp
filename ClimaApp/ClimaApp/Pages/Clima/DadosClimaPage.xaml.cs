@@ -12,17 +12,17 @@ namespace ClimaApp.Pages
     public partial class DadosClimaPage : ContentPage
     {
         ObservableCollection<ClimaRxModel> dados = new ObservableCollection<ClimaRxModel>();
-        int curPage, lastPage, pageSize = 50;
+        int selectedIndex = DataResources.selectedIndex;
 
         public DadosClimaPage()
         {
             InitializeComponent();
-            Title = "Dados " + DataResources.climaSelecionado.lora.comment;
+            Title = "Dados " + DataResources.climaNodes[selectedIndex].lora.comment;
             nodesView.ItemTemplate = new DataTemplate(typeof(Cells.ClimaCell));
             nodesView.ItemsSource = dados;
 
-            dp.MinimumDate = DataResources.climaSelecionado.dados.Min(o => o.horario);
-            dp.MaximumDate = DataResources.climaSelecionado.dados.Max(o => o.horario);
+            dp.MinimumDate = DataResources.climaNodes[selectedIndex].dados.Min(o => o.horario);
+            dp.MaximumDate = DataResources.climaNodes[selectedIndex].dados.Max(o => o.horario);
             dp.Date = dp.MaximumDate;
 
             leftButton.Clicked += async (sender, e) =>
@@ -41,9 +41,9 @@ namespace ClimaApp.Pages
         {
             dados.Clear();
 
-            for (int i = 0; i < DataResources.climaSelecionado.dados.Count; i++)
-                if (DataResources.climaSelecionado.dados[i].horario.Date == dp.Date)
-                    dados.Add(DataResources.climaSelecionado.dados[i]);
+            for (int i = 0; i < DataResources.climaNodes[selectedIndex].dados.Count; i++)
+                if (DataResources.climaNodes[selectedIndex].dados[i].horario.Date == dp.Date)
+                    dados.Add(DataResources.climaNodes[selectedIndex].dados[i]);
         }
 
         private async Task LeftButton_Clicked(object sender, EventArgs e)
@@ -78,12 +78,12 @@ namespace ClimaApp.Pages
 
         private async void nodesView_Refreshing(object sender, EventArgs e)
         {
-            await DataResources.climaSelecionado.GetData();
+            await DataResources.climaNodes[selectedIndex].GetData();
 
             leftButton.IsEnabled = true;
             rightButton.IsEnabled = true;
 
-            dp.MaximumDate = DataResources.climaSelecionado.dados.Max(o => o.horario);
+            dp.MaximumDate = DataResources.climaNodes[selectedIndex].dados.Max(o => o.horario);
 
             nodesView.IsRefreshing = false;
         }

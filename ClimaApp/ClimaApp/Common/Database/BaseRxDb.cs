@@ -9,7 +9,7 @@ using Xamarin.Forms;
 
 namespace ClimaApp.Common.Database
 {
-    public abstract class DadosBaseDb<T> : IDisposable
+    public abstract class BaseRxDb<T> : IDisposable
         where T : RxModel, new()
     {
         protected SQLiteConnection conexaoSQLite;

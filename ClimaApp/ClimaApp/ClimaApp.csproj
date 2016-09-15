@@ -36,8 +36,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
-    <Compile Include="Common\Database\DadosBaseDb.cs" />
-    <Compile Include="Common\Database\ClimaDb.cs" />
+    <Compile Include="Common\Database\BaseRxDb.cs" />
+    <Compile Include="Common\Database\DadosDb.cs" />
     <Compile Include="Common\Database\DevicesDb.cs" />
     <Compile Include="DataResources.cs" />
     <Compile Include="Common\Other\IConfig.cs" />

@@ -13,6 +13,7 @@ namespace ClimaApp.Pages
     public partial class NodesPage : ContentPage
     {
         DevicesDb db = new DevicesDb();
+        int selectedIndex = DataResources.selectedIndex;
 
         public NodesPage()
         {
@@ -42,8 +43,8 @@ namespace ClimaApp.Pages
             switch (selected.tipo)
             {
                 case AppType.Clima:
-                    DataResources.climaSelecionado.lora = selected;
-                    await DataResources.climaSelecionado.GetData();
+                    DataResources.climaNodes[selectedIndex].lora = selected;
+                    await DataResources.climaNodes[selectedIndex].GetData();
                     await Navigation.PushAsync(new GraficosClimaPage());
                     break;
 

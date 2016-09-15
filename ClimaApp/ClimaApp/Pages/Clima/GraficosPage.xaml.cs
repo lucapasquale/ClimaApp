@@ -23,6 +23,7 @@ namespace ClimaApp.Pages
 
         DatePicker dp;
         const int graphSize = 300;
+        int selectedIndex = DataResources.selectedIndex;
 
         public GraficosClimaPage()
         {
@@ -38,7 +39,7 @@ namespace ClimaApp.Pages
 
         void ConfigureLayout()
         {
-            Title = DataResources.climaSelecionado.lora.comment;
+            Title = DataResources.climaNodes[selectedIndex].lora.comment;
 
             StackLayout screenLayout = new StackLayout() { Orientation = StackOrientation.Vertical, };
 
@@ -57,8 +58,8 @@ namespace ClimaApp.Pages
                 {
                     Format = "dd-MM-yyyy",
                     HorizontalOptions = LayoutOptions.FillAndExpand,
-                    MinimumDate = DataResources.climaSelecionado.dados.Min(o => o.horario),
-                    MaximumDate = DataResources.climaSelecionado.dados.Max(o => o.horario),
+                    MinimumDate = DataResources.climaNodes[selectedIndex].dados.Min(o => o.horario),
+                    MaximumDate = DataResources.climaNodes[selectedIndex].dados.Max(o => o.horario),
                 };
                 dp.Date = dp.MaximumDate;
                 dp.DateSelected += Dp_DateSelected;
@@ -178,9 +179,9 @@ namespace ClimaApp.Pages
         {
             var temp = new List<ClimaRxModel>();
 
-            for (int i = 0; i < DataResources.climaSelecionado.dados.Count; i++)
-                if (DataResources.climaSelecionado.dados[i].horario.Date == dia)
-                    temp.Add(DataResources.climaSelecionado.dados[i]);
+            for (int i = 0; i < DataResources.climaNodes[selectedIndex].dados.Count; i++)
+                if (DataResources.climaNodes[selectedIndex].dados[i].horario.Date == dia)
+                    temp.Add(DataResources.climaNodes[selectedIndex].dados[i]);
 
             tempSeries.Points.Clear();
             umidSeries.Points.Clear();

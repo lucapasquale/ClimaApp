@@ -33,33 +33,34 @@ namespace ClimaApp.Pages.Clima
 
             await Navigation.PushModalAsync(new LoadingPage("Carregando gráficos"));
             {
-                var db = new Common.Database.ClimaDb();
-                DataResources.climaSelecionado = e.SelectedItem as ClimaDevModel;
+                DataResources.selectedIndex = DataResources.climaNodes.FindIndex(a => a == e.SelectedItem as ClimaDevModel);
+                var selectedIndex = DataResources.selectedIndex;
 
+                var db = new Common.Database.ClimaDb();
                 //Server está vazio
-                if (DataResources.climaSelecionado.latest == null)
+                if (DataResources.climaNodes[selectedIndex].latest == null)
                 {
                     //Database também vazio
-                    if (db.GetDadosDevice(DataResources.climaSelecionado.lora.deveui).Count == 0)
+                    if (db.GetDadosDevice(DataResources.climaNodes[selectedIndex].lora.deveui).Count == 0)
                     {
                         await DisplayAlert("ERRO", "Não existem dados no servidor nem no banco de dados!", "OK");
                         await Navigation.PopModalAsync();
                         return;
                     }
                     else
-                        DataResources.climaSelecionado.dados = db.GetDadosDevice(DataResources.climaSelecionado.lora.deveui);
+                        DataResources.climaNodes[selectedIndex].dados = db.GetDadosDevice(DataResources.climaNodes[selectedIndex].lora.deveui);
                 }
                 else
                 {
                     //Se o latest não existe no db, pegar dados do servidor. Se existe pegar do db
-                    if (db.GetDadoHora(DataResources.climaSelecionado.latest.horario) == null)
+                    if (db.GetDadoHora(DataResources.climaNodes[selectedIndex].latest.horario) == null)
                     {
-                        await DataResources.climaSelecionado.GetData();
+                        await DataResources.climaNodes[selectedIndex].GetData();
                         Debug.WriteLine("É preciso atualizar dados, pegando do servidor");
                     }
                     else
                     {
-                        DataResources.climaSelecionado.dados = db.GetDadosDevice(DataResources.climaSelecionado.lora.deveui);
+                        DataResources.climaNodes[selectedIndex].dados = db.GetDadosDevice(DataResources.climaNodes[selectedIndex].lora.deveui);
                         Debug.WriteLine("Dados já atualizados, pegando do database");
                     }
                 }

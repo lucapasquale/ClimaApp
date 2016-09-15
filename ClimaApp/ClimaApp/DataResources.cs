@@ -14,11 +14,10 @@ namespace ClimaApp
     public static class DataResources
     {
         public static List<LoRaModel> allNodes = new List<LoRaModel>();
+        public static int selectedIndex;
 
         public static List<ClimaDevModel> climaNodes = new List<ClimaDevModel>();
-        public static ClimaDevModel climaSelecionado = new ClimaDevModel();
-
-        public static ObservableCollection<SiloDevModel> siloNodes = new ObservableCollection<SiloDevModel>();
+        public static List<SiloDevModel> siloNodes = new List<SiloDevModel>();
 
 
         public static async Task GetNodes()
@@ -36,7 +35,7 @@ namespace ClimaApp
 
             foreach (LoRaModel loraNode in listaTemp)
             {
-                await loraNode.GetTipo();
+                loraNode.GetTipo();
 
                 //Se não existe LoRa node no database inserir, se existe atualizar
                 if (db.GetModulo(loraNode.deveui) == null)
@@ -45,10 +44,10 @@ namespace ClimaApp
                     db.AtualizarModulo(loraNode);
             }
             allNodes = new List<LoRaModel>(listaTemp.OrderByDescending(o => o.comment).ToList());
-            SepararTipo();
+            SepararApplications();
         }
 
-        public static void SepararTipo()
+        public static void SepararApplications()
         {
             climaNodes.Clear();
             siloNodes.Clear();
@@ -58,7 +57,7 @@ namespace ClimaApp
                 switch (loraNode.tipo)
                 {
                     case AppType.Clima: climaNodes.Add(new ClimaDevModel() { lora = loraNode }); break;
-                    case AppType.Silo: siloNodes.Add(new SiloDevModel() { node = loraNode }); break;
+                    case AppType.Silo: siloNodes.Add(new SiloDevModel() { lora = loraNode }); break;
                     default: break;
                 }
             }
