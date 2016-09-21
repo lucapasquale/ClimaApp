@@ -20,7 +20,7 @@ namespace ClimaApp.Models.Base
         {
             var client = new RestClient();
             client.BaseUrl = new Uri("https://artimar.orbiwise.com/rest/nodes/" + lora.deveui + "/payloads/ul");
-            client.Authenticator = new HttpBasicAuthenticator(StringResources.user, StringResources.pass);
+            client.Authenticator = StringResources.auth;
 
             var request = new RestRequest();
             var result = await client.Execute<List<T>>(request);
@@ -47,14 +47,15 @@ namespace ClimaApp.Models.Base
 
                 listaTemp.Add(rx);
             }
-            dados = listaTemp.OrderByDescending(o => o.horario).ToList();
+            dados = listaTemp.OrderByDescending(o => o.horario).ToList();      
+            latest = dados.Count > 0 ? dados[0] : null;
         }
 
         public virtual async Task GetLatest()
         {
             var client = new RestClient();
             client.BaseUrl = new Uri("https://artimar.orbiwise.com/rest/nodes/" + lora.deveui + "/payloads/ul/latest");
-            client.Authenticator = new HttpBasicAuthenticator(StringResources.user, StringResources.pass);
+            client.Authenticator = StringResources.auth;
 
             var request = new RestRequest();
             var result = await client.Execute<T>(request);

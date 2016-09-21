@@ -33,10 +33,10 @@ C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\obj\Debug\andro
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\obj\Debug\android\assets\System.Runtime.dll
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\obj\Debug\android\assets\System.ComponentModel.Composition.dll
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\obj\Debug\android\assets\System.Resources.ResourceManager.dll
-C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\obj\Debug\android\assets\System.Diagnostics.Debug.dll
-C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\obj\Debug\android\assets\System.Threading.Tasks.dll
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\obj\Debug\android\assets\System.Collections.dll
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\obj\Debug\android\assets\System.Linq.Expressions.dll
+C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\obj\Debug\android\assets\System.Diagnostics.Debug.dll
+C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\obj\Debug\android\assets\System.Threading.Tasks.dll
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\obj\Debug\android\assets\System.Globalization.dll
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\obj\Debug\android\assets\System.Diagnostics.Tools.dll
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp.Droid\obj\Debug\android\assets\System.ObjectModel.dll

@@ -13,9 +13,18 @@ namespace ClimaApp.Pages
     {
         public ApplicationsPage()
         {
-            NavigationPage.SetHasNavigationBar(this, true);
+            NavigationPage.SetHasBackButton(this, false);
             InitializeComponent();
-            labelTitulo.Text = "Total de nodes: " + new DevicesDb().GetModulos().Count.ToString();
+            labelTitulo.Text = string.Format("Nodes usados: {0} / {1}", 
+                (DataResources.allNodes.Count - DataResources.unnusedNodes), DataResources.allNodes.Count);
+
+            ToolbarItems.Add(new ToolbarItem("Logoff", "", async () =>
+            {
+                StringResources.auth = null;
+                StringResources.user = "";
+                DataResources.ClearData();
+                await Navigation.PopAsync();
+            }));
         }
 
         private async void clima_clicked(object sender, EventArgs e)
@@ -38,9 +47,21 @@ namespace ClimaApp.Pages
         {
             await Navigation.PushModalAsync(new LoadingPage("Atualizando todos os módulos"));
             {
-                await DataResources.GetNodes();
+                try
+                {
+                    await DataResources.GetNodes();
+                }
+                catch (System.Net.Http.HttpRequestException error)
+                {
+                    await DisplayAlert("Erro", error.Message, "OK");
+                }
             }
             await Navigation.PopModalAsync();
+        }
+
+        protected override bool OnBackButtonPressed()
+        {
+            return true;
         }
     }
 }

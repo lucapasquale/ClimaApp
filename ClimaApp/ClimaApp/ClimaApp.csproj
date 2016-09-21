@@ -39,10 +39,14 @@
     <Compile Include="Common\Database\BaseRxDb.cs" />
     <Compile Include="Common\Database\DadosDb.cs" />
     <Compile Include="Common\Database\DevicesDb.cs" />
-    <Compile Include="DataResources.cs" />
+    <Compile Include="Common\DataResources.cs" />
     <Compile Include="Common\Other\IConfig.cs" />
     <Compile Include="Common\Other\StatusConverter.cs" />
-    <Compile Include="StringResources.cs" />
+    <Compile Include="Models\Silo\ApplicationSilo.cs" />
+    <Compile Include="Pages\Base\LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Common\StringResources.cs" />
     <Compile Include="Models\Base\DeviceModel.cs" />
     <Compile Include="Models\Base\LoRaModel.cs" />
     <Compile Include="Models\Clima\ClimaDevModel.cs" />
@@ -165,6 +169,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Pages\Base\LoadingPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\Base\LoginPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClimaApp
+namespace ClimaApp.Models.Silo
 {
-    public class SiloRxModel : RxModel
+    public class SiloRX : RxModel
     {
         public int nCabos { get; private set; }
 
@@ -17,7 +17,8 @@ namespace ClimaApp
         
         public int[][] tempCabo { get; private set; }
 
-       
+        public float alturaEstimada { get; private set; }
+
         public override void ParseDataFrame()
         {
             /* dataFrame = aaaa xxxx + BBBB + CCCC + DDDD + (aaaa) * (EFGHIJKL) 
@@ -51,7 +52,28 @@ namespace ClimaApp
                     tempCabo[i][j] = int.Parse(dataFrame.Substring(posCabo + j * 2, 2), NumberStyles.HexNumber);
                 }
             }
+
+            GetAltura();
         }
 
+        void GetAltura()
+        {
+            float[] alturas = new float[nCabos];
+            for (int i = 0; i < nCabos; i++)
+            {
+                float maxDif = 0;
+                for (int j = 0; j < 8 - 1; j++)
+                {
+                    float dif = tempCabo[i][j] - tempCabo[i][j + 1];
+                    if (dif > maxDif)
+                    {
+                        alturas[i] = j + 0.5f;
+                        maxDif = dif;
+                    }
+                }
+            }
+
+            alturaEstimada = alturas.Average();
+        }
     }
 }

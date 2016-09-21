@@ -12,27 +12,13 @@ namespace ClimaApp
     {
         public App()
         {
-            // The root page of your application           
+            // The root page of your application  
+            MainPage = GetMainPage();
         }
 
-        protected async override void OnStart()
+        protected override void OnStart()
         {
-            DevicesDb db = new DevicesDb();
-
-            //Se o database está vazio => criar um e pegar so nodes
-            if (db.GetModulos().Count == 0)
-            {
-                await DataResources.GetNodes();
-                Debug.WriteLine("Nodes request" + db.GetModulos().Count.ToString());
-            }
-            else
-            {
-                DataResources.allNodes = db.GetModulos();
-                DataResources.SepararApplications();
-                Debug.WriteLine("Database carregado");
-            }
-
-            MainPage = GetMainPage();
+    
         }
 
         protected override void OnSleep()
@@ -47,7 +33,7 @@ namespace ClimaApp
 
         public static Page GetMainPage()
         {
-            return new NavigationPage(new Pages.ApplicationsPage());
+            return new NavigationPage(new Pages.Base.LoginPage());
         }
     }
 }

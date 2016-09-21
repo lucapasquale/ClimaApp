@@ -9,9 +9,9 @@ using RestSharp.Portable.Authenticators;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 
-namespace ClimaApp
+namespace ClimaApp.Models.Silo
 {
-    public class SiloDevModel : Models.Base.DeviceModel<SiloRxModel>
+    public class SiloDevice : Base.DeviceModel<SiloRX>
     {
         public override async Task GetData()
         {
@@ -19,7 +19,7 @@ namespace ClimaApp
 
             //Se não existe no database insere, se existe atualiza
             var db = new Common.Database.SiloDb();
-            foreach (SiloRxModel rx in dados)
+            foreach (SiloRX rx in dados)
             {
                 if (db.GetDado(rx.Id) == null)
                     db.InserirDado(rx);
