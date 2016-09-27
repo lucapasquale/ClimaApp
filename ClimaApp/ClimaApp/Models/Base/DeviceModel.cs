@@ -15,15 +15,17 @@ namespace ClimaApp
     {
         public LoRaModel lora { get; set; }
         public List<T> dados { get; set; }
-        public T latest { get; protected set; }
+        public T latest { get; set; }
 
         public virtual async Task GetData()
         {
             var client = new RestClient();
-            client.BaseUrl = new Uri("https://artimar.orbiwise.com/rest/nodes/" + lora.deveui + "/payloads/ul");
+            client.BaseUrl = new Uri("https://artimar.orbiwise.com/rest");
             client.Authenticator = StringResources.auth;
 
-            var request = new RestRequest();
+            var request = new RestRequest("nodes/{devEUI}/payloads/ul");
+            request.AddUrlSegment("devEUI", lora.deveui);
+
             var result = await client.Execute<List<T>>(request);
 
             var listaTemp = new List<T>();
@@ -50,15 +52,18 @@ namespace ClimaApp
             }
             dados = listaTemp.OrderByDescending(o => o.horario).ToList();
             latest = dados.Count > 0 ? dados[0] : null;
+            Debug.WriteLine("Dados pegos");
         }
 
         public virtual async Task GetLatest()
         {
             var client = new RestClient();
-            client.BaseUrl = new Uri("https://artimar.orbiwise.com/rest/nodes/" + lora.deveui + "/payloads/ul/latest");
+            client.BaseUrl = new Uri("https://artimar.orbiwise.com/rest");
             client.Authenticator = StringResources.auth;
 
-            var request = new RestRequest();
+            var request = new RestRequest("nodes/{devEUI}/payloads/ul/latest");
+            request.AddUrlSegment("devEUI", lora.deveui);
+
             var result = await client.Execute<T>(request);
 
             if (string.IsNullOrEmpty(result.Content))
@@ -92,26 +97,20 @@ namespace ClimaApp
 
         }
 
-        public virtual async Task SendData(string _data, int _port = 30)
+        public virtual async Task SendData(byte[] _data)
         {
-            byte[] dataBytes = Encoding.UTF8.GetBytes(_data);
-            string data = Convert.ToBase64String(dataBytes);
+            string dataB64 = Convert.ToBase64String(_data);
+            byte[] dataBytesB64 = Encoding.UTF8.GetBytes(dataB64);
 
             var client = new RestClient();
-            string url = string.Format("https://artimar.orbiwise.com/rest/nodes/{0}/payloads/dl?port={1}", lora.deveui, _port);
-            client.BaseUrl = new Uri(url);
+            client.BaseUrl = new Uri("https://artimar.orbiwise.com/rest");
             client.Authenticator = StringResources.auth;
 
-            var request = new RestRequest(Method.POST);
-            request.AddParameter("text/plain", /*data*/ string.Empty, ParameterType.RequestBody);
+            var request = new RestRequest("nodes/{devEUI}/payloads/dl?port={port}", Method.POST);
+            request.AddUrlSegment("devEUI", lora.deveui);
+            request.AddUrlSegment("port", (int)lora.tipo);
 
-
-
-            var body = request.Parameters.Where(p => p.Type == ParameterType.RequestBody).FirstOrDefault();
-            if (body != null)
-            {
-                Debug.WriteLine("Current Body = {0} / {1}", body.ContentType, body.Value);
-            }
+            request.AddParameter("text/plain", dataBytesB64, ParameterType.RequestBody);
 
             try
             {
@@ -121,7 +120,6 @@ namespace ClimaApp
             catch (System.Net.Http.HttpRequestException e)
             {
                 Debug.WriteLine(e.Message);
-
             }
         }
     }

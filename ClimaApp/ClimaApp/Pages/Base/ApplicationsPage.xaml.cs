@@ -16,7 +16,7 @@ namespace ClimaApp.Pages
         {
             NavigationPage.SetHasBackButton(this, false);
             InitializeComponent();
-            labelTitulo.Text = string.Format("Nodes usados: {0} / {1}", 
+            labelTitulo.Text = string.Format("Nodes usados: {0} / {1}",
                 (DataResources.allNodes.Count - DataResources.unnusedNodes), DataResources.allNodes.Count);
 
             ToolbarItems.Add(new ToolbarItem("Logoff", "", async () =>
@@ -42,7 +42,7 @@ namespace ClimaApp.Pages
         private async void enviar_clicked(object sender, EventArgs e)
         {
             Debug.WriteLine("sending data");
-            await DataResources.climaNodes[0].SendData("123");
+            await DataResources.climaNodes[0].SendData(new byte[] { 0x01, 0x02, 0x03, 0x0A, 0x0B, 0x0C });
         }
 
         private async void atualizar_clicked(object sender, EventArgs e)

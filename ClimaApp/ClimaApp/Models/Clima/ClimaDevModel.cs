@@ -16,12 +16,15 @@ namespace ClimaApp
 
             //Se não existe no database insere, se existe atualiza
             var db = new Common.Database.ClimaDb();
-            foreach (ClimaRxModel rx in dados)
+            for (int i =0; i <= dados.Count; i++)
             {
-                if (db.GetDado(rx.Id) == null)
-                    db.InserirDado(rx);
+                if (db.GetDado(dados[i].Id) == null)
+                    db.InserirDado(dados[i]);
                 else
-                    db.AtualizarDado(rx);
+                {
+                    Debug.WriteLine("Dados salvos no database");
+                    return;
+                }   
             }
         }
 
@@ -35,11 +38,6 @@ namespace ClimaApp
                 if (db.GetDadosDevice(lora.deveui).Count > 0)
                     latest = db.GetDadosDevice(lora.deveui)[0];
             }
-        }
-
-        public override async Task SendData(string _data, int _port = 30)
-        {
-            await base.SendData(_data);
         }
     }
 }

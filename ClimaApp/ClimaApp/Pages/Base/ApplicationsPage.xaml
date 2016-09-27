@@ -7,7 +7,7 @@
     <StackLayout x:Name="sl">
       <Label x:Name="labelTitulo" />
       <Button Text="Clima" Clicked="clima_clicked" />
-      <!--<Button Text="Enviar dados" Clicked="enviar_clicked" />-->
+      <Button Text="Enviar dados" Clicked="enviar_clicked" />
       <Button Text="Atualizar Nodes" Clicked="atualizar_clicked" />
     </StackLayout>
 

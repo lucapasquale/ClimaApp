@@ -55,15 +55,16 @@ namespace ClimaApp.Pages.Clima
                     //Se o latest não existe no db, pegar dados do servidor. Se existe pegar do db
                     if (db.GetDadoHora(DataResources.climaNodes[selectedIndex].latest.horario) == null)
                     {
-                        await DataResources.climaNodes[selectedIndex].GetData();
                         Debug.WriteLine("É preciso atualizar dados, pegando do servidor");
+                        await DataResources.climaNodes[selectedIndex].GetData();
                     }
                     else
                     {
-                        DataResources.climaNodes[selectedIndex].dados = db.GetDadosDevice(DataResources.climaNodes[selectedIndex].lora.deveui);
                         Debug.WriteLine("Dados já atualizados, pegando do database");
+                        DataResources.climaNodes[selectedIndex].dados = db.GetDadosDevice(DataResources.climaNodes[selectedIndex].lora.deveui);
                     }
                 }
+
                 await Navigation.PushAsync(new GraficosClimaPage());
             }
             await Navigation.PopModalAsync();

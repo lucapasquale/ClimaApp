@@ -49,7 +49,3 @@ C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Release\ClimaApp.
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\bin\Release\ClimaApp.dll.mdb
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Release\ClimaApp.dll.mdb
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\bin\Release\ClimaApp.dll.mdb
-C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Release\ClimaApp.dll.mdb
-C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\bin\Release\ClimaApp.dll.mdb
-C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Release\ClimaApp.dll.mdb
-C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\bin\Release\ClimaApp.dll.mdb
