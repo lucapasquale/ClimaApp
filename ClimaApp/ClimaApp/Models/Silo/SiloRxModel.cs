@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClimaApp.Models.Silo
+namespace ClimaApp.Silo
 {
     public class SiloRX : RxModel
     {

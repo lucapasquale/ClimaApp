@@ -19,13 +19,13 @@ namespace ClimaApp.Common.Database
         }
     }
 
-    class SiloDb : BaseRxDb<Models.Silo.SiloRX>, IDisposable
+    class SiloDb : BaseRxDb<Silo.SiloRX>, IDisposable
     {
         public SiloDb()
         {
             var config = DependencyService.Get<IConfig>();
             conexaoSQLite = new SQLiteConnection(config.plataforma, Path.Combine(config.diretorioSQLite, StringResources.user + "-silo.db3"));
-            conexaoSQLite.CreateTable<Models.Silo.SiloRX>();
+            conexaoSQLite.CreateTable<Silo.SiloRX>();
         }
     }
 }

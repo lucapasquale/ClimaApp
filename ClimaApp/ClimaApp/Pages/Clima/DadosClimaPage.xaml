@@ -5,9 +5,9 @@
 
   <StackLayout Orientation="Vertical" Padding="3">
     <StackLayout x:Name="dataSL" Orientation="Horizontal">
-      <Button x:Name="leftButton" Text="Voltar" HorizontalOptions="Start" />
+      <Button x:Name="leftButton" Text="Anterior" HorizontalOptions="Start" />
       <DatePicker x:Name="dp" Format = "dd-MM-yyyy" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand"/>
-      <Button x:Name="rightButton" Text="Avançar" HorizontalOptions="End" />
+      <Button x:Name="rightButton" Text="Próximo" HorizontalOptions="End" />
     </StackLayout>
     <ListView x:Name="nodesView" RowHeight="70" SeparatorColor="Black" IsPullToRefreshEnabled="True" Refreshing="nodesView_Refreshing"/>
   </StackLayout>

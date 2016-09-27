@@ -7,8 +7,9 @@ using RestSharp.Portable;
 using RestSharp.Portable.HttpClient;
 using RestSharp.Portable.Authenticators;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
-namespace ClimaApp.Models.Base
+namespace ClimaApp
 {
     public class DeviceModel<T> where T : RxModel, new()
     {
@@ -47,7 +48,7 @@ namespace ClimaApp.Models.Base
 
                 listaTemp.Add(rx);
             }
-            dados = listaTemp.OrderByDescending(o => o.horario).ToList();      
+            dados = listaTemp.OrderByDescending(o => o.horario).ToList();
             latest = dados.Count > 0 ? dados[0] : null;
         }
 
@@ -89,6 +90,39 @@ namespace ClimaApp.Models.Base
                 latest = rx;
             }
 
+        }
+
+        public virtual async Task SendData(string _data, int _port = 30)
+        {
+            byte[] dataBytes = Encoding.UTF8.GetBytes(_data);
+            string data = Convert.ToBase64String(dataBytes);
+
+            var client = new RestClient();
+            string url = string.Format("https://artimar.orbiwise.com/rest/nodes/{0}/payloads/dl?port={1}", lora.deveui, _port);
+            client.BaseUrl = new Uri(url);
+            client.Authenticator = StringResources.auth;
+
+            var request = new RestRequest(Method.POST);
+            request.AddParameter("text/plain", /*data*/ string.Empty, ParameterType.RequestBody);
+
+
+
+            var body = request.Parameters.Where(p => p.Type == ParameterType.RequestBody).FirstOrDefault();
+            if (body != null)
+            {
+                Debug.WriteLine("Current Body = {0} / {1}", body.ContentType, body.Value);
+            }
+
+            try
+            {
+                var result = await client.Execute(request);
+                Debug.WriteLine(result.Content);
+            }
+            catch (System.Net.Http.HttpRequestException e)
+            {
+                Debug.WriteLine(e.Message);
+
+            }
         }
     }
 }

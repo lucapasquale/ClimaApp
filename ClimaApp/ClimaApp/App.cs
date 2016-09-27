@@ -33,7 +33,7 @@ namespace ClimaApp
 
         public static Page GetMainPage()
         {
-            return new NavigationPage(new Pages.Base.LoginPage());
+            return new NavigationPage(new Pages.LoginPage());
         }
     }
 }

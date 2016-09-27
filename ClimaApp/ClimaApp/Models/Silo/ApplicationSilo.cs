@@ -4,11 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClimaApp.Models.Silo
+namespace ClimaApp.Silo
 {
     public class ApplicationSilo
     {
-        //public VentDevModel ventilador;
-        public List<SiloDevice> silos;
+        public string appName;
+
+        //public VentDevice ventilador;
+        public Dictionary<string, SiloDevice> silos;
+
+        public ApplicationSilo()
+        {
+            appName = "Fazenda Sapé";
+            foreach (SiloDevice siloDev in DataResources.siloNodes)
+                silos.Add(siloDev.lora.deveui, siloDev);
+
+            //foreach (VentDevice ventDev in DataResources.ventNodes)
+            //    silos.Add(ventDev.lora.deveui, ventDev);
+        }
     }
 }

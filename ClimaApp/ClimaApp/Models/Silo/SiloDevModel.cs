@@ -9,9 +9,9 @@ using RestSharp.Portable.Authenticators;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 
-namespace ClimaApp.Models.Silo
+namespace ClimaApp.Silo
 {
-    public class SiloDevice : Base.DeviceModel<SiloRX>
+    public class SiloDevice : DeviceModel<SiloRX>
     {
         public override async Task GetData()
         {

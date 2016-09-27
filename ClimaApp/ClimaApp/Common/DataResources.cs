@@ -15,10 +15,10 @@ namespace ClimaApp
     {
         public static List<LoRaModel> allNodes = new List<LoRaModel>();
         public static int selectedIndex;
+        public static int unnusedNodes;
 
         public static List<ClimaDevModel> climaNodes = new List<ClimaDevModel>();
-        public static List<Models.Silo.SiloDevice> siloNodes = new List<Models.Silo.SiloDevice>();
-        public static int unnusedNodes; 
+        public static List<Silo.SiloDevice> siloNodes = new List<Silo.SiloDevice>();
 
 
         public static async Task GetNodes()
@@ -30,7 +30,7 @@ namespace ClimaApp
             client.BaseUrl = new Uri("https://artimar.orbiwise.com/rest/nodes/");
             client.Authenticator = StringResources.auth;
 
-            var request = new RestRequest();
+            var request = new RestRequest(Method.GET);
             var result = await client.Execute<List<LoRaModel>>(request);
             var listaTemp = result.Data;
 
@@ -58,7 +58,7 @@ namespace ClimaApp
                 switch (loraNode.tipo)
                 {
                     case AppType.Clima: climaNodes.Add(new ClimaDevModel() { lora = loraNode }); break;
-                    case AppType.Silo: siloNodes.Add(new Models.Silo.SiloDevice() { lora = loraNode }); break;
+                    case AppType.Silo: siloNodes.Add(new Silo.SiloDevice() { lora = loraNode }); break;
                     default: unnusedNodes++; break;
                 }
             }

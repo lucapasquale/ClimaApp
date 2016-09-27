@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,9 +39,10 @@ namespace ClimaApp.Pages
             await Navigation.PopModalAsync();
         }
 
-        private void silos_clicked(object sender, EventArgs e)
+        private async void enviar_clicked(object sender, EventArgs e)
         {
-
+            Debug.WriteLine("sending data");
+            await DataResources.climaNodes[0].SendData("123");
         }
 
         private async void atualizar_clicked(object sender, EventArgs e)

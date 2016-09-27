@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 
-namespace ClimaApp.Pages.Base
+namespace ClimaApp.Pages
 {
     public partial class LoginPage : ContentPage
     {
@@ -31,7 +31,7 @@ namespace ClimaApp.Pages.Base
 
                 catch (System.Net.Http.HttpRequestException error)
                 {
-                    await DisplayAlert("Erro", "Conta ou senha errados!", "OK");
+                    await DisplayAlert(error.Message, "Conta ou senha errados!", "OK");
                     passwordEntry.Focus();
                 }
             }
