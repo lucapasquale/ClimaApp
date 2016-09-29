@@ -24,7 +24,7 @@ namespace ClimaApp
             client.Authenticator = StringResources.auth;
 
             var request = new RestRequest("nodes/{devEUI}/payloads/ul");
-            request.AddUrlSegment("devEUI", lora.deveui);
+            request.AddUrlSegment("devEUI", lora.deveui.ToUpper());
 
             var result = await client.Execute<List<T>>(request);
 
@@ -62,7 +62,7 @@ namespace ClimaApp
             client.Authenticator = StringResources.auth;
 
             var request = new RestRequest("nodes/{devEUI}/payloads/ul/latest");
-            request.AddUrlSegment("devEUI", lora.deveui);
+            request.AddUrlSegment("devEUI", lora.deveui.ToUpper());
 
             var result = await client.Execute<T>(request);
 
@@ -111,6 +111,8 @@ namespace ClimaApp
             request.AddUrlSegment("port", (int)lora.tipo);
 
             request.AddParameter("text/plain", dataBytesB64, ParameterType.RequestBody);
+            Debug.WriteLine("Sending: " + dataBytesB64);
+
 
             try
             {
@@ -121,6 +123,34 @@ namespace ClimaApp
             {
                 Debug.WriteLine(e.Message);
             }
+        }
+
+        public virtual async Task SendData(string _devEUI, byte _comando, byte[] _dado)
+        {
+            byte[] dado = new byte[8 + 1 + _dado.Length];
+
+            //devEUI de string para byte[]
+            byte[] dataDev = StringToByteArray(_devEUI);
+            for (int i = 0; i < dataDev.Length; i++)
+                dado[i] = dataDev[i];
+
+            //Adiciona byte de comando
+            dado[8] = _comando;
+
+            //Adiciona dados adicionais
+            for (int i = 0; i < _dado.Length; i++)
+                dado[9 + i] = _dado[i];
+
+            await SendData(dado);
+        }
+
+        byte[] StringToByteArray(string hex)
+        {
+            int NumberChars = hex.Length;
+            byte[] bytes = new byte[NumberChars / 2];
+            for (int i = 0; i < NumberChars; i += 2)
+                bytes[i / 2] = Convert.ToByte(hex.Substring(i, 2), 16);
+            return bytes;
         }
     }
 }

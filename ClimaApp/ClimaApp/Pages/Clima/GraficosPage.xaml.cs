@@ -12,7 +12,7 @@ using OxyPlot.Series;
 using System.Diagnostics;
 using UIKit;
 
-namespace ClimaApp.Pages
+namespace ClimaApp.Pages.Clima
 {
     public partial class GraficosClimaPage : ContentPage
     {

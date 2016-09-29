@@ -40,6 +40,7 @@
     <Compile Include="Common\Database\DadosDb.cs" />
     <Compile Include="Common\Database\DevicesDb.cs" />
     <Compile Include="Common\DataResources.cs" />
+    <Compile Include="Common\Other\BoolValueConverter.cs" />
     <Compile Include="Common\Other\IConfig.cs" />
     <Compile Include="Common\Other\StatusConverter.cs" />
     <Compile Include="Models\Silo\ApplicationSilo.cs" />
@@ -58,6 +59,7 @@
     </Compile>
     <Compile Include="Pages\Cells\ClimaCell.cs" />
     <Compile Include="Pages\Cells\ClimaDeviceCell.cs" />
+    <Compile Include="Pages\Cells\SiloDeviceCell.cs" />
     <Compile Include="Pages\Clima\DadosClimaPage.xaml.cs">
       <DependentUpon>DadosClimaPage.xaml</DependentUpon>
     </Compile>
@@ -72,6 +74,9 @@
     </Compile>
     <Compile Include="Pages\Base\NodesPage.xaml.cs">
       <DependentUpon>NodesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Silo\SiloAppPage.xaml.cs">
+      <DependentUpon>SiloAppPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\Base\RxModel.cs" />
@@ -175,6 +180,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Pages\Base\LoginPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\Silo\SiloAppPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

@@ -18,7 +18,7 @@ namespace ClimaApp.Pages.Clima
             //NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
 
-            nodesView.ItemTemplate = new DataTemplate(typeof(Cells.ClimaDeviceCell));
+            nodesView.ItemTemplate = new DataTemplate(typeof(Cells.Clima.ClimaDeviceCell));
             nodesView.ItemsSource = DataResources.climaNodes;
             nodesView.RowHeight = 105;
         }

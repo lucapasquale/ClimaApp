@@ -12,9 +12,8 @@ namespace ClimaApp
     {
         public static bool isLoggedIn = false;
 
-        public static string user/* = "maua_ceun"*/;
-        //private static string pass = "Maua2016";
+        public static string user = "maua_ceun";
 
-        public static HttpBasicAuthenticator auth/* = new HttpBasicAuthenticator("maua_ceun", "Maua2016")*/;
+        public static HttpBasicAuthenticator auth = new HttpBasicAuthenticator("maua_ceun", "Maua2016");
     }
 }

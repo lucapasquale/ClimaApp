@@ -16,15 +16,15 @@ namespace ClimaApp
 
             //Se não existe no database insere, se existe atualiza
             var db = new Common.Database.ClimaDb();
-            for (int i =0; i <= dados.Count; i++)
+            for (int i = 0; i < dados.Count; i++)
             {
                 if (db.GetDado(dados[i].Id) == null)
                     db.InserirDado(dados[i]);
                 else
                 {
-                    Debug.WriteLine("Dados salvos no database");
+                    Debug.WriteLine(i + " dados salvos no database");
                     return;
-                }   
+                }
             }
         }
 

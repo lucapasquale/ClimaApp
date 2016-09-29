@@ -45,7 +45,7 @@ namespace ClimaApp.Pages
                 case AppType.Clima:
                     DataResources.climaNodes[selectedIndex].lora = selected;
                     await DataResources.climaNodes[selectedIndex].GetData();
-                    await Navigation.PushAsync(new GraficosClimaPage());
+                    await Navigation.PushAsync(new Clima.GraficosClimaPage());
                     break;
 
                 case AppType.Testes:

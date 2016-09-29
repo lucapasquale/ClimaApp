@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ClimaApp.Pages {
+namespace ClimaApp.Pages.Clima {
     using System;
     using Xamarin.Forms;
     using Xamarin.Forms.Xaml;

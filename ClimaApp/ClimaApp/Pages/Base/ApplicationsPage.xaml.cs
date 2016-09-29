@@ -41,8 +41,14 @@ namespace ClimaApp.Pages
 
         private async void enviar_clicked(object sender, EventArgs e)
         {
-            Debug.WriteLine("sending data");
-            await DataResources.climaNodes[0].SendData(new byte[] { 0x01, 0x02, 0x03, 0x0A, 0x0B, 0x0C });
+            //Debug.WriteLine("sending data");
+            //await DataResources.climaNodes[0].SendData(DataResources.climaNodes[0].lora.deveui, 0x00, new byte[] { 0xab, 0xcd, 0xef });
+
+            await Navigation.PushModalAsync(new LoadingPage("Atualizando módulos de silo"));
+            {
+                await Navigation.PushAsync(new Silo.SiloAppPage());
+            }
+            await Navigation.PopModalAsync();
         }
 
         private async void atualizar_clicked(object sender, EventArgs e)

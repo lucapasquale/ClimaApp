@@ -19,6 +19,7 @@ namespace ClimaApp
 
         public static List<ClimaDevModel> climaNodes = new List<ClimaDevModel>();
         public static List<Silo.SiloDevice> siloNodes = new List<Silo.SiloDevice>();
+        public static Silo.ApplicationSilo appSilo = new Silo.ApplicationSilo();
 
 
         public static async Task GetNodes()

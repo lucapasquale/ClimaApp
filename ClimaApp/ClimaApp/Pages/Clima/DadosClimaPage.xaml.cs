@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 
-namespace ClimaApp.Pages
+namespace ClimaApp.Pages.Clima
 {
     public partial class DadosClimaPage : ContentPage
     {
@@ -18,7 +18,7 @@ namespace ClimaApp.Pages
         {
             InitializeComponent();
             Title = "Dados " + DataResources.climaNodes[selectedIndex].lora.comment;
-            nodesView.ItemTemplate = new DataTemplate(typeof(Cells.ClimaCell));
+            nodesView.ItemTemplate = new DataTemplate(typeof(Cells.Clima.ClimaCell));
             nodesView.ItemsSource = dados;
 
             dp.MinimumDate = DataResources.climaNodes[selectedIndex].dados.Min(o => o.horario);

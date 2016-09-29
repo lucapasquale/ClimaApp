@@ -9,6 +9,7 @@ namespace ClimaApp.Silo
 {
     public class SiloRX : RxModel
     {
+        public bool ventiladorOn { get; set; }
         public int nCabos { get; private set; }
 
         public float tempExt { get; private set; }
@@ -17,7 +18,7 @@ namespace ClimaApp.Silo
         
         public int[][] tempCabo { get; private set; }
 
-        public float alturaEstimada { get; private set; }
+        public float alturaEstimada { get; set; }
 
         public override void ParseDataFrame()
         {

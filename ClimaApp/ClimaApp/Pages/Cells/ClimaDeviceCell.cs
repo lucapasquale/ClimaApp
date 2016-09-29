@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace ClimaApp.Pages.Cells
+namespace ClimaApp.Cells.Clima
 {
     public class ClimaDeviceCell : ViewCell
     {
