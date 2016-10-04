@@ -9,8 +9,6 @@ using OxyPlot;
 using OxyPlot.Xamarin.Forms;
 using OxyPlot.Axes;
 using OxyPlot.Series;
-using System.Diagnostics;
-using UIKit;
 
 namespace ClimaApp.Pages.Clima
 {
@@ -42,6 +40,10 @@ namespace ClimaApp.Pages.Clima
 
             if (dp.Date == dp.MaximumDate)
                 rightButton.IsEnabled = false;
+
+            DataResources.climaNodes[selectedIndex].SaveOnDb();
+            DataResources.climaNodes[selectedIndex].dados = new Common.Database.ClimaDb().GetDadosDevice(DataResources.climaNodes[selectedIndex].lora.deveui);
+            AtualizarGraficos(dp.Date);
         }
 
         void ConfigureLayout()
@@ -82,12 +84,10 @@ namespace ClimaApp.Pages.Clima
                 pm.Axes.Add(new DateTimeAxis { Position = AxisPosition.Bottom, StringFormat = "HH:mm", IsPanEnabled = false, IsZoomEnabled = false, });
                 pm.Axes.Add(new LinearAxis
                 {
-                    Position = AxisPosition.Left,
                     Unit = "ºC",
                     MajorGridlineStyle = LineStyle.Solid,
                     MajorGridlineThickness = 2,
                     MinorGridlineStyle = LineStyle.Automatic,
-                    MinorGridlineThickness = 1,
                     IsPanEnabled = false,
                     IsZoomEnabled = false,
                 });
@@ -104,12 +104,10 @@ namespace ClimaApp.Pages.Clima
                 pm.Axes.Add(new DateTimeAxis { Position = AxisPosition.Bottom, StringFormat = "HH:mm", IsPanEnabled = false, IsZoomEnabled = false, });
                 pm.Axes.Add(new LinearAxis
                 {
-                    Position = AxisPosition.Left,
                     Unit = "%",
                     MajorGridlineStyle = LineStyle.Solid,
                     MajorGridlineThickness = 2,
                     MinorGridlineStyle = LineStyle.Automatic,
-                    MinorGridlineThickness = 1,
                     IsPanEnabled = false,
                     IsZoomEnabled = false,
                 });
@@ -146,28 +144,6 @@ namespace ClimaApp.Pages.Clima
             Content = screenLayout;
         }
 
-        private void LeftButton_Clicked(object sender, EventArgs e)
-        {
-            rightButton.IsEnabled = true;
-
-            dp.Date = dp.Date.AddDays(-1);
-            AtualizarGraficos(dp.Date);
-
-            if (dp.Date == dp.MinimumDate)
-                leftButton.IsEnabled = false;
-        }
-
-        private void RightButton_Clicked(object sender, EventArgs e)
-        {
-            leftButton.IsEnabled = true;
-
-            dp.Date = dp.Date.AddDays(1);
-            AtualizarGraficos(dp.Date);
-
-            if (dp.Date == dp.MaximumDate)
-                rightButton.IsEnabled = false;
-        }
-
         void AtualizarGraficos(DateTime dia)
         {
             var temp = new List<ClimaRxModel>();
@@ -193,6 +169,28 @@ namespace ClimaApp.Pages.Clima
                 pView.Model.Axes[1].Reset();
                 pView.Model.InvalidatePlot(true);
             }
+        }
+
+        private void LeftButton_Clicked(object sender, EventArgs e)
+        {
+            rightButton.IsEnabled = true;
+
+            dp.Date = dp.Date.AddDays(-1);
+            AtualizarGraficos(dp.Date);
+
+            if (dp.Date == dp.MinimumDate)
+                leftButton.IsEnabled = false;
+        }
+
+        private void RightButton_Clicked(object sender, EventArgs e)
+        {
+            leftButton.IsEnabled = true;
+
+            dp.Date = dp.Date.AddDays(1);
+            AtualizarGraficos(dp.Date);
+
+            if (dp.Date == dp.MaximumDate)
+                rightButton.IsEnabled = false;
         }
 
         private void Dp_DateSelected(object sender, DateChangedEventArgs e)

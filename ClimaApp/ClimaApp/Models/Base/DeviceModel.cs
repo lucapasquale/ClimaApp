@@ -52,7 +52,6 @@ namespace ClimaApp
             }
             dados = listaTemp.OrderByDescending(o => o.horario).ToList();
             latest = dados.Count > 0 ? dados[0] : null;
-            Debug.WriteLine("Dados pegos");
         }
 
         public virtual async Task GetLatest()

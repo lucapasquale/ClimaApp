@@ -25,14 +25,14 @@ namespace ClimaApp.Pages.Clima
             dp.MaximumDate = DataResources.climaNodes[selectedIndex].dados.Max(o => o.horario);
             dp.Date = dp.MaximumDate;
 
-            leftButton.Clicked += async (sender, e) =>
-            {
-                await LeftButton_Clicked(sender, e);
-            };
-            rightButton.Clicked += async (sender, e) =>
-            {
-                await RightButton_Clicked(sender, e);
-            };
+            leftButton.Clicked += LeftButton_Clicked;
+            rightButton.Clicked += RightButton_Clicked;
+
+            if (dp.Date == dp.MinimumDate)
+                leftButton.IsEnabled = false;
+
+            if (dp.Date == dp.MaximumDate)
+                rightButton.IsEnabled = false;
 
             AtualizaLista();
         }
@@ -46,34 +46,26 @@ namespace ClimaApp.Pages.Clima
                     dados.Add(DataResources.climaNodes[selectedIndex].dados[i]);
         }
 
-        private async Task LeftButton_Clicked(object sender, EventArgs e)
+        private void LeftButton_Clicked(object sender, EventArgs e)
         {
+            rightButton.IsEnabled = true;
+
+            dp.Date = dp.Date.AddDays(-1);
+            AtualizaLista();
+
             if (dp.Date == dp.MinimumDate)
-            {
-                await DisplayAlert("ERRO", "Não existem dados mais antigos!", "OK");
-                (sender as Button).IsEnabled = false;
-            }
-            else
-            {
-                dp.Date = dp.Date.AddDays(-1);
-                AtualizaLista();
-                (sender as Button).IsEnabled = true;
-            }
+                leftButton.IsEnabled = false;
         }
 
-        private async Task RightButton_Clicked(object sender, EventArgs e)
+        private void RightButton_Clicked(object sender, EventArgs e)
         {
+            leftButton.IsEnabled = true;
+
+            dp.Date = dp.Date.AddDays(1);
+            AtualizaLista();
+
             if (dp.Date == dp.MaximumDate)
-            {
-                await DisplayAlert("ERRO", "Não existem dados mais novos!", "OK");
-                (sender as Button).IsEnabled = false;
-            }
-            else
-            {
-                dp.Date = dp.Date.AddDays(1);
-                AtualizaLista();
-                (sender as Button).IsEnabled = true;
-            }
+                rightButton.IsEnabled = false;
         }
 
         private async void nodesView_Refreshing(object sender, EventArgs e)

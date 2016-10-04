@@ -12,13 +12,11 @@ namespace ClimaApp.Pages
 {
     public partial class ApplicationsPage : ContentPage
     {
+        List<ApplicationModel> apps = new List<ApplicationModel>();
+
         public ApplicationsPage()
         {
             NavigationPage.SetHasBackButton(this, false);
-            InitializeComponent();
-            labelTitulo.Text = string.Format("Nodes usados: {0} / {1}",
-                (DataResources.allNodes.Count - DataResources.unnusedNodes), DataResources.allNodes.Count);
-
             ToolbarItems.Add(new ToolbarItem("Logoff", "", async () =>
             {
                 StringResources.auth = null;
@@ -26,29 +24,45 @@ namespace ClimaApp.Pages
                 DataResources.ClearData();
                 await Navigation.PopAsync();
             }));
+            InitializeComponent();
+            labelTitulo.Text = string.Format("Nodes usados: {0} / {1}", (DataResources.allNodes.Count - DataResources.unnusedNodes), DataResources.allNodes.Count);
+
+
+            apps.Add(new ApplicationModel(AppType.Clima));
+            apps.Add(new ApplicationModel(AppType.Silo));
+            lv.ItemsSource = apps;
         }
 
-        private async void clima_clicked(object sender, EventArgs e)
+        async void ListView_Selected(object sender, SelectedItemChangedEventArgs e)
         {
-            await Navigation.PushModalAsync(new LoadingPage("Atualizando módulos de clima"));
-            {
-                foreach (ClimaDevModel cDev in DataResources.climaNodes)
-                    await cDev.GetLatest();
-                await Navigation.PushAsync(new Clima.NodesClima());
-            }
-            await Navigation.PopModalAsync();
-        }
+            ((ListView)sender).SelectedItem = null;
 
-        private async void enviar_clicked(object sender, EventArgs e)
-        {
-            //Debug.WriteLine("sending data");
-            //await DataResources.climaNodes[0].SendData(DataResources.climaNodes[0].lora.deveui, 0x00, new byte[] { 0xab, 0xcd, 0xef });
+            if (e.SelectedItem == null)
+                return; //ItemSelected is called on deselection, which results in SelectedItem being set to null
 
-            await Navigation.PushModalAsync(new LoadingPage("Atualizando módulos de silo"));
+            switch((e.SelectedItem as ApplicationModel).type)
             {
-                await Navigation.PushAsync(new Silo.SiloAppPage());
+                case AppType.Clima:
+                    {
+                        await Navigation.PushModalAsync(new LoadingPage("Atualizando módulos de clima"));
+                        {
+                            foreach (ClimaDevModel cDev in DataResources.climaNodes)
+                                await cDev.GetLatest();
+                            await Navigation.PushAsync(new Clima.NodesClima());
+                        }
+                        await Navigation.PopModalAsync();
+                        break;
+                    }
+                case AppType.Silo:
+                    {
+                        await Navigation.PushModalAsync(new LoadingPage("Atualizando módulos de silo"));
+                        {
+                            await Navigation.PushAsync(new Silo.SiloAppPage());
+                        }
+                        await Navigation.PopModalAsync();
+                        break;
+                    }  
             }
-            await Navigation.PopModalAsync();
         }
 
         private async void atualizar_clicked(object sender, EventArgs e)

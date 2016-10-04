@@ -15,12 +15,10 @@ namespace ClimaApp.Pages.Clima
 
         public NodesClima()
         {
-            //NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
 
             nodesView.ItemTemplate = new DataTemplate(typeof(Cells.Clima.ClimaDeviceCell));
             nodesView.ItemsSource = DataResources.climaNodes;
-            nodesView.RowHeight = 105;
         }
 
         async void ListView_Selected(object sender, SelectedItemChangedEventArgs e)
@@ -37,6 +35,8 @@ namespace ClimaApp.Pages.Clima
                 var selectedIndex = DataResources.selectedIndex;
 
                 var db = new Common.Database.ClimaDb();
+                DataResources.climaNodes[selectedIndex].dados = db.GetDadosDevice(DataResources.climaNodes[selectedIndex].lora.deveui);
+
                 //Server está vazio
                 if (DataResources.climaNodes[selectedIndex].latest == null)
                 {
@@ -64,7 +64,6 @@ namespace ClimaApp.Pages.Clima
                         DataResources.climaNodes[selectedIndex].dados = db.GetDadosDevice(DataResources.climaNodes[selectedIndex].lora.deveui);
                     }
                 }
-
                 await Navigation.PushAsync(new GraficosClimaPage());
             }
             await Navigation.PopModalAsync();

@@ -12,7 +12,7 @@ namespace ClimaApp.Common.Database
     public abstract class BaseRxDb<T> : IDisposable
         where T : RxModel, new()
     {
-        protected SQLiteConnection conexaoSQLite;
+        public SQLiteConnection conexaoSQLite;
 
         public void InserirDado(T _dado)
         {

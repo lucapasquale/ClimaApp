@@ -43,6 +43,7 @@
     <Compile Include="Common\Other\BoolValueConverter.cs" />
     <Compile Include="Common\Other\IConfig.cs" />
     <Compile Include="Common\Other\StatusConverter.cs" />
+    <Compile Include="Models\Base\ApplicationModel.cs" />
     <Compile Include="Models\Silo\ApplicationSilo.cs" />
     <Compile Include="Pages\Base\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>

@@ -5,7 +5,7 @@
              Title="Clima">
 
   <StackLayout Orientation="Vertical" Padding="3"  >
-    <ListView x:Name="nodesView" RowHeight="70" SeparatorColor="Black" ItemSelected="ListView_Selected"/>
+    <ListView x:Name="nodesView" RowHeight="105" SeparatorColor="Black" ItemSelected="ListView_Selected"/>
   </StackLayout>  
   
 </ContentPage>

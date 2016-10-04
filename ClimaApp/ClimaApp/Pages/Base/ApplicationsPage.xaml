@@ -5,10 +5,17 @@
              Title="Applications">
 
     <StackLayout x:Name="sl">
-      <Label x:Name="labelTitulo" />
-      <Button Text="Clima" Clicked="clima_clicked" />
-      <Button Text="Enviar dados" Clicked="enviar_clicked" />
-      <Button Text="Atualizar Nodes" Clicked="atualizar_clicked" />
+      <Label x:Name="labelTitulo" />      
+      
+      <ListView x:Name="lv" RowHeight="100" ItemSelected="ListView_Selected">
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <ImageCell ImageSource="{Binding iconLocation}" Text="{Binding title}" TextColor="Black"  Detail="{Binding description}"/>
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
+      
+      <Button Text="Atualizar Nodes" Clicked="atualizar_clicked" />     
     </StackLayout>
 
 </ContentPage>

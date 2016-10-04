@@ -42,7 +42,6 @@ C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Debug\ClimaApp.Pa
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Debug\ClimaApp.Pages.Base.LoginPage.xaml.g.cs
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Debug\ClimaApp.dll
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Debug\ClimaApp.pdb
-C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Debug\ClimaApp.csprojResolveAssemblyReference.cache
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Debug\ClimaApp.Pages.Silo.SiloAppPage.xaml.g.cs
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\obj\Debug\ClimaApp.dll.mdb
 C:\Users\lucap\Documents\GitHub\ClimaApp\ClimaApp\ClimaApp\bin\Debug\ClimaApp.dll.mdb
