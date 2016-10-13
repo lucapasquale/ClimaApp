@@ -19,14 +19,10 @@ namespace ClimaApp
 
         public virtual async Task GetData()
         {
-            var client = new RestClient();
-            client.BaseUrl = new Uri("https://artimar.orbiwise.com/rest");
-            client.Authenticator = StringResources.auth;
-
             var request = new RestRequest("nodes/{devEUI}/payloads/ul");
             request.AddUrlSegment("devEUI", lora.deveui.ToUpper());
 
-            var result = await client.Execute<List<T>>(request);
+            var result = await StringResources.restClient.Execute<List<T>>(request);
 
             var listaTemp = new List<T>();
             foreach (T rx in result.Data)
@@ -56,14 +52,10 @@ namespace ClimaApp
 
         public virtual async Task GetLatest()
         {
-            var client = new RestClient();
-            client.BaseUrl = new Uri("https://artimar.orbiwise.com/rest");
-            client.Authenticator = StringResources.auth;
-
             var request = new RestRequest("nodes/{devEUI}/payloads/ul/latest");
             request.AddUrlSegment("devEUI", lora.deveui.ToUpper());
 
-            var result = await client.Execute<T>(request);
+            var result = await StringResources.restClient.Execute<T>(request);
 
             if (string.IsNullOrEmpty(result.Content))
             {
@@ -101,10 +93,6 @@ namespace ClimaApp
             string dataB64 = Convert.ToBase64String(_data);
             byte[] dataBytesB64 = Encoding.UTF8.GetBytes(dataB64);
 
-            var client = new RestClient();
-            client.BaseUrl = new Uri("https://artimar.orbiwise.com/rest");
-            client.Authenticator = StringResources.auth;
-
             var request = new RestRequest("nodes/{devEUI}/payloads/dl?port={port}", Method.POST);
             request.AddUrlSegment("devEUI", lora.deveui);
             request.AddUrlSegment("port", (int)lora.tipo);
@@ -115,7 +103,7 @@ namespace ClimaApp
 
             try
             {
-                var result = await client.Execute(request);
+                var result = await StringResources.restClient.Execute(request);
                 Debug.WriteLine(result.Content);
             }
             catch (System.Net.Http.HttpRequestException e)

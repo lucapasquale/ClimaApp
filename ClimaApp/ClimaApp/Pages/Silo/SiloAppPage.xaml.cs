@@ -53,7 +53,9 @@ namespace ClimaApp.Pages.Silo
 
             var selected = e.SelectedItem as SiloDevice;
 
-            await DisplayAlert("ATENÇÂO", "Deseja ligar o ventilador de " + selected.lora.comment + "?", "Sim", "Cancelar");
+            //await DisplayAlert("ATENÇÂO", "Deseja ligar o ventilador de " + selected.lora.comment + "?", "Sim", "Cancelar");
+            DataResources.siloSelecionado = selected;
+            await Navigation.PushAsync(new SiloConfigPage());
         }
     }
 }

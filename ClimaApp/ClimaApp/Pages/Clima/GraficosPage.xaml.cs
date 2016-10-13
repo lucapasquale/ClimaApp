@@ -42,7 +42,7 @@ namespace ClimaApp.Pages.Clima
                 rightButton.IsEnabled = false;
 
             DataResources.climaNodes[selectedIndex].SaveOnDb();
-            DataResources.climaNodes[selectedIndex].dados = new Common.Database.ClimaDb().GetDadosDevice(DataResources.climaNodes[selectedIndex].lora.deveui);
+            //DataResources.climaNodes[selectedIndex].dados = new Common.Database.ClimaDb().GetDadosDevice(DataResources.climaNodes[selectedIndex].lora.deveui);
             AtualizarGraficos(dp.Date);
         }
 

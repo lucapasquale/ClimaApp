@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ClimaApp
 {
-    public enum AppType { None = 0, Clima = 10, Silo = 30, Testes = 256, };
+    public enum AppType { None = 0, Clima = 10, Silo = 30, Nivel = 40, Testes = 256, };
     public enum NodeStatus { Offline, Atrasado, Online }
 
     public class LoRaModel
@@ -22,8 +22,8 @@ namespace ClimaApp
         public string comment { get; set; }
 
         public DateTime horaUltimoRx { get; private set; }
-        public AppType tipo { get; private set; } = AppType.None;
-        public NodeStatus status { get; set; } = NodeStatus.Offline;
+        public AppType tipo { get; private set; }
+        public NodeStatus status { get; set; }
         public TimeSpan txInterval { get; set; }
 
 
@@ -41,7 +41,7 @@ namespace ClimaApp
             if (comment.Contains("Silo"))
             {
                 tipo = AppType.Silo;
-                txInterval = new TimeSpan(0, 0, 30, 0);
+                txInterval = new TimeSpan(0, 1, 0, 0);
             }
 
             GetStatus();  

@@ -15,6 +15,8 @@ namespace ClimaApp
         public string description { get; set; }
         public string iconLocation { get; set; }
 
+        public ApplicationModel() {}
+
         public ApplicationModel(AppType _type)
         {
             switch (_type)
@@ -33,6 +35,15 @@ namespace ClimaApp
                         description = "Controle de ventilação de silos";
                         iconLocation = "icon.png";
                         type = AppType.Silo;
+                        break;
+                    }
+
+                case AppType.Nivel:
+                    {
+                        title = "Nível";
+                        description = "Altura da caixa d'água";
+                        iconLocation = "icon.png";
+                        type = AppType.Nivel;
                         break;
                     }
             }

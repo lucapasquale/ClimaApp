@@ -14,18 +14,6 @@ namespace ClimaApp
         {
             var sw = Stopwatch.StartNew();
             await base.GetData();
-            //var dadosServer = dados;
-            //var db = new Common.Database.ClimaDb();
-            //var DadosDB = db.GetDadosDevice(lora.deveui);
-
-            //for (int i = 0; i < dadosServer.Count; i++)
-            //{
-            //    if (dadosServer[i].horario > DadosDB[0].horario)
-            //        dados.Add
-            //    else
-            //        break;
-            //}
-
             Debug.WriteLine("Tempo para pegar dados do servidor: " + sw.ElapsedMilliseconds);
         }
 

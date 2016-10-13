@@ -1,4 +1,5 @@
 ﻿using RestSharp.Portable.Authenticators;
+using RestSharp.Portable.HttpClient;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -14,6 +15,10 @@ namespace ClimaApp
 
         public static string user = "maua_ceun";
 
-        public static HttpBasicAuthenticator auth = new HttpBasicAuthenticator("maua_ceun", "Maua2016");
+        public static RestClient restClient = new RestClient()
+        {
+            BaseUrl = new Uri("https://artimar.orbiwise.com/rest"),
+            Authenticator = new HttpBasicAuthenticator("maua_ceun", "Maua2016"),
+        };
     }
 }

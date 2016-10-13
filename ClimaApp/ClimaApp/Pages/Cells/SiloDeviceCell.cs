@@ -29,7 +29,7 @@ namespace ClimaApp.Cells.Silo
             StackLayout bottomSL = new StackLayout() { Orientation = StackOrientation.Horizontal, VerticalOptions = LayoutOptions.EndAndExpand };
             {
                 Label alturaLabel = new Label();
-                alturaLabel.SetBinding(Label.TextProperty, new Binding(path: "latest.alturaEstimada", stringFormat: "Altura estimada: {0} metros"));
+                alturaLabel.SetBinding(Label.TextProperty, new Binding(path: "latest.alturaEstimada", stringFormat: "Uso estimada: {0} %"));
                 bottomSL.Children.Add(alturaLabel);
 
                 bottomSL.Children.Add(new Label() { Text = "Ventilador:", HorizontalOptions = LayoutOptions.EndAndExpand });

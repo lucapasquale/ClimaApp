@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ClimaApp.Pages.Silo.SiloConfigPage">
+
+  <StackLayout Padding="5">
+
+    <StackLayout Orientation="Horizontal" Padding="0,10,0,0">
+      <Label Text="Temperatura do grão:   " FontSize="15"/>
+      <Label x:Name="labelGrao" FontAttributes="Bold" FontSize="15"/>
+      <Label Text="ºC" FontSize="15"/>
+    </StackLayout>
+
+    <StackLayout Orientation="Horizontal" Padding="0,10,0,0">
+      <Label Text="Umidade interna:   " FontSize="15"/>
+      <Label x:Name="labelUmidInt" FontAttributes="Bold" FontSize="15"/>
+      <Label Text="%" FontSize="15"/>
+    </StackLayout>
+
+    <StackLayout Orientation="Horizontal" Padding="0,10,0,0">
+      <Label Text="Umidade externa:   " FontSize="15"/>
+      <Label x:Name="labelUmidExt" FontAttributes="Bold" FontSize="15"/>
+      <Label Text="%" FontSize="15"/>
+    </StackLayout>
+
+    <BoxView Color="Gray" WidthRequest = "40" HeightRequest = "1" />
+
+    <StackLayout Orientation="Horizontal" Padding="0,0,0,25">
+      <Label Text="Perfil selecionado:" FontSize="20" VerticalTextAlignment="Center" />
+      <Picker x:Name="picker" Title="Perfil" SelectedIndex="{Binding profiles}" HorizontalOptions="FillAndExpand" SelectedIndexChanged="Picker_Changed"/>
+    </StackLayout>
+
+    <Label Text="Ventilador irá ligar quando" HorizontalOptions="Center" FontSize="22"/>
+
+    <StackLayout Orientation="Horizontal" Padding="0,10,0,0">
+      <Label Text="Diferença de umidade:   " FontSize="15"/>
+      <Label x:Name="labelDifUmid" FontAttributes="Bold" FontSize="15"/>
+    </StackLayout>
+
+  </StackLayout>
+
+</ContentPage>

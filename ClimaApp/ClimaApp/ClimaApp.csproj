@@ -44,7 +44,10 @@
     <Compile Include="Common\Other\IConfig.cs" />
     <Compile Include="Common\Other\StatusConverter.cs" />
     <Compile Include="Models\Base\ApplicationModel.cs" />
+    <Compile Include="Models\Nivel\NivelDevice.cs" />
+    <Compile Include="Models\Nivel\NivelRx.cs" />
     <Compile Include="Models\Silo\ApplicationSilo.cs" />
+    <Compile Include="Models\Silo\SiloConfig.cs" />
     <Compile Include="Pages\Base\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
@@ -52,7 +55,7 @@
     <Compile Include="Models\Base\DeviceModel.cs" />
     <Compile Include="Models\Base\LoRaModel.cs" />
     <Compile Include="Models\Clima\ClimaDevModel.cs" />
-    <Compile Include="Models\Silo\SiloDevModel.cs" />
+    <Compile Include="Models\Silo\SiloDevice.cs" />
     <Compile Include="Models\Clima\ClimaRxModel.cs" />
     <Compile Include="Models\Silo\SiloRxModel.cs" />
     <Compile Include="Pages\Base\ApplicationsPage.xaml.cs">
@@ -76,8 +79,14 @@
     <Compile Include="Pages\Base\NodesPage.xaml.cs">
       <DependentUpon>NodesPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Nivel\NivelApp.xaml.cs">
+      <DependentUpon>NivelApp.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Silo\SiloAppPage.xaml.cs">
       <DependentUpon>SiloAppPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Silo\SiloConfigPage.xaml.cs">
+      <DependentUpon>SiloConfigPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\Base\RxModel.cs" />
@@ -187,6 +196,18 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Pages\Silo\SiloAppPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\Silo\SiloConfigPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\Nivel\NivelApp.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

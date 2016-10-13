@@ -18,7 +18,7 @@ namespace ClimaApp.Pages
 
         async void OnLoginButtonClicked(object sender, EventArgs e)
         {
-            StringResources.auth = new RestSharp.Portable.Authenticators.HttpBasicAuthenticator(usernameEntry.Text, passwordEntry.Text);
+            StringResources.restClient.Authenticator = new RestSharp.Portable.Authenticators.HttpBasicAuthenticator(usernameEntry.Text, passwordEntry.Text);
             StringResources.user = usernameEntry.Text;
 
             await Navigation.PushModalAsync(new LoadingPage("Logando em Orbiwise"));

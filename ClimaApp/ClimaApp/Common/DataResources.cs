@@ -19,20 +19,18 @@ namespace ClimaApp
 
         public static List<ClimaDevModel> climaNodes = new List<ClimaDevModel>();
         public static List<Silo.SiloDevice> siloNodes = new List<Silo.SiloDevice>();
-        public static Silo.ApplicationSilo appSilo = new Silo.ApplicationSilo();
+        public static List<Nivel.NivelDevice> nivelNodes = new List<Nivel.NivelDevice>();
 
+        public static Silo.ApplicationSilo appSilo = new Silo.ApplicationSilo();
+        public static Silo.SiloDevice siloSelecionado = new Silo.SiloDevice();
 
         public static async Task GetNodes()
         {
             var db = new DevicesDb();
 
             //Conecta ao servidor da Orbiwise e baixa os nodes da conta
-            var client = new RestClient();
-            client.BaseUrl = new Uri("https://artimar.orbiwise.com/rest/nodes/");
-            client.Authenticator = StringResources.auth;
-
-            var request = new RestRequest(Method.GET);
-            var result = await client.Execute<List<LoRaModel>>(request);
+            var request = new RestRequest("nodes", Method.GET);
+            var result = await StringResources.restClient.Execute<List<LoRaModel>>(request);
             var listaTemp = result.Data;
 
             foreach (LoRaModel loraNode in listaTemp)

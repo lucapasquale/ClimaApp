@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ClimaApp.Pages.Nivel.NivelApp">
+
+
+    <StackLayout Orientation="Vertical" Padding="5"  >
+        <ListView x:Name="nodesView" SeparatorColor="Black" ItemSelected="ListView_Selected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding lora.comment}" TextColor="Black" Detail="{Binding latest.nivel, StringFormat='Altura atual: {0:N} m'}" DetailColor="Blue" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+
+</ContentPage>

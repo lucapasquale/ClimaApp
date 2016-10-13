@@ -19,7 +19,7 @@ namespace ClimaApp.Pages
             NavigationPage.SetHasBackButton(this, false);
             ToolbarItems.Add(new ToolbarItem("Logoff", "", async () =>
             {
-                StringResources.auth = null;
+                StringResources.restClient.Authenticator = null;
                 StringResources.user = "";
                 DataResources.ClearData();
                 await Navigation.PopAsync();
@@ -27,9 +27,9 @@ namespace ClimaApp.Pages
             InitializeComponent();
             labelTitulo.Text = string.Format("Nodes usados: {0} / {1}", (DataResources.allNodes.Count - DataResources.unnusedNodes), DataResources.allNodes.Count);
 
-
             apps.Add(new ApplicationModel(AppType.Clima));
             apps.Add(new ApplicationModel(AppType.Silo));
+            apps.Add(new ApplicationModel(AppType.Nivel));
             lv.ItemsSource = apps;
         }
 
@@ -39,6 +39,7 @@ namespace ClimaApp.Pages
 
             if (e.SelectedItem == null)
                 return; //ItemSelected is called on deselection, which results in SelectedItem being set to null
+
 
             switch((e.SelectedItem as ApplicationModel).type)
             {
@@ -61,7 +62,20 @@ namespace ClimaApp.Pages
                         }
                         await Navigation.PopModalAsync();
                         break;
-                    }  
+                    }
+
+                case AppType.Nivel:
+                    {
+                        await Navigation.PushModalAsync(new LoadingPage("Atualizando módulos de nível"));
+                        {
+                            DataResources.nivelNodes.Add(new ClimaApp.Nivel.NivelDevice("Caixa d'água Fazenda Sapé", 1.2f));
+                            DataResources.nivelNodes.Add(new ClimaApp.Nivel.NivelDevice("Caixa d'água Instituto Mauá", 4.2f));
+
+                            await Navigation.PushAsync(new Nivel.NivelApp());
+                        }
+                        await Navigation.PopModalAsync();
+                        break;
+                    }
             }
         }
 
