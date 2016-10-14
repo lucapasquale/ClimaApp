@@ -10,7 +10,6 @@ namespace ClimaApp.Silo
     {
         public string appName;
 
-        //public VentDevice ventilador;
         public Dictionary<string, SiloDevice> silos = new Dictionary<string, SiloDevice>();
         public static List<SiloConfig> configs = new List<SiloConfig>();
 
@@ -19,9 +18,6 @@ namespace ClimaApp.Silo
             appName = "Fazenda Sapé";
             //foreach (SiloDevice siloDev in DataResources.siloNodes)
             //    silos.Add(siloDev.lora.deveui, siloDev);
-
-            //foreach (VentDevice ventDev in DataResources.ventNodes)
-            //    silos.Add(ventDev.lora.deveui, ventDev);
 
             silos.Add("1", new SiloDevice()
             {
@@ -48,7 +44,7 @@ namespace ClimaApp.Silo
             });
 
             configs.Add(new SiloConfig("Milho", 3));
-            configs.Add(new SiloConfig("Soja", 4));
+            configs.Add(new SiloConfig("Soja", 12));
         }
     }
 }

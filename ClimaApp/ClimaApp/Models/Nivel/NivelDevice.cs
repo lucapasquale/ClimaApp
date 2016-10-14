@@ -10,7 +10,7 @@ namespace ClimaApp.Nivel
     {
         public NivelDevice(string _name, float _nivel)
         {
-            lora = new LoRaModel() { comment = _name };
+            lora = new LoRaModel() { comment = _name, status = NodeStatus.Online };
             latest = new NivelRx() { nivel = _nivel };
         }
     }

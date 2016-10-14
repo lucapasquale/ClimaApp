@@ -82,6 +82,9 @@
     <Compile Include="Pages\Nivel\NivelApp.xaml.cs">
       <DependentUpon>NivelApp.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Nivel\NivelGraph.xaml.cs">
+      <DependentUpon>NivelGraph.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Silo\SiloAppPage.xaml.cs">
       <DependentUpon>SiloAppPage.xaml</DependentUpon>
     </Compile>
@@ -208,6 +211,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Pages\Nivel\NivelApp.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\Nivel\NivelGraph.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

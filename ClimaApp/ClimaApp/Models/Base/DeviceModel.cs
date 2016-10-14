@@ -13,9 +13,9 @@ namespace ClimaApp
 {
     public class DeviceModel<T> where T : RxModel, new()
     {
-        public LoRaModel lora { get; set; }
-        public List<T> dados { get; set; }
-        public T latest { get; set; }
+        public LoRaModel lora { get; set; } = new LoRaModel();
+        public List<T> dados { get; set; } = new List<T>();
+        public T latest { get; set; } = new T();
 
         public virtual async Task GetData()
         {

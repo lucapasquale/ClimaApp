@@ -54,8 +54,6 @@ namespace ClimaApp.Pages.Clima
 
             StackLayout topLayout = new StackLayout() { Orientation = StackOrientation.Horizontal, };
             {
-                //topLayout.Children.Add(new Label() { Text = "Data:", FontSize = 20, VerticalOptions = LayoutOptions.CenterAndExpand, });
-
                 leftButton = new Button() { Text = "Anterior" };
                 leftButton.Clicked += LeftButton_Clicked;
                 topLayout.Children.Add(leftButton);

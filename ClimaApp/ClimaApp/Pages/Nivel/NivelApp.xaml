@@ -1,14 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ClimaApp.Pages.Nivel.NivelApp">
+             x:Class="ClimaApp.Pages.Nivel.NivelApp"
+             Title="Nível d'água">
 
 
     <StackLayout Orientation="Vertical" Padding="5"  >
-        <ListView x:Name="nodesView" SeparatorColor="Black" ItemSelected="ListView_Selected">
+        <ListView x:Name="nodesView" RowHeight="50" SeparatorColor="Black" ItemSelected="ListView_Selected">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextCell Text="{Binding lora.comment}" TextColor="Black" Detail="{Binding latest.nivel, StringFormat='Altura atual: {0:N} m'}" DetailColor="Blue" />
+                    <ViewCell Height="150">
+                        <StackLayout Orientation="Vertical">
+
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding lora.comment}" TextColor="Black" FontSize="18" />
+                                <Label Text="{Binding lora.status}" FontAttributes="Bold" HorizontalOptions="EndAndExpand"/>
+                            </StackLayout>
+
+                            <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand" >
+                                <Label Text="{Binding latest.nivel, StringFormat='Altura: {0:N} m'}" TextColor="#05347f" />
+                            </StackLayout>
+
+                        </StackLayout>
+                    </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
