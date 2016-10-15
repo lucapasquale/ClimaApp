@@ -13,7 +13,8 @@ namespace ClimaApp.Silo
 {
     public class SiloDevice : DeviceModel<SiloRX>
     {
-        public SiloConfig config { get; set; } = new SiloConfig();
+        public SiloVentConfig ventConfig { get; set; }
+        public SiloConfig siloConfig { get; set; }
 
         public override async Task GetData()
         {
@@ -41,6 +42,33 @@ namespace ClimaApp.Silo
                 if (db.GetDadosDevice(lora.deveui).Count > 0)
                     latest = db.GetDadosDevice(lora.deveui)[0];
             }
+        }
+    }
+
+    public class SiloConfig
+    {
+        public string grao { get; set; }
+        public float altura { get; set; }
+        public float diametro { get; set; }
+
+        public SiloConfig(string _grao, float _altura, float _diametro)
+        {
+            grao = _grao;
+            altura = _altura;
+            diametro = _diametro;
+        }
+    }
+
+    public class SiloVentConfig
+    {
+        public string configName;
+
+        public int difUmidade;
+
+        public SiloVentConfig(string _name, int _umid)
+        {
+            configName = _name;
+            difUmidade = _umid;
         }
     }
 }

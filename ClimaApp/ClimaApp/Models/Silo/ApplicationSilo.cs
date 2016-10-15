@@ -11,7 +11,7 @@ namespace ClimaApp.Silo
         public string appName;
 
         public Dictionary<string, SiloDevice> silos = new Dictionary<string, SiloDevice>();
-        public static List<SiloConfig> configs = new List<SiloConfig>();
+        public static List<SiloVentConfig> configs = new List<SiloVentConfig>();
 
         public ApplicationSilo()
         {
@@ -22,7 +22,9 @@ namespace ClimaApp.Silo
             silos.Add("1", new SiloDevice()
             {
                 lora = new LoRaModel() { deveui = "012345678", comment = "Silo 1", status = NodeStatus.Atrasado },
-                latest = new SiloRX() { alturaEstimada = 45, ventiladorOn = false, tempGrao = 25.3f, umidExt = 47.3f, umidInt = 42.2f }
+                latest = new SiloRX() { alturaEstimada = 45, ventiladorOn = false, tempGrao = 25.3f, umidExt = 47.3f, umidInt = 42.2f },
+                siloConfig = new SiloConfig("Milho", 12.5f, 7),
+                ventConfig = new SiloVentConfig("Configuração padrão", 5)
             });
 
             silos.Add("2", new SiloDevice()
@@ -43,8 +45,8 @@ namespace ClimaApp.Silo
                 latest = new SiloRX() { alturaEstimada = 19, ventiladorOn = true }
             });
 
-            configs.Add(new SiloConfig("Milho", 3));
-            configs.Add(new SiloConfig("Soja", 12));
+            configs.Add(new SiloVentConfig("Milho", 3));
+            configs.Add(new SiloVentConfig("Soja", 12));
         }
     }
 }

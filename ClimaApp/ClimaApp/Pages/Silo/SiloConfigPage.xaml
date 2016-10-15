@@ -1,42 +1,34 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ClimaApp.Pages.Silo.SiloConfigPage">
+             x:Class="ClimaApp.Pages.Silo.SiloConfigPage"
+             Title="{Binding lora.comment}">
 
-  <StackLayout Padding="5">
+    <StackLayout Padding="8">
 
-    <StackLayout Orientation="Horizontal" Padding="0,10,0,0">
-      <Label Text="Temperatura do grão:   " FontSize="15"/>
-      <Label x:Name="labelGrao" FontAttributes="Bold" FontSize="15"/>
-      <Label Text="ºC" FontSize="15"/>
+        <Label Text="{Binding siloConfig.grao}" FontAttributes="Bold" FontSize="Large" HorizontalOptions="Center"/>
+
+        <Grid RowSpacing="15">
+            <Label Text="Altura do silo: " FontSize="15" Grid.Row="0" Grid.Column="0" />
+            <Label Text="{Binding siloConfig.altura, StringFormat='{0:#.#} m'}" FontAttributes="Bold" FontSize="15" Grid.Row="0" Grid.Column="1"/>
+
+            <Label Text="Diâmetro do silo: " FontSize="15"  Grid.Row="1" Grid.Column="0" />
+            <Label Text="{Binding siloConfig.diametro, StringFormat='{0:#.#} m'}" FontAttributes="Bold" FontSize="15" Grid.Row="1" Grid.Column="1"/>
+        </Grid>
+        
+        <BoxView Color="Gray" WidthRequest="100" HeightRequest="1" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"/>
+        
+        <Grid RowSpacing="15">
+            <Label Text="Temperatura do grão:" FontSize="15"  Grid.Row="0" Grid.Column="0" />
+            <Label Text="{Binding latest.tempGrao, StringFormat='{0:#.#} ºC'}" FontAttributes="Bold" FontSize="15" Grid.Row="0" Grid.Column="1"/>
+
+            <Label Text="Umidade interna:" FontSize="15"  Grid.Row="1" Grid.Column="0" />
+            <Label Text="{Binding latest.umidInt, StringFormat='{0:#.#} %'}" FontAttributes="Bold" FontSize="15" Grid.Row="1" Grid.Column="1"/>
+
+            <Label Text="Umidade externa:" FontSize="15"  Grid.Row="2" Grid.Column="0" />
+            <Label Text="{Binding latest.umidExt, StringFormat='{0:#.#} %'}" FontAttributes="Bold" FontSize="15" Grid.Row="2" Grid.Column="1"/>
+        </Grid>
+
     </StackLayout>
-
-    <StackLayout Orientation="Horizontal" Padding="0,10,0,0">
-      <Label Text="Umidade interna:   " FontSize="15"/>
-      <Label x:Name="labelUmidInt" FontAttributes="Bold" FontSize="15"/>
-      <Label Text="%" FontSize="15"/>
-    </StackLayout>
-
-    <StackLayout Orientation="Horizontal" Padding="0,10,0,0">
-      <Label Text="Umidade externa:   " FontSize="15"/>
-      <Label x:Name="labelUmidExt" FontAttributes="Bold" FontSize="15"/>
-      <Label Text="%" FontSize="15"/>
-    </StackLayout>
-
-    <BoxView Color="Gray" WidthRequest = "40" HeightRequest = "1" />
-
-    <StackLayout Orientation="Horizontal" Padding="0,0,0,25">
-      <Label Text="Perfil selecionado:" FontSize="20" VerticalTextAlignment="Center" />
-      <Picker x:Name="picker" Title="Perfil" SelectedIndex="{Binding profiles}" HorizontalOptions="FillAndExpand" SelectedIndexChanged="Picker_Changed"/>
-    </StackLayout>
-
-    <Label Text="Ventilador irá ligar quando" HorizontalOptions="Center" FontSize="22"/>
-
-    <StackLayout Orientation="Horizontal" Padding="0,10,0,0">
-      <Label Text="Diferença de umidade:   " FontSize="15"/>
-      <Label x:Name="labelDifUmid" FontAttributes="Bold" FontSize="15"/>
-    </StackLayout>
-
-  </StackLayout>
 
 </ContentPage>

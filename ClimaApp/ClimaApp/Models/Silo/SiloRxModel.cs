@@ -18,7 +18,6 @@ namespace ClimaApp.Silo
         public float umidInt { get; set; }
         public float umidExt { get; set; }
 
-
         public override void ParseDataFrame()
         {
             /* dataFrame = abbb bbbb + BBBB + CCCC + DDDD + (aaaa) * (EFGHIJKL) 

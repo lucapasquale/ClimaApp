@@ -17,28 +17,8 @@ namespace ClimaApp.Pages.Silo {
     public partial class SiloConfigPage : global::Xamarin.Forms.ContentPage {
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.Label labelGrao;
-        
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.Label labelUmidInt;
-        
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.Label labelUmidExt;
-        
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.Picker picker;
-        
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.Label labelDifUmid;
-        
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
             this.LoadFromXaml(typeof(SiloConfigPage));
-            labelGrao = this.FindByName<global::Xamarin.Forms.Label>("labelGrao");
-            labelUmidInt = this.FindByName<global::Xamarin.Forms.Label>("labelUmidInt");
-            labelUmidExt = this.FindByName<global::Xamarin.Forms.Label>("labelUmidExt");
-            picker = this.FindByName<global::Xamarin.Forms.Picker>("picker");
-            labelDifUmid = this.FindByName<global::Xamarin.Forms.Label>("labelDifUmid");
         }
     }
 }

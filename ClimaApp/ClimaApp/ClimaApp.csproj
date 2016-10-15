@@ -47,7 +47,6 @@
     <Compile Include="Models\Nivel\NivelDevice.cs" />
     <Compile Include="Models\Nivel\NivelRx.cs" />
     <Compile Include="Models\Silo\ApplicationSilo.cs" />
-    <Compile Include="Models\Silo\SiloConfig.cs" />
     <Compile Include="Pages\Base\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
