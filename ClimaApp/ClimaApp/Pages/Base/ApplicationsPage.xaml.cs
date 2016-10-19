@@ -16,7 +16,7 @@ namespace ClimaApp.Pages
 
         public ApplicationsPage()
         {
-            NavigationPage.SetHasBackButton(this, false);
+            NavigationPage.SetHasBackButton(this, false);         
             ToolbarItems.Add(new ToolbarItem("Logoff", "", async () =>
             {
                 StringResources.restClient.Authenticator = null;
@@ -25,12 +25,15 @@ namespace ClimaApp.Pages
                 await Navigation.PopAsync();
             }));
             InitializeComponent();
-            labelTitulo.Text = string.Format("Nodes usados: {0} / {1}", (DataResources.allNodes.Count - DataResources.unnusedNodes), DataResources.allNodes.Count);
+            
 
             apps.Add(new ApplicationModel(AppType.Clima));
             apps.Add(new ApplicationModel(AppType.Silo));
             apps.Add(new ApplicationModel(AppType.Nivel));
             lv.ItemsSource = apps;
+
+            DataResources.nivelNodes.Add(new ClimaApp.Nivel.NivelDevice("Caixa d'água Fazenda Sapé", 1.2f));
+            DataResources.nivelNodes.Add(new ClimaApp.Nivel.NivelDevice("Caixa d'água Instituto Mauá", 4.2f));
         }
 
         async void ListView_Selected(object sender, SelectedItemChangedEventArgs e)
@@ -68,9 +71,6 @@ namespace ClimaApp.Pages
                     {
                         await Navigation.PushModalAsync(new LoadingPage("Atualizando módulos de nível"));
                         {
-                            DataResources.nivelNodes.Add(new ClimaApp.Nivel.NivelDevice("Caixa d'água Fazenda Sapé", 1.2f));
-                            DataResources.nivelNodes.Add(new ClimaApp.Nivel.NivelDevice("Caixa d'água Instituto Mauá", 4.2f));
-
                             await Navigation.PushAsync(new Nivel.NivelApp());
                         }
                         await Navigation.PopModalAsync();

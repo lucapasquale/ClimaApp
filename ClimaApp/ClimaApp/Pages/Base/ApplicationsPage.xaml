@@ -1,21 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ClimaApp.Pages.ApplicationsPage"
-             Title="Applications">
+             x:Class="ClimaApp.Pages.ApplicationsPage" 
+             Title="Smart LoRa">
 
-    <StackLayout x:Name="sl">
-      <Label x:Name="labelTitulo" />      
-      
-      <ListView x:Name="lv" RowHeight="100" ItemSelected="ListView_Selected">
-        <ListView.ItemTemplate>
-          <DataTemplate>
-            <ImageCell ImageSource="{Binding iconLocation}" Text="{Binding title}" TextColor="Black"  Detail="{Binding description}"/>
-          </DataTemplate>
-        </ListView.ItemTemplate>
-      </ListView>
-      
-      <Button Text="Atualizar Nodes" Clicked="atualizar_clicked" />     
+    <StackLayout x:Name="sl" Padding="8">
+        <Label Text="Aplicações com LoRa" FontSize="32" TextColor="Black" HorizontalTextAlignment="Center"/>
+
+        <BoxView Color="Gray" WidthRequest="350" HeightRequest="1"  HorizontalOptions="Center"/>
+        
+        <ListView x:Name="lv" RowHeight="100" ItemSelected="ListView_Selected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ImageCell ImageSource="{Binding iconLocation}" Text="{Binding title}" TextColor="Black"  Detail="{Binding description}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Button Text="Atualizar Nodes" Clicked="atualizar_clicked" />
     </StackLayout>
-
+    
 </ContentPage>

@@ -17,8 +17,20 @@ namespace ClimaApp.Pages.Silo {
     public partial class SiloAppPage : global::Xamarin.Forms.ContentPage {
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Label titleLabel;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Label countLabel;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.ListView listaSilo;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
             this.LoadFromXaml(typeof(SiloAppPage));
+            titleLabel = this.FindByName<global::Xamarin.Forms.Label>("titleLabel");
+            countLabel = this.FindByName<global::Xamarin.Forms.Label>("countLabel");
+            listaSilo = this.FindByName<global::Xamarin.Forms.ListView>("listaSilo");
         }
     }
 }

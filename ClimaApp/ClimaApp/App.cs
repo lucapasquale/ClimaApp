@@ -13,7 +13,7 @@ namespace ClimaApp
         public App()
         {
             // The root page of your application  
-            MainPage = GetMainPage();
+            MainPage = GetMainPage();            
         }
 
         protected override void OnStart()
@@ -33,7 +33,7 @@ namespace ClimaApp
 
         public static Page GetMainPage()
         {
-            return new NavigationPage(new Pages.ApplicationsPage());
+            return new NavigationPage(new Pages.LoginPage());
         }
     }
 }

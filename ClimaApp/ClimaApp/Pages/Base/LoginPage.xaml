@@ -2,15 +2,30 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ClimaApp.Pages.LoginPage"
-             Title="App LoRa" >
+             Title="Smart LoRa"
+             BackgroundColor="#194E8D">
 
-  <StackLayout VerticalOptions="StartAndExpand">
-    <Label Text="Username" />
-    <Entry x:Name="usernameEntry" Placeholder="username" Text="maua_ceun" />
-    <Label Text="Password" />
-    <Entry x:Name="passwordEntry" IsPassword="true" Text="Maua2016" />
-    <Button Text="Login" Clicked="OnLoginButtonClicked" />
-    <Label x:Name="messageLabel" />
-  </StackLayout>
-  
+    <StackLayout VerticalOptions="StartAndExpand" Padding="15">
+        
+        <Image Source="smart_lora_icon.png" Scale="0.8" Aspect="AspectFit"/>
+
+        <BoxView Color="White" WidthRequest="350" HeightRequest="1"  HorizontalOptions="Center"/>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="4*" />
+            </Grid.ColumnDefinitions>
+            
+            <Label Text="Conta" TextColor="White" FontSize="16" FontAttributes="Bold" VerticalTextAlignment="Center" Grid.Row="0" Grid.Column="0"/>
+            <Entry x:Name="usernameEntry" Placeholder="username" Text="maua_ceun" TextColor="White" Grid.Row="0" Grid.Column="1"/>
+
+            <Label Text="Senha" TextColor="White" FontSize="16" FontAttributes="Bold" VerticalTextAlignment="Center" Grid.Row="1" Grid.Column="0"/>
+            <Entry x:Name="passwordEntry" IsPassword="true" Text="Maua2016" TextColor="White" Grid.Row="1" Grid.Column="1" />
+            
+            <Button Text="Login" Clicked="OnLoginButtonClicked" Grid.Row="2" Grid.ColumnSpan="2"/>
+        </Grid>
+
+    </StackLayout>
+
 </ContentPage>

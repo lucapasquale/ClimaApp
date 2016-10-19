@@ -14,6 +14,7 @@ namespace ClimaApp.Pages
         public LoginPage()
         {
             InitializeComponent();
+            NavigationPage.SetHasNavigationBar(this, false);
         }
 
         async void OnLoginButtonClicked(object sender, EventArgs e)

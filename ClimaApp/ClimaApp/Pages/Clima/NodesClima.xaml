@@ -4,7 +4,7 @@
              x:Class="ClimaApp.Pages.Clima.NodesClima"
              Title="Clima">
 
-  <StackLayout Orientation="Vertical" Padding="3"  >
+  <StackLayout Orientation="Vertical" Padding="8">
     <ListView x:Name="nodesView" RowHeight="105" SeparatorColor="Black" ItemSelected="ListView_Selected"/>
   </StackLayout>  
   

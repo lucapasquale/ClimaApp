@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" android:versionName="1.6" package="sLoRa.sLoRa" android:versionCode="7">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="sLoRa.sLoRa" android:versionCode="8" android:versionName="2.0">
 	<uses-sdk android:minSdkVersion="19" />
 	<uses-permission android:name="android.permission.INTERNET" />
-	<application android:label="SmartLoRa" android:theme="@android:style/Theme.Material.Light" android:icon="@drawable/icon"></application>
+	<application android:label="Smart LoRa" android:theme="@android:style/Theme.Material.Light" android:icon="@drawable/icon"></application>
 </manifest>

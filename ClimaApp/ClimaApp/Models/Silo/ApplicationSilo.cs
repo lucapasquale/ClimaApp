@@ -21,7 +21,7 @@ namespace ClimaApp.Silo
 
             silos.Add("1", new SiloDevice()
             {
-                lora = new LoRaModel() { deveui = "012345678", comment = "Silo 1", status = NodeStatus.Atrasado },
+                lora = new LoRaModel() { deveui = "012345678", comment = "Silo 1", status = NodeStatus.Offline },
                 latest = new SiloRX() { alturaEstimada = 45, ventiladorOn = false, tempGrao = 25.3f, umidExt = 47.3f, umidInt = 42.2f },
                 siloConfig = new SiloConfig("Milho", 12.5f, 7),
                 ventConfig = new SiloVentConfig("Configuração padrão", 5)
@@ -29,7 +29,7 @@ namespace ClimaApp.Silo
 
             silos.Add("2", new SiloDevice()
             {
-                lora = new LoRaModel() { deveui = "ABCDEFGH", comment = "Silo 2", status = NodeStatus.Online },
+                lora = new LoRaModel() { deveui = "ABCDEFGH", comment = "Silo 2", status = NodeStatus.Offline },
                 latest = new SiloRX() { alturaEstimada = 32, ventiladorOn = true }
             });
 
@@ -41,7 +41,7 @@ namespace ClimaApp.Silo
 
             silos.Add("4", new SiloDevice()
             {
-                lora = new LoRaModel() { deveui = "ABCDEFGH", comment = "Silo 4", status = NodeStatus.Online },
+                lora = new LoRaModel() { deveui = "ABCDEFGH", comment = "Silo 4", status = NodeStatus.Offline },
                 latest = new SiloRX() { alturaEstimada = 19, ventiladorOn = true }
             });
 

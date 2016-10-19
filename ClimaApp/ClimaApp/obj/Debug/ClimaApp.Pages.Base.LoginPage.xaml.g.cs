@@ -23,14 +23,10 @@ namespace ClimaApp.Pages {
         private global::Xamarin.Forms.Entry passwordEntry;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.Label messageLabel;
-        
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
             this.LoadFromXaml(typeof(LoginPage));
             usernameEntry = this.FindByName<global::Xamarin.Forms.Entry>("usernameEntry");
             passwordEntry = this.FindByName<global::Xamarin.Forms.Entry>("passwordEntry");
-            messageLabel = this.FindByName<global::Xamarin.Forms.Label>("messageLabel");
         }
     }
 }

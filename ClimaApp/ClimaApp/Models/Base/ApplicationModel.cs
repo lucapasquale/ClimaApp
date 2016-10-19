@@ -23,26 +23,26 @@ namespace ClimaApp
             {
                 case AppType.Clima:
                     {
-                        title = "Clima";
+                        title = "Clima em Balizadores";
                         description = "Medição meteorológica automática";
-                        iconLocation = "icon.png";
+                        iconLocation = "clima_icon.png";
                         type = AppType.Clima;
                         break;
                     }
                 case AppType.Silo:
                     {
-                        title = "Silos";
-                        description = "Controle de ventilação de silos";
-                        iconLocation = "icon.png";
+                        title = "Silos Agrícolas";
+                        description = "Controle de ventilação de grãos em silos";
+                        iconLocation = "silo_icon.png";
                         type = AppType.Silo;
                         break;
                     }
 
                 case AppType.Nivel:
                     {
-                        title = "Nível";
-                        description = "Altura da caixa d'água";
-                        iconLocation = "icon.png";
+                        title = "Nível de água";
+                        description = "Verificação do nível de caixas d'água";
+                        iconLocation = "nivel_icon.png";
                         type = AppType.Nivel;
                         break;
                     }

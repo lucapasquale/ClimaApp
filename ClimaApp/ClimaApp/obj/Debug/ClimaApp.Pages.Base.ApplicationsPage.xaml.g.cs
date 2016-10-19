@@ -20,16 +20,12 @@ namespace ClimaApp.Pages {
         private global::Xamarin.Forms.StackLayout sl;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.Label labelTitulo;
-        
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private global::Xamarin.Forms.ListView lv;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
             this.LoadFromXaml(typeof(ApplicationsPage));
             sl = this.FindByName<global::Xamarin.Forms.StackLayout>("sl");
-            labelTitulo = this.FindByName<global::Xamarin.Forms.Label>("labelTitulo");
             lv = this.FindByName<global::Xamarin.Forms.ListView>("lv");
         }
     }
