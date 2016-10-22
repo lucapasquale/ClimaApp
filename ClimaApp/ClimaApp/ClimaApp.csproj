@@ -39,11 +39,13 @@
     <Compile Include="Common\Database\BaseRxDb.cs" />
     <Compile Include="Common\Database\DadosDb.cs" />
     <Compile Include="Common\Database\DevicesDb.cs" />
+    <Compile Include="Common\Database\UserDb.cs" />
     <Compile Include="Common\DataResources.cs" />
     <Compile Include="Common\Other\BoolValueConverter.cs" />
     <Compile Include="Common\Other\IConfig.cs" />
     <Compile Include="Common\Other\StatusConverter.cs" />
     <Compile Include="Models\Base\ApplicationModel.cs" />
+    <Compile Include="Models\Base\User.cs" />
     <Compile Include="Models\Nivel\NivelDevice.cs" />
     <Compile Include="Models\Nivel\NivelRx.cs" />
     <Compile Include="Models\Silo\ApplicationSilo.cs" />

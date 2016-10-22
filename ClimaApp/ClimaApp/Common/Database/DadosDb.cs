@@ -14,7 +14,7 @@ namespace ClimaApp.Common.Database
         public ClimaDb()
         {
             var config = DependencyService.Get<IConfig>();
-            conexaoSQLite = new SQLiteConnection(config.plataforma, Path.Combine(config.diretorioSQLite, StringResources.user + "-clima.db3"));
+            conexaoSQLite = new SQLiteConnection(config.plataforma, Path.Combine(config.diretorioSQLite, StringResources.username + "-clima.db3"));
             conexaoSQLite.CreateTable<ClimaRxModel>();
         }
     }
@@ -24,7 +24,7 @@ namespace ClimaApp.Common.Database
         public SiloDb()
         {
             var config = DependencyService.Get<IConfig>();
-            conexaoSQLite = new SQLiteConnection(config.plataforma, Path.Combine(config.diretorioSQLite, StringResources.user + "-silo.db3"));
+            conexaoSQLite = new SQLiteConnection(config.plataforma, Path.Combine(config.diretorioSQLite, StringResources.username + "-silo.db3"));
             conexaoSQLite.CreateTable<Silo.SiloRX>();
         }
     }

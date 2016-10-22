@@ -100,7 +100,6 @@ namespace ClimaApp
             request.AddParameter("text/plain", dataBytesB64, ParameterType.RequestBody);
             Debug.WriteLine("Sending: " + dataBytesB64);
 
-
             try
             {
                 var result = await StringResources.restClient.Execute(request);
@@ -112,7 +111,7 @@ namespace ClimaApp
             }
         }
 
-        public virtual async Task SendData(string _devEUI, byte _comando, byte[] _dado)
+        public virtual async Task SendCommand(string _devEUI, byte _comando, byte[] _dado)
         {
             byte[] dado = new byte[8 + 1 + _dado.Length];
 

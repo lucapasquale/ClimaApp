@@ -13,7 +13,10 @@ namespace ClimaApp
     {
         public static bool isLoggedIn = false;
 
-        public static string user = "maua_ceun";
+        public static Models.User loggedUser = new Models.User();
+
+
+        public static string username = "maua_ceun";
 
         public static RestClient restClient = new RestClient()
         {

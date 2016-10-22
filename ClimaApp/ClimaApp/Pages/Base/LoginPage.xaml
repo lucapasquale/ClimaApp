@@ -11,6 +11,8 @@
 
         <BoxView Color="White" WidthRequest="350" HeightRequest="1"  HorizontalOptions="Center"/>
 
+        <Label Text="Login ORBIWISE" TextColor="White" FontSize="25" HorizontalTextAlignment="Center" Grid.Row="0" Grid.Column="0"/>
+
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />

@@ -48,7 +48,8 @@ namespace ClimaApp.Pages.Clima
                         return;
                     }
                     else
-                        DataResources.climaNodes[selectedIndex].dados = db.GetDadosDevice(DataResources.climaNodes[selectedIndex].lora.deveui);
+                        await Task.Run(() => { DataResources.climaNodes[selectedIndex].dados = db.GetDadosDevice(DataResources.climaNodes[selectedIndex].lora.deveui); });
+                    
                 }
                 else
                 {
@@ -56,12 +57,12 @@ namespace ClimaApp.Pages.Clima
                     if (db.GetDadoHora(DataResources.climaNodes[selectedIndex].latest.horario) == null)
                     {
                         Debug.WriteLine("É preciso atualizar dados, pegando do servidor");
-                        await DataResources.climaNodes[selectedIndex].GetData();
+                        await Task.Run(async () => { await DataResources.climaNodes[selectedIndex].GetData(); });
                     }
                     else
                     {
                         Debug.WriteLine("Dados já atualizados, pegando do database");
-                        DataResources.climaNodes[selectedIndex].dados = db.GetDadosDevice(DataResources.climaNodes[selectedIndex].lora.deveui);
+                        await Task.Run(() => { DataResources.climaNodes[selectedIndex].dados = db.GetDadosDevice(DataResources.climaNodes[selectedIndex].lora.deveui); });
                     }
                 }
                 await Navigation.PushAsync(new GraficosClimaPage());

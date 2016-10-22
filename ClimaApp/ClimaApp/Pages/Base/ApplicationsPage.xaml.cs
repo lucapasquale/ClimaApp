@@ -16,16 +16,16 @@ namespace ClimaApp.Pages
 
         public ApplicationsPage()
         {
-            NavigationPage.SetHasBackButton(this, false);         
+            NavigationPage.SetHasBackButton(this, false);
             ToolbarItems.Add(new ToolbarItem("Logoff", "", async () =>
             {
                 StringResources.restClient.Authenticator = null;
-                StringResources.user = "";
+                StringResources.username = "";
                 DataResources.ClearData();
                 await Navigation.PopAsync();
             }));
             InitializeComponent();
-            
+
 
             apps.Add(new ApplicationModel(AppType.Clima));
             apps.Add(new ApplicationModel(AppType.Silo));
@@ -44,14 +44,18 @@ namespace ClimaApp.Pages
                 return; //ItemSelected is called on deselection, which results in SelectedItem being set to null
 
 
-            switch((e.SelectedItem as ApplicationModel).type)
+            switch ((e.SelectedItem as ApplicationModel).type)
             {
                 case AppType.Clima:
                     {
                         await Navigation.PushModalAsync(new LoadingPage("Atualizando módulos de clima"));
                         {
-                            foreach (ClimaDevModel cDev in DataResources.climaNodes)
-                                await cDev.GetLatest();
+                            await Task.Run(async () =>
+                            {
+                                foreach (ClimaDevModel cDev in DataResources.climaNodes)
+                                    await cDev.GetLatest();
+                            });
+
                             await Navigation.PushAsync(new Clima.NodesClima());
                         }
                         await Navigation.PopModalAsync();
