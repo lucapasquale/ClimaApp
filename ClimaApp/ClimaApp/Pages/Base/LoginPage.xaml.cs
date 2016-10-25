@@ -25,7 +25,6 @@ namespace ClimaApp.Pages
 
                 try
                 {
-
                     StringResources.restClient.Authenticator = new RestSharp.Portable.Authenticators.HttpBasicAuthenticator(uName, passwordEntry.Text);
                     StringResources.username = uName;
                     await DataResources.GetNodes();
@@ -41,6 +40,7 @@ namespace ClimaApp.Pages
 
                         db.conexaoSQLite.InsertOrReplace(user);
                         StringResources.loggedUser = user;
+                        StringResources.isLoggedIn = true;
                     });
 
                     await Navigation.PushAsync(new ApplicationsPage());

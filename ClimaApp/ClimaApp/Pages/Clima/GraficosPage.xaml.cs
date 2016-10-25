@@ -9,15 +9,19 @@ using OxyPlot;
 using OxyPlot.Xamarin.Forms;
 using OxyPlot.Axes;
 using OxyPlot.Series;
+using ClimaApp.Nivel;
 
 namespace ClimaApp.Pages.Clima
 {
     public partial class GraficosClimaPage : ContentPage
     {
-        PlotView[] pv = new PlotView[3];
+        PlotView[] pv = new PlotView[4];
         LineSeries tempSeries = new LineSeries() { MarkerType = MarkerType.Circle, MarkerSize = 2, MarkerStroke = OxyColors.DarkRed, };
         LineSeries umidSeries = new LineSeries() { MarkerType = MarkerType.Circle, MarkerSize = 2, MarkerStroke = OxyColors.DarkBlue, };
         StairStepSeries presSeries = new StairStepSeries();
+        RectangleBarSeries corrSeries = new RectangleBarSeries();
+
+        NivelDevice node = new NivelDevice("", 1);
 
         DatePicker dp;
         Button leftButton, rightButton;
@@ -33,7 +37,18 @@ namespace ClimaApp.Pages.Clima
                 await Navigation.PushAsync(new DadosClimaPage());
             }));
 
-            AtualizarGraficos(dp.Date);
+            var rng = new Random();
+
+            for (int j = 0; j < 50; j++)
+            {
+                for (int i = 0; i < 24 * 4; i++)
+                {
+                    float random = (float)(rng.NextDouble() - 0.5f) * 5;
+                    node.dados.Add(new NivelRx() { horario = DateTime.Today.AddMinutes(-15 * (i + 96* j)), nivel = (i >= 7 * 4 && i <= 19 * 4) ? 60 + random : 190 + random});
+                }
+            }
+
+
 
             if (dp.Date == dp.MinimumDate)
                 leftButton.IsEnabled = false;
@@ -82,6 +97,7 @@ namespace ClimaApp.Pages.Clima
                 pm.Axes.Add(new DateTimeAxis { Position = AxisPosition.Bottom, StringFormat = "HH:mm", IsPanEnabled = false, IsZoomEnabled = false, });
                 pm.Axes.Add(new LinearAxis
                 {
+                    Position = AxisPosition.Left,
                     Unit = "ºC",
                     MajorGridlineStyle = LineStyle.Solid,
                     MajorGridlineThickness = 2,
@@ -102,6 +118,7 @@ namespace ClimaApp.Pages.Clima
                 pm.Axes.Add(new DateTimeAxis { Position = AxisPosition.Bottom, StringFormat = "HH:mm", IsPanEnabled = false, IsZoomEnabled = false, });
                 pm.Axes.Add(new LinearAxis
                 {
+                    Position = AxisPosition.Left,
                     Unit = "%",
                     MajorGridlineStyle = LineStyle.Solid,
                     MajorGridlineThickness = 2,
@@ -135,6 +152,28 @@ namespace ClimaApp.Pages.Clima
                 graphLayout.RowDefinitions.Add(new RowDefinition { Height = new GridLength(graphSize, GridUnitType.Absolute) });
                 graphLayout.Children.Add(pv[2], 0, 2);
             }
+
+            //CORRENTE
+            {
+                pv[3] = new PlotView();
+                PlotModel pm = new PlotModel() { Title = "Corrente", DefaultColors = new List<OxyColor>() { OxyColors.LightGray } };
+                pm.Axes.Add(new DateTimeAxis { Position = AxisPosition.Bottom, StringFormat = "HH:mm", IsPanEnabled = false, IsZoomEnabled = false, });
+                pm.Axes.Add(new LinearAxis
+                {
+                    Position = AxisPosition.Left,
+                    Unit = "mA",
+                    MajorGridlineStyle = LineStyle.Solid,
+                    MajorGridlineThickness = 2,
+                    IsPanEnabled = false,
+                    IsZoomEnabled = false,
+                });
+                corrSeries = new RectangleBarSeries();
+                pm.Series.Add(corrSeries);
+                pv[3].Model = pm;
+                graphLayout.RowDefinitions.Add(new RowDefinition { Height = new GridLength(graphSize, GridUnitType.Absolute) });
+                graphLayout.Children.Add(pv[3], 0, 3);
+            }
+
             ScrollView scrollView = new ScrollView() { Content = graphLayout, };
 
             screenLayout.Children.Add(topLayout);
@@ -153,18 +192,24 @@ namespace ClimaApp.Pages.Clima
             tempSeries.Points.Clear();
             umidSeries.Points.Clear();
             presSeries.Points.Clear();
+            corrSeries.Items.Clear();
 
             for (int i = 0; i < temp.Count; i++)
             {
                 tempSeries.Points.Add(new DataPoint(DateTimeAxis.ToDouble(temp[i].horario), temp[i].temperatura));
                 umidSeries.Points.Add(new DataPoint(DateTimeAxis.ToDouble(temp[i].horario), temp[i].umidade));
                 presSeries.Points.Add(new DataPoint(DateTimeAxis.ToDouble(temp[i].horario), temp[i].pressao));
+
+                var start = DateTimeAxis.ToDouble(temp[i].horario);
+                var end = DateTimeAxis.ToDouble(temp[i].horario.AddMinutes(-15));
+
+                corrSeries.Items.Add(new RectangleBarItem(start, 0, end, node.dados[i].nivel));
             }
 
             foreach (var pView in pv)
             {
-                pView.Model.Axes[0].Reset();
-                pView.Model.Axes[1].Reset();
+                for (int i = 0; i < pView.Model.Axes.Count; i++)
+                    pView.Model.Axes[i].Reset();
                 pView.Model.InvalidatePlot(true);
             }
         }

@@ -9,9 +9,9 @@ namespace ClimaApp
 {
     public class ClimaRxModel : RxModel
     {
-        public float temperatura { get; private set; }
-        public float umidade { get; private set; }
-        public int pressao { get; private set; }
+        public float temperatura { get;  set; }
+        public float umidade { get;  set; }
+        public int pressao { get;  set; }
 
         public override void ParseDataFrame()
         {

@@ -23,12 +23,19 @@ namespace ClimaApp.Pages.Nivel
         Button leftButton, rightButton;
         DatePicker dp;
         int graphSize = 300;
+        DateTime graphDay = DateTime.Now;
 
         public NivelGraph()
         {
             node = DataResources.nivelNodes[DataResources.selectedIndex];
             InitializeComponent();
             ConfigureLayout();
+
+            node.dados.Clear();
+            var rng = new Random();
+            for (int j = 0; j < 24 * 14; j++)
+                node.dados.Add(new NivelRx() { horario = graphDay.AddHours(-j), nivel = node.latest.nivel + node.latest.nivel * 0.1f * ((float)rng.NextDouble() - 0.5f) });
+
             PlotGraph();
         }
 
@@ -48,8 +55,9 @@ namespace ClimaApp.Pages.Nivel
                 {
                     Format = "dd-MM-yyyy",
                     HorizontalOptions = LayoutOptions.FillAndExpand,
-                    //MinimumDate = node.dados.Min(o => o.horario),
-                    //MaximumDate = node.dados.Max(o => o.horario),
+                    Date = DateTime.Now,
+                    MinimumDate = DateTime.Now.AddDays(-28),
+                    MaximumDate = DateTime.Now,
                 };
                 dp.Date = dp.MaximumDate;
                 dp.DateSelected += Dp_DateSelected;
@@ -67,6 +75,7 @@ namespace ClimaApp.Pages.Nivel
                 pm.Axes.Add(new DateTimeAxis { Position = AxisPosition.Bottom, StringFormat = "HH:mm", IsPanEnabled = false, IsZoomEnabled = false, });
                 pm.Axes.Add(new LinearAxis
                 {
+                    Position = AxisPosition.Left,
                     Unit = "m",
                     MajorGridlineStyle = LineStyle.Solid,
                     MajorGridlineThickness = 2,
@@ -88,16 +97,18 @@ namespace ClimaApp.Pages.Nivel
             rbs.Items.Clear();
 
             //DEBUG
-            var rng = new Random();
-            for (int j = 0; j < 15; j++)
-                node.dados.Add(new NivelRx() { horario = DateTime.Now.AddHours(-j), nivel = 10f * (float)rng.NextDouble() });
-
+            var temp = new List<NivelRx>();
             for (int i = 0; i < node.dados.Count; i++)
-            {
-                var start = DateTimeAxis.ToDouble(node.dados[i].horario);
-                var end = DateTimeAxis.ToDouble(node.dados[i].horario.AddHours(-1));
+                if (node.dados[i].horario.Day == dp.Date.Day)
+                    temp.Add(node.dados[i]);
 
-                rbs.Items.Add(new RectangleBarItem(start, 0, end, node.dados[i].nivel));
+
+            for (int i = 0; i < temp.Count; i++)
+            {
+                var start = DateTimeAxis.ToDouble(temp[i].horario);
+                var end = DateTimeAxis.ToDouble(temp[i].horario.AddHours(-1));
+
+                rbs.Items.Add(new RectangleBarItem(start, 0, end, temp[i].nivel));
             }
 
             //var temp = new List<NivelRx>();
@@ -112,6 +123,9 @@ namespace ClimaApp.Pages.Nivel
 
             //    rbs.Items.Add(new RectangleBarItem(start, 0, end, temp[i].nivel));
             //}
+            for (int i = 0; i < pv.Model.Axes.Count; i++)
+                pv.Model.Axes[i].Reset();
+            pv.Model.InvalidatePlot(true);
         }
 
         private void LeftButton_Clicked(object sender, EventArgs e)

@@ -4,8 +4,14 @@
              x:Class="ClimaApp.Pages.Clima.NodesClima"
              Title="Clima">
 
-  <StackLayout Orientation="Vertical" Padding="8">
-    <ListView x:Name="nodesView" RowHeight="105" SeparatorColor="Black" ItemSelected="ListView_Selected"/>
-  </StackLayout>  
-  
+    <StackLayout Orientation="Vertical" Padding="8">
+        <Label Text="Balizador Inteligente" HorizontalOptions="Center" FontSize="Large" FontAttributes="Bold" />
+        <Label Text="Instalação de sensores meteorológicos em balizadores aéreos para a previsão de clima em bairros e quarteirões" HorizontalOptions="Center" />
+
+        <BoxView WidthRequest="275" HeightRequest="1" Color="Gray" />
+
+        <ListView x:Name="nodesView" RowHeight="105" SeparatorColor="Black" ItemSelected="ListView_Selected"/>
+
+    </StackLayout>
+
 </ContentPage>

@@ -21,6 +21,7 @@ namespace ClimaApp.Pages
             {
                 StringResources.restClient.Authenticator = null;
                 StringResources.username = "";
+                StringResources.isLoggedIn = false;
                 DataResources.ClearData();
                 await Navigation.PopAsync();
             }));
@@ -28,12 +29,9 @@ namespace ClimaApp.Pages
 
 
             apps.Add(new ApplicationModel(AppType.Clima));
-            apps.Add(new ApplicationModel(AppType.Silo));
+            //apps.Add(new ApplicationModel(AppType.Silo));
             apps.Add(new ApplicationModel(AppType.Nivel));
             lv.ItemsSource = apps;
-
-            DataResources.nivelNodes.Add(new ClimaApp.Nivel.NivelDevice("Caixa d'água Fazenda Sapé", 1.2f));
-            DataResources.nivelNodes.Add(new ClimaApp.Nivel.NivelDevice("Caixa d'água Instituto Mauá", 4.2f));
         }
 
         async void ListView_Selected(object sender, SelectedItemChangedEventArgs e)

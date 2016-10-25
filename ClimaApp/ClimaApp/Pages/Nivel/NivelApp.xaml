@@ -6,6 +6,11 @@
 
 
     <StackLayout Orientation="Vertical" Padding="5"  >
+        <Label Text="Medidor de caixa d'água" HorizontalOptions="Center" FontSize="Large" FontAttributes="Bold" />
+        <Label Text="Sensores de altura para caixas d'agua que avisam o usuário em casos de falta de água" HorizontalOptions="Center" />
+
+        <BoxView WidthRequest="275" HeightRequest="1" Color="Gray" />
+
         <ListView x:Name="nodesView" RowHeight="50" SeparatorColor="Black" ItemSelected="ListView_Selected">
             <ListView.ItemTemplate>
                 <DataTemplate>

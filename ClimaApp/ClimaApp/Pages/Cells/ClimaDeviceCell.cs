@@ -19,7 +19,7 @@ namespace ClimaApp.Cells.Clima
                 titleLabel.SetBinding(Label.TextProperty, "lora.comment");
                 titleSL.Children.Add(titleLabel);
 
-                Label statusLabel = new Label() { VerticalOptions = LayoutOptions.EndAndExpand};
+                Label statusLabel = new Label() { FontAttributes = FontAttributes.Bold, VerticalOptions = LayoutOptions.Center};
                 statusLabel.SetBinding(Label.TextProperty, "lora.status");
                 statusLabel.SetBinding(Label.TextColorProperty, new Binding(path: "lora.status", converter: new StatusConverter()));
                 titleSL.Children.Add(statusLabel);
